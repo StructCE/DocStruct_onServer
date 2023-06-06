@@ -1,0 +1,11 @@
+input: .
+output: .retype
+url: docstruct.com
+branding:
+  title: DocStruct
+  label: 1.0v
+links:
+- text: Getting Started
+  link: https://retype.com/guides/getting-started/
+footer:
+  copyright: "&copy; Copyright {{ year }}. All rights reserved."
