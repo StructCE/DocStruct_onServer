@@ -25,13 +25,17 @@ Existem várias opções para instalar o Git no macOS, porém iremos utilizar co
 
 1. Abra o Terminal(Digite "Terminal" na barra de pesquisa e abre o aplicativo que aparecer)
 2. Se você ainda não possui o [Homebrew](https://brew.sh/) instalado, execute o seguinte comando no Terminal: 
+
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
 ```
+
 3. Depois que o Homebrew estiver instalado, execute o seguinte comando para instalar o Git:
+
 ```bash
 brew install git
 ```
+
 4. Aguarde até que a instalação seja concluída.
 
 ## Linux
@@ -40,15 +44,18 @@ O Git já vem instalado com a maioria das distribuições do Linux, porém se o 
 
 1. Abra o Terminal.
 2. No Ubuntu e em distribuições baseadas no Debian, execute o seguinte comando:
+
 ```bash
 sudo apt-get update
 sudo apt-get install git
 ```
+
 3. Aguarde até que a instalação seja concluída.
 
 ## Como verificar se o Git esta instalado?
 
 Após concluir a instalação no seu respectivo sistema operacional, você pode verificar se o Git está corretamente instalado digitando o comando abaixo no terminal, o qual devera retornar a versão do git instalada.
+
 ```bash
 git --version
 ```
@@ -66,4 +73,5 @@ git config --global user.email <email_utilizado_no_cadastro_github>
 ```
 
 ## Quer saber mais sobre Git ?
+
 ------------------->[Documentação oficial do Git](https://git-scm.com/docs/git/pt_BR).<--------------------

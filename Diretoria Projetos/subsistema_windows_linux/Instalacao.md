@@ -9,11 +9,13 @@ label: "Como instalar o WSL ?"
 ## Comandos para instalação do WSL
 
 ### Instalar o WSL
+
 ```bash
 wsl --install
 ```
 
 ### Verificar se a instalação deu certo
+
 ```bash
 wsl -v
 ```
