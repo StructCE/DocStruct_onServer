@@ -34,5 +34,4 @@ Para tal, adicione o arquivo `_redirects` no do projeto com o seguinte conteúdo
 2. Rode o comando `yarn build` para gerar uma pasta `build` com os arquivos estáticos.
 3. Faça login na conta de projetos da struct
 4. Selecione a opção de _deploy_ manual (__deploy_ manually_)
-![Netlify_deploy](../../../../imagens/Netlify_deploy.png)
 5. Arraste e solte os arquivos da pasta `build` na área de upload

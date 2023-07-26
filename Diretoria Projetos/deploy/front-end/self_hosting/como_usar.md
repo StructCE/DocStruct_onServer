@@ -64,7 +64,7 @@ As mudanças gerais são colocar o título correto, colocar descrição, mudar o
 
 ### Criando a docker image
 
-Vá para a branch production localmente. Crie um arquivo chamado `Dockerfile` na raíz do projeto. Use como base os templates de projetos recentes anteriores, e atualize o url do git presente no arquivo, mudando o nome do projeto e o token de oauth do github ([veja aqui](./README.md#crie-a-imagem-docker)).
+Vá para a branch production localmente. Crie um arquivo chamado `Dockerfile` na raíz do projeto. Use como base os templates de projetos recentes anteriores, e atualize o url do git presente no arquivo, mudando o nome do projeto e o token de oauth do github.
 
 ### Criando o container
 
