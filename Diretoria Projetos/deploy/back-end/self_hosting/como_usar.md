@@ -6,15 +6,13 @@ label: "Como fazer Self-Hosting (Back-End)?"
 
 <!-- Artur Padovesi  -->
 
-## Nossa infraestrutura
+### Nossa infraestrutura
 
 Usamos Docker e Docker Compose para poder isolar e rodar vários servidores na mesma máquina. Para levar o tráfego que chega em nossa máquina para o container correto, usamos o [Traefik v2](https://doc.traefik.io/traefik/) como [proxy reverso](https://pt.wikipedia.org/wiki/Proxy_reverso).
 
 É mantido um repositório no gitbucket com os Dockerfiles utilizados para construir as imagens do nosso servidor.
 
 É mantido um repositório que está presente no servidor, com os arquivos do Docker Compose utilizados para rodar as imagens construídas.
-
-## Fazendo deploy
 
 ### Configure o projeto
 
@@ -63,8 +61,6 @@ Estamos guardando templates de docker-compose.yml na pasta `templates` do reposi
 Faça o pull/clone do repositório do Docker Compose, usando o comando `git pull/clone`. Crie um docker-compose.yml com o serviço do projeto, usando o template de `docker-compose.yml` (no momento o template só inclui configuração do traefik, então busque configurações adicionais do último projeto produzido).
 
 O template de traefik possui palavras chaves que devem ser substituídas. Utilize múltiplos cursores para garantir que não esqueceu de alterar uma das palavras chaves em algum lugar.
-
-## Atualizando o deploy
 
 ### Atualize a branch `production`
 

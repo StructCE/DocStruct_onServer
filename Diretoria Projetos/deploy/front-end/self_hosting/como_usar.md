@@ -6,7 +6,7 @@ label: "Como faz Self-Hosting (Front-End)?"
 
 <!-- Artur Padovesi  -->
 
-## Configurando o repositório
+### Configurando o repositório
 
 Considere a [branch production do projeto front-end-template](https://github.com/StructCE/react-template/tree/production) e [suas alterações](https://github.com/StructCE/react-template/compare/main...production).
 
@@ -58,9 +58,6 @@ O app react usa urls locais para acessar a API, por exemplo, `http://localhost:3
 O arquivo `index.html` deve ser alterado para conter informações corretas sobre o app, e metadados. Talvez também seja útil criar um `robots.txt`, que serve para ajudar mecanismos de busca a indexar o site da maneira desejada, veja de acordo com seu projeto.
 
 As mudanças gerais são colocar o título correto, colocar descrição, mudar o favicon e a linguagem para pt-BR.
-
-
-## Configurando o servidor
 
 ### Criando a docker image
 

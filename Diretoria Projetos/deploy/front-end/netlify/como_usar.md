@@ -6,7 +6,7 @@ label: "Como usar Netlify ?"
 
 <!-- Artur Padovesi  -->
 
-## Como fazer _deploy_ manual
+### Como fazer _deploy_ manual
 
 ### Preparando o projeto
 

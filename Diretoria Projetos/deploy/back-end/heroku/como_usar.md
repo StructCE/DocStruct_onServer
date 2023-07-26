@@ -6,8 +6,6 @@ label: "Como usar Heroku ?"
 
 <!-- Artur Padovesi  -->
 
-## Como subir o site no heroku?
-
 ### Preparando o projeto
 
 Crie uma branch chamada heroku, caso ainda não tenha, e faça as seguintes mudanças:
@@ -62,7 +60,7 @@ Além de precisar colocar as chaves de acesso do serviço escolhido, lá no hero
 
 Acesse a dashboard da conta de projetos da Struct e crie um novo app. Em seguida, vá até a aba Deploy e selecione a opção GitHub. Selecione o repositório do projeto, escolha a branch `heroku` e clique em Deploy Branch. O deploy será feito automaticamente.
 
-## Observação:
+### Observação:
 
 É possível usar do Heroku para fazer deploy de front-end. Basta criar um único endpoint para enviar os assets estáticos do front. Exemplo:
 
