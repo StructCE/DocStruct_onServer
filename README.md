@@ -35,7 +35,7 @@ O Retype usa arquivos de formato markdown, como componentes, para a estruturaç�
 
 ###### arquivo.yml
 
-Em um arquivo *.yml*, com nome padrão de index.yml, é feita a personalização e configuração do site ou de um componente específico. Para a configuração do site, pode ser necessário a consulta das ferramentas providas pelo [Retype](https://retype.com/configuration/project/#project-configuration). Já para a configuração de um componente específico há outras [ferramentas](https://retype.com/configuration/project/#project-configuration) disponíveis.
+Em um arquivo *.yml*, com nome padrão de index.yml, é feita a personalização e configuração do site ou de um componente específico. Para a configuração do site, pode ser necessário a consulta das ferramentas providas pelo [Retype](https://retype.com/configuration/project/#project-configuration). Já para a configuração de um componente específico há outras [ferramentas](https://retype.com/configuration/page/#page-configuration) disponíveis.
 
 ###### arquivo.md
 
@@ -44,3 +44,14 @@ Em um arquivo *.md* é feita a estruturação em markdown do site ou componente,
 ###### welcome.md
 
 O arquivo *welcome.md* é o responsável, por padrão, pela estruturação da página inicial (homepage), à qual quem estiver usando o DocStruct será redirecionado primeiramente.
+
+#### Prática
+
+Sabendo a metodologia usada pelo Retype para a geração de páginas web, os primeiros passos para contribuir com a DocStruct:
+
+- Criação do diretório: os futuros diretórios e seus arquivos .md aparecerão na barra lateral, com seus próprios nomes caso não sejam personalizados/configurados.
+- Configuração: cria-se um arquivo .yml para algumas configurações, como os nomes dos diretóros na barra lateral, ícones para representação etc.
+- Conteúdo: enfim, cria-se um arquivo .md, onde será estruturada e organizada toda a documentação por meio das ferramentas do Retype.
+
+#####
+É possível criar subdiretórios, basta fazer o mesmo processo só que dentro de um diretório.
