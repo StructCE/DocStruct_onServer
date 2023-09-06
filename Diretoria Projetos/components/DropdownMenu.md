@@ -69,6 +69,6 @@ O Menu DropDown possúi uma implementação mais extensa que os outros component
 
 - importar o componente.
 
-- adicionar ou retirar algum item do menu alterando a estrutura das tags React do Dropdown.
+- adicionar ou retirar algum item do menu alterando a estrutura das tags React iniciadas com `DropdownMenu`.
 
 - Estilizar o Menu de acordo com suas preferências, alterando as marcações do Tailwind na `className`
