@@ -1,6 +1,6 @@
 # Documentação: Componente de Radio Input em ReactJS
 
-O componente `Radio Input` é  um input de rádio personalizado que isola a aparência para estilização em React.
+O componente `Radio Input` é  um input personalizado que isola a aparência para estilização em React.
 
 ## Instalação
 
