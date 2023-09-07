@@ -26,7 +26,6 @@ Para usar o componente de FormFactory em sua aplicação, siga os seguintes pass
 
 - Chame a função FormFactory passando o objeto FormFactoryInfo como argumento para criar um componente de formulário.
 
-Agora você pode usar o componente de formulário em sua página e passar as funções de manipulação de envio e conteúdo do botão conforme necessário.
 
 ## Atributos do componente Alert
 
