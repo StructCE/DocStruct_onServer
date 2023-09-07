@@ -10,7 +10,7 @@ Antes de usar o componente FormFactory, certifique-se de que a biblioteca Zod es
 
 Para usar o componente de FormFactory em sua aplicação, siga os seguintes passos:
 
-1 - Crie um objeto Zod (ZodObject) que irá gerenciar as validações para os campos do seu formulário. Você pode definir as regras de validação conforme necessário usando o Zod. Consulte a documentação do Zod para obter mais informações sobre as opções de validação disponíveis.
+1 - Crie um objeto `Zod (ZodObject)` que irá gerenciar as validações para os campos do seu formulário. Você pode definir as regras de validação conforme necessário usando o Zod. Consulte a documentação do Zod para obter mais informações sobre as opções de validação disponíveis.
 
 2 - Crie um objeto do tipo FormFactoryInfo que deve conter as seguintes informações:
 
@@ -37,8 +37,7 @@ Para usar o componente de FormFactory em sua aplicação, siga os seguintes pass
 
 ## Personalização
 
-Você pode personalizar a aparência do formulário e dos campos ajustando as classes CSS definidas no código. Adicione ou substitua classes conforme necessário para atender aos requisitos de estilo de sua aplicação.
-
+Você pode personalizar a aparência do Form ajustando as classes CSS definidas no código. Adicione ou substitua classes de acordo com suas preferências de design
 ## Exemplo:
 
 ```js

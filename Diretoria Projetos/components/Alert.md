@@ -53,7 +53,7 @@ import { Alert, alertCall } from './alert/stylizedAlerts';
 
 ## Personalização
 
-Você pode personalizar a aparência do Alert ajustando as classes CSS definidas no código. Adicione ou substitua classes conforme necessário para atender aos requisitos de estilo de sua aplicação.
+Você pode personalizar a aparência do Alert ajustando as classes CSS definidas no código. Adicione ou substitua classes de acordo com suas preferências de design
 
 ## Exemplo:
 

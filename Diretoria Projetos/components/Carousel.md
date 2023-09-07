@@ -12,7 +12,7 @@ O componente Carousel permite que você crie um carrossel de imagens com control
 
 ## Personalização
 
-Você pode personalizar a aparência do Carousel ajustando as classes CSS definidas no código. Adicione ou substitua classes conforme necessário para atender aos requisitos de estilo de sua aplicação.
+Você pode personalizar a aparência do Carousel ajustando as classes CSS definidas no código. Adicione ou substitua classes de acordo com suas preferências de design
 
 ## Exemplo:
 

@@ -17,7 +17,7 @@ import { Button } from "./index";
 
 ## Personalização
 
-Você pode personalizar a aparência do Button ajustando as classes CSS definidas no código. Adicione ou substitua classes conforme necessário para atender aos requisitos de estilo de sua aplicação.
+Você pode personalizar a aparência do Button ajustando as classes CSS definidas no código. Adicione ou substitua classes de acordo com suas preferências de design
 
 ### Atributos do componente
 
