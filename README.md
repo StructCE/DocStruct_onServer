@@ -8,4 +8,4 @@ Neste espaço deve-se concentrar todos os conhecimentos de gestão e execução 
 
 ## Como contribuir
 
-Para aprender a contribuir para a DocStruct, você pode acessar a todas informações na [homepage](link_para_home) ou no arquivo [``index.md``](/index.md).
+Para aprender a contribuir para a DocStruct, você pode acessar a todas informações na [homepage](https://docs.structej.com) ou no arquivo [``index.md``](/index.md).
