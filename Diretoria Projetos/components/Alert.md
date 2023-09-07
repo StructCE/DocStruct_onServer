@@ -51,6 +51,10 @@ import { Alert, alertCall } from './alert/stylizedAlerts';
 
 -canOpen: Controla se o Alert pode ser aberto (padrão: true).
 
+## Personalização
+
+Você pode personalizar a aparência do Alert ajustando as classes CSS definidas no código. Adicione ou substitua classes conforme necessário para atender aos requisitos de estilo de sua aplicação.
+
 ## Exemplo:
 
 ```js

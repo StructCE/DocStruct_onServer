@@ -14,10 +14,17 @@ import { Button } from "./index";
 
 
 ```
+
+## Personalização
+
+Você pode personalizar a aparência do Button ajustando as classes CSS definidas no código. Adicione ou substitua classes conforme necessário para atender aos requisitos de estilo de sua aplicação.
+
 ### Atributos do componente
 
 Os atributos do componente 'Button', foram implementados em uma forma padrão : `bg-gray-300 border-none py-[0.5em] px-[1em] hover:shadow-lg focus-visible:shadow-lg focus-visible:outline focus-visible:outline-orange-600 focus-visible:outline-offset-1 cursor-pointer rounded-md`
 Porém podem ser alterados com uma `className` durante a implementação do mesmo.
+
+
 
 
 
