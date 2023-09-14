@@ -13,7 +13,7 @@ Para adicionar o Carousel ao projeto, copie os seguintes arquivos para o seu pro
 
 ## Utilização 
 
-1 - Crie um array de imagens para o Carousel, no qual cada imagem contenha o endereço da imagem (url) e um texto alternativo(alt).
+1 - Crie um array de imagens para o Carousel, no qual cada imagem contenha um id, o endereço da imagem (url) e um texto alternativo(alt).
 
 2 - Chame a função Carousel, passando como argumento seu array criado.
 
