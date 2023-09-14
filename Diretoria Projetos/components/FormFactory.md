@@ -25,11 +25,13 @@ Para usar o componente de FormFactory em sua aplicação, siga os seguintes pass
 
 - fields: Um objeto em que cada chave corresponde a um campo no seu esquema Zod e os valores são objetos com as seguintes propriedades:
 
-- label: O rótulo do campo.
+    - label: O rótulo do campo.
 
-- defaultValue: O valor padrão do campo.
+    - defaultValue: O valor padrão do campo.
 
-- inputAtrr: Um objeto com os atributos da tag input e seus respectivos valores.
+    - inputAtrr: Um objeto com os atributos da tag input e seus respectivos valores.
+    
+    - transform: Uma função que recebe o valor atual do input (sempre uma string) para converter no valor do schema (pode ser número, pode capitalizar a string, etc...)
 
 - Chame a função FormFactory passando o objeto FormFactoryInfo como argumento para criar um componente de formulário.
 
