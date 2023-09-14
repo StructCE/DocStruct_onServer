@@ -6,6 +6,13 @@ O componente Alert permite que você crie caixas de alerta personalizadas para i
 
 Lembre-se de instalar a biblioteca '@radix-ui/react-alert-dialog' pelo comando : `npm install @radix-ui/react-alert-dialog`
 
+## Adicionando Alert a um novo projeto
+
+Para adicionar o Alert ao projeto, copie os seguintes arquivos para o seu projeto:
+[Alert/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Alert/index.tsx)
+[Alert/customRootRender.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Alert/customRootRender.tsx)
+
+
 ## Utilização 
 
 Uso padrão:

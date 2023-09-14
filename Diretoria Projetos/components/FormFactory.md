@@ -6,6 +6,12 @@ O componente Form Factory simplifica a criação de formulários com validação
 
 Antes de usar o componente FormFactory, certifique-se de que a biblioteca Zod esteja instalada em seu projeto. Você pode instalá-la com o comando: `npm install zod`
 
+## Adicionando Form Factory a um novo projeto
+
+Para adicionar o Form Factory ao projeto, copie os seguintes arquivos para o seu projeto:
+[FormFactory/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/FormFactory/index.tsx)
+
+
 ## Utilização 
 
 Para usar o componente de FormFactory em sua aplicação, siga os seguintes passos:

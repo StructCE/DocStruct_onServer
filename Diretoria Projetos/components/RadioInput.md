@@ -7,6 +7,12 @@ O componente `Radio Input` é  um input personalizado que isola a aparência par
 Para usar este componente, você precisa ter a biblioteca @radix-ui/react-radio-group instalada em seu projeto. Você pode instalá-la com o comando:
 `npm install @radix-ui/react-radio-group`
 
+## Adicionando Radio Input a um novo projeto
+
+Para adicionar o Radio Input ao projeto, copie os seguintes arquivos para o seu projeto:
+[RadioInput/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/RadioInput/index.tsx)
+
+
 ## Utilização 
 
 Para usar o componente Radio Input em sua aplicação, siga os seguintes passos:

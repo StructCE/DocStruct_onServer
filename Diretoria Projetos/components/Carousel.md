@@ -2,6 +2,13 @@
 
 O componente Carousel permite que você crie um carrossel de imagens com controles de navegação e indicadores. Ele permite que os usuários naveguem pelas imagens e fornece indicadores para mostrar a posição atual.
 
+## Adicionando Carousel a um novo projeto
+
+Para adicionar o Carousel ao projeto, copie os seguintes arquivos para o seu projeto:
+[Carousel/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Carousel/index.tsx)
+[Carousel/svgs.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Carousel/svgs.tsx)
+
+
 ## Utilização 
 
 1 - Crie um array de imagens para o Carousel, no qual cada imagem contenha o endereço da imagem (url) e um texto alternativo(alt).
