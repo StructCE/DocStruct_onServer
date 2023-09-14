@@ -5,7 +5,7 @@ O componente de Modal é uma ferramenta que facilita a criação de modais perso
 ## Instalação
 
 Para usar este componente, você precisa ter a biblioteca @radix-ui/react-dialog instalada em seu projeto. Você pode instalá-la com o comando:
-`npm install @radix-ui/react-dialog`
+`pnpm install @radix-ui/react-dialog`
 
 ## Adicionando Modal a um novo projeto
 
