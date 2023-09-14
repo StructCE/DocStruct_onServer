@@ -49,49 +49,34 @@ Para usar o componente de FormFactory em sua aplicação, siga os seguintes pass
 Você pode personalizar a aparência do Form ajustando as classes CSS definidas no código. Adicione ou substitua classes de acordo com suas preferências de design
 ## Exemplo:
 
-```js
-// simulando api
-  const api = useApiSimulator();
+// definindo validação do form:
+const loginSchema = z.object({
+  email: z.string().email({ message: "Email inválido!" }),
+  password: z
+    .string()
+    .min(6, { message: "Senha deve ter pelo menos 6 caracteres!" }),
+});
 
-  // estado para definir qual sessão (register ou login) será exibida na página
-  const [isRegistering, setIsRegistering] = useState(true);
+// criando o componente de formulário:
+export const LoginForm = FormFactory({
+  schema: loginSchema,
+  fields: {
+    email: {
+      label: "Email *",
+      defaultValue: "",
+      inputAtrr: { type: "email" },
+    },
+    password: {
+      label: "Senha *",
+      defaultValue: "",
+      inputAtrr: { type: "password" },
+    },
+  },
+});
 
-  return (
-    <div className="min-h-screen w-full flex flex-col items-center pt-10 bg-zinc-800 text-white">
-      {isRegistering && (
-        <section className="w-max flex flex-col">
-          <h1 className="text-3xl px-4 py-2">Registre-se</h1>
-          <div className="w-max">
-            <RegisterForm
-              onValidSubmit={(user) => {
-                api
-                  .post("/users/create", user)
-                  // eslint-disable-next-line no-alert
-                  .then(() => alert("registrado com sucesso"))
-                  // eslint-disable-next-line no-alert
-                  .catch((er) => alert(er));
-              }}
-              onInvalidSubmit={() => {
-                // opa
-              }}
-              buttonContent="Registrar"
-            />
-          </div>
-          <button
-            className="text-emerald-500 underline ml-auto"
-            type="button"
-            onClick={() => setIsRegistering(false)}
-          >
-            Já tenho registro
-          </button>
-        </section>
-      )}
-
-      {!isRegistering && (
-        <section className="w-max flex flex-col">
-          <h1 className="text-3xl px-4 py-2">Entrar</h1>
-          <div className="w-max">
-            <LoginForm
+// Então pode usar a tag <LoginForm /> em algum componente qualquer:
+const LoginPage = () => {
+    return <LoginForm
               onValidSubmit={(user) => {
                 api
                   .get("/users/login", user)
@@ -104,18 +89,6 @@ Você pode personalizar a aparência do Form ajustando as classes CSS definidas 
                 // opa
               }}
               buttonContent="Entrar"
-            />
-          </div>
-          <button
-            className="text-emerald-500 underline ml-auto"
-            type="button"
-            onClick={() => setIsRegistering(true)}
-          >
-            Ainda não sou registrado
-          </button>
-        </section>
-      )}
-    </div>
-);
-```
+    />
+}
 
