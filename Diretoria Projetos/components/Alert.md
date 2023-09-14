@@ -9,7 +9,9 @@ Lembre-se de instalar a biblioteca '@radix-ui/react-alert-dialog' pelo comando :
 ## Adicionando Alert a um novo projeto
 
 Para adicionar o Alert ao projeto, copie os seguintes arquivos para o seu projeto:
+
 [Alert/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Alert/index.tsx)
+
 [Alert/customRootRender.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Alert/customRootRender.tsx)
 
 

@@ -5,7 +5,9 @@ O componente Button é uma forma rápida de criar botões estilizados em suas ap
 ## Adicionando Button a um novo projeto
 
 Para adicionar o Button ao projeto, copie os seguintes arquivos para o seu projeto:
+
 [Button/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Button/index.tsx)
+
 [Button/example.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Button/example.tsx)
 
 

@@ -10,7 +10,9 @@ Lembre-se de instalar a biblioteca '@radix-ui/react-alert-dialog' pelo comando :
 ## Adicionando Dropdown Menu a um novo projeto
 
 Para adicionar o Dropdown Menu ao projeto, copie os seguintes arquivos para o seu projeto:
+
 [DropdownMenu/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/DropdownMenu/index.tsx)
+
 [DropdownMenu/example.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/DropdownMenu/example.tsx)
 
 

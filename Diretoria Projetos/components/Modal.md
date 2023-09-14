@@ -10,7 +10,9 @@ Para usar este componente, você precisa ter a biblioteca @radix-ui/react-dialog
 ## Adicionando Modal a um novo projeto
 
 Para adicionar o Modal ao projeto, copie os seguintes arquivos para o seu projeto:
+
 [Modal/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Modal/index.tsx)
+
 [Modal/styles.module.css](https://github.com/StructCE/our-react-components/blob/main/src/components/Modal/styles.module.css)
 
 ## Utilização 

@@ -5,7 +5,9 @@ O componente Carousel permite que você crie um carrossel de imagens com control
 ## Adicionando Carousel a um novo projeto
 
 Para adicionar o Carousel ao projeto, copie os seguintes arquivos para o seu projeto:
+
 [Carousel/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Carousel/index.tsx)
+
 [Carousel/svgs.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Carousel/svgs.tsx)
 
 
