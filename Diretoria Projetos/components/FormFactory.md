@@ -49,6 +49,8 @@ Para usar o componente de FormFactory em sua aplicação, siga os seguintes pass
 Você pode personalizar a aparência do Form ajustando as classes CSS definidas no código. Adicione ou substitua classes de acordo com suas preferências de design
 ## Exemplo:
 
+```js
+
 // definindo validação do form:
 const loginSchema = z.object({
   email: z.string().email({ message: "Email inválido!" }),
@@ -92,3 +94,4 @@ const LoginPage = () => {
     />
 }
 
+```
