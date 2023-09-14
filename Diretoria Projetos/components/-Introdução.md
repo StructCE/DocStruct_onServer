@@ -22,10 +22,10 @@ Os componentes presentes nessa documentação são:
 
 A documentação explica o que são e como utilizar cada componente supracitado.
 
-O link para o projeto `our-react-components` onde se apresentam os código fonte de cada um dos components:
+link para o projeto `our-react-components` onde se apresentam os código fonte de cada um dos components:
 
 https://github.com/StructCE/our-react-components/tree/main/src/components
 
-E o link do projeto no stackblitz:
+link do projeto no stackblitz:
 
 https://stackblitz.com/github/StructCE/our-react-components/tree/main?file=README.md,src%2FApp.tsx
