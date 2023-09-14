@@ -1,6 +1,6 @@
 # Documentação: Componente de Button em ReactJS
 
-O componente Button é uma forma rápida de criar botões estilizados em suas aplicações React. Ele aceita várias propriedades, permitindo que você personalize facilmente a aparência e o comportamento do botão.
+O componente Button é uma forma rápida de criar botões padronizados em suas aplicações React. A ideia é centralizar os estilos padrões de um botão no componente, mantendo as propriedades de um `<button />` comum.
 
 ## Adicionando Button a um novo projeto
 
