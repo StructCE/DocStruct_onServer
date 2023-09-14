@@ -4,7 +4,7 @@ O componente de Menu Dropdown oferece uma maneira fácil de criar menus suspenso
 
 ## Instalação
 
-Lembre-se de instalar a biblioteca '@radix-ui/react-alert-dialog' pelo comando : `npm install @radix-ui/react-alert-dialog`
+Lembre-se de instalar a biblioteca '@radix-ui/react-alert-dialog' pelo comando : `pnpm install @radix-ui/react-alert-dialog`
 
 
 ## Adicionando Dropdown Menu a um novo projeto
