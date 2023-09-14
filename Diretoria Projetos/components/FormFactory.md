@@ -4,7 +4,7 @@ O componente Form Factory simplifica a criação de formulários com validação
 
 ## Instalação
 
-Antes de usar o componente FormFactory, certifique-se de que a biblioteca Zod esteja instalada em seu projeto. Você pode instalá-la com o comando: `npm install zod`
+Antes de usar o componente FormFactory, certifique-se de que a biblioteca Zod esteja instalada em seu projeto. Você pode instalá-la com o comando: `pnpm install zod`
 
 ## Adicionando Form Factory a um novo projeto
 
