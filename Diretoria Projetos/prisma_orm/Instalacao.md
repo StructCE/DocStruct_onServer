@@ -40,7 +40,7 @@ yarn tsc --init
 
 ## Modificar o arquivo `tsconfig.json`
 
-Dependendo do ambiente de execução JavaScript, pode existir um `tsconfig.json` pronto com uma configuração **BASE**, o qual pode ser encontrado em [pré-definidos](github.com/tsconfig/bases). Segue um exemplo, no qual é utilizado uma configuração recomendada.
+Dependendo do ambiente de execução JavaScript, pode existir um `tsconfig.json` pronto com uma configuração **BASE**, o qual pode ser encontrado em [pré-definidos](https://github.com/tsconfig/bases). Segue um exemplo, no qual é utilizado uma configuração recomendada.
 
 ### Instalação da configuração
 

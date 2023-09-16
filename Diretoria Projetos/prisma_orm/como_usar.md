@@ -49,6 +49,7 @@ yarn prisma db push
 ### Documentação sobre a criação de models
 
 [Documentação Criação de Models](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#defining-a-default-value)
+
 [Documentação Relacionamento entre Models](https://www.prisma.io/docs/concepts/components/prisma-schema/relations)
 
 ## CRUD 
@@ -91,7 +92,7 @@ yarn ts-node index.ts
 
 #### Quer saber mais sobre Read ?
 
-[Documenyação Pesquisa de Dados](https://www.prisma.io/docs/concepts/components/prisma-client/crud#read)
+[Documentação Pesquisa de Dados](https://www.prisma.io/docs/concepts/components/prisma-client/crud#read)
 
 ### Read(Get/Show)
 
@@ -106,7 +107,7 @@ touch show.ts
 ```bash
 # show.ts
 
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function getUserById(userId) {
@@ -135,7 +136,7 @@ yarn ts-node show.ts
 
 #### Quer saber mais sobre Read ?
 
-[Documenyação Pesquisa de Dados](https://www.prisma.io/docs/concepts/components/prisma-client/crud#read)
+[Documentação Pesquisa de Dados](https://www.prisma.io/docs/concepts/components/prisma-client/crud#read)
 
 ### Create(Post)
 
@@ -150,7 +151,7 @@ touch create.ts
 ```bash
 # create.ts
 
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function createUser(username, email) {
@@ -196,7 +197,7 @@ touch delete.ts
 ```bash
 # delete.ts
 
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function deleteUser(userId) {
@@ -239,7 +240,7 @@ touch update.ts
 2. Modificar o arquivo typescript
 
 ```bash
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function updateUser(userId, newData) {
