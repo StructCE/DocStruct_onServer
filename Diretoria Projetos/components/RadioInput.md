@@ -12,7 +12,7 @@ Para usar este componente, você precisa ter a biblioteca @radix-ui/react-radio-
 Para adicionar o Radio Input ao projeto, copie os seguintes arquivos para o seu projeto:
 
 [RadioInput/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/RadioInput/index.tsx)
-
+[RadioInput/svgs.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/RadioInput/example/svgs.tsx)
 
 ## Utilização 
 
@@ -26,79 +26,54 @@ Para usar o componente Radio Input em sua aplicação, siga os seguintes passos:
 
 ```js
 
-const [formInfo, setFormInfo] = useState({
-    paymentMethod: "",
-    value: 0,
-  });
+import * as RadioGroup from "@radix-ui/react-radio-group";
+import React, { useState } from "react";
+import { ArrowUp, ArrowUpLeft, ArrowUpRight } from "./svgs";
 
-  function handleChange(e: { target: { name: string; value: string } }) {
-    // Reutilizar o mesmo handler para todos os inputs, basta colocar em cada um deles o atributo "name"
-    const { name, value } = e.target;
-    // Isso nem sempre pode ser feito
-
-    if (Number.isNaN(Number(value))) {
-      setFormInfo((prevInfo) => ({
-        ...prevInfo,
-        [name]: value,
-      }));
-    } else {
-      setFormInfo((prevInfo) => ({
-        ...prevInfo,
-        [name]: Number(value),
-      }));
-    }
-  }
-
-  function handlePaymentMethodChange(value: string) {
-    setFormInfo((prevInfo) => ({
-      ...prevInfo,
-      paymentMethod: value,
-    }));
-    console.log(value);
-  }
-
-  function handleSubmit(e: { preventDefault: () => void }) {
-    // prevenir o reload da página no "submit" (comportamento padrão do form)
-    e.preventDefault();
-
-    // eslint-disable-next-line no-console
-    console.log(formInfo);
-
-    // sendInformationToBackend();
-  }
-
-  return (
-    <form id="form" onSubmit={handleSubmit}>
-      <h1>Faça o pagamento</h1>
-      <legend>Escolha a forma de pagamento</legend>
-      <RadioGroup.Root
-        className="flex flex-col"
-        value={formInfo.paymentMethod}
-        onValueChange={handlePaymentMethodChange}
-      >
-        <label htmlFor="payment">No Cartão</label>
-        <CustomRadio value="card" id="payment" />
-        <label htmlFor="payment">No Pix</label>
-        <CustomRadio value="pix" id="payment" />
-      </RadioGroup.Root>
-      <br />
-      <fieldset>
-        <legend>Qual o valor?</legend>
-        <input
-          type="number"
-          name="value"
-          id="valueInput"
-          onChange={handleChange}
-          value={formInfo.value}
-          step={100}
-          min={100}
-        />
-        <label htmlFor="valueInput">Em centavos de real</label>
-      </fieldset>
-      <br />
-      <br />
-      <button type="submit">Enviar form</button>
-    </form>
-  );
+<form onSubmit={handleSubmitMove}>
+        <RadioGroup.Root
+          className="flex-col flex items-center"
+          value={String(direction)}
+          onValueChange={handleChangeMove}
+        >
+          <RadioGroup.Item
+            value="-1"
+            className="relative w-6 h-6 focus:bg-white"
+            id="left"
+          >
+            <ArrowUpLeft className="cursor-pointer" />
+            <RadioGroup.Indicator className="w-full h-full absolute inset-0 -z-10 bg-white" />
+          </RadioGroup.Item>
+          <br />
+          <RadioGroup.Item
+            className="relative w-6 h-6 focus:bg-white"
+            id="up"
+            value="0"
+          >
+            <ArrowUp className="cursor-pointer" />
+            <RadioGroup.Indicator className="w-full h-full absolute inset-0 -z-10 bg-white" />
+          </RadioGroup.Item>
+          <br />
+          <RadioGroup.Item
+            className="relative w-6 h-6 focus:bg-white"
+            id="down"
+            value="1"
+          >
+            <ArrowUpRight className="cursor-pointer" />
+            <RadioGroup.Indicator className="w-full h-full absolute inset-0 -z-10 bg-white" />
+          </RadioGroup.Item>
+        </RadioGroup.Root>
+        <br />
+        <button className="flex mx-auto my-0" type="submit">
+          Move
+        </button>
+      </form>
+      <div
+        className="block mx-auto my-0 -z-10 bg-red-500 w-[50px] h-[50px] duration-700 ease-in-out"
+        onSubmit={handleSubmitMove}
+        style={{
+          transform: `translateX(${currentPosition * 200}%)`,
+        }}
+      />
 
 ```
