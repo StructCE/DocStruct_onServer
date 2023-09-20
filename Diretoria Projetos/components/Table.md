@@ -1,4 +1,8 @@
-# Documentação: Componente de Table em ReactJS
+---
+icon: table
+---
+
+# Table
 
 O componente Table é projetado para renderizar uma tabela HTML com dados. Ele aceita uma série de props que permitem definir as colunas, as linhas e ações personalizadas a serem exibidas na tabela.
 
@@ -10,10 +14,7 @@ Para adicionar o Table ao projeto, copie os seguintes arquivos para o seu projet
 
 [Table/styles.module.scss](https://github.com/StructCE/our-react-components/blob/main/src/components/Table/styles.module.scss)
 
-[Table/styles.ts](https://github.com/StructCE/our-react-components/blob/main/src/components/Table/styles.ts)
-
-
-## Utilização 
+## Utilização
 
 Para usar o componente de Table em sua aplicação, siga os seguintes passos:
 
@@ -92,3 +93,4 @@ Para usar o componente de Table em sua aplicação, siga os seguintes passos:
     </PageContainer>
 
 
+```

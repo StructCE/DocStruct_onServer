@@ -1,4 +1,8 @@
-# Documentação: Componente de Form Factory em ReactJS
+---
+icon: id-badge
+---
+
+# Form Factory
 
 O componente Form Factory simplifica a criação de formulários com validação em suas aplicações React. Ele utiliza a biblioteca Zod para definir as regras de validação dos campos do formulário e oferece recursos para exibir mensagens de erro e manipular envios de formulários.
 
@@ -12,8 +16,7 @@ Para adicionar o Form Factory ao projeto, copie os seguintes arquivos para o seu
 
 [FormFactory/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/FormFactory/index.tsx)
 
-
-## Utilização 
+## Utilização
 
 Para usar o componente de FormFactory em sua aplicação, siga os seguintes passos:
 
@@ -25,16 +28,15 @@ Para usar o componente de FormFactory em sua aplicação, siga os seguintes pass
 
 - fields: Um objeto em que cada chave corresponde a um campo no seu esquema Zod e os valores são objetos com as seguintes propriedades:
 
-    - label: O rótulo do campo.
+  - label: O rótulo do campo.
 
-    - defaultValue: O valor padrão do campo.
+  - defaultValue: O valor padrão do campo.
 
-    - inputAtrr: Um objeto com os atributos da tag input e seus respectivos valores.
-    
-    - transform: Uma função que recebe o valor atual do input (sempre uma string) para converter no valor do schema (pode ser número, pode capitalizar a string, etc...)
+  - inputAtrr: Um objeto com os atributos da tag input e seus respectivos valores.
+
+  - transform: Uma função que recebe o valor atual do input (sempre uma string) para converter no valor do schema (pode ser número, pode capitalizar a string, etc...)
 
 - Chame a função FormFactory passando o objeto FormFactoryInfo como argumento para criar um componente de formulário.
-
 
 ## Atributos do componente Alert
 
@@ -47,10 +49,10 @@ Para usar o componente de FormFactory em sua aplicação, siga os seguintes pass
 ## Personalização
 
 Você pode personalizar a aparência do Form ajustando as classes CSS definidas no código. Adicione ou substitua classes de acordo com suas preferências de design
+
 ## Exemplo:
 
 ```js
-
 // definindo validação do form:
 const loginSchema = z.object({
   email: z.string().email({ message: "Email inválido!" }),
@@ -78,20 +80,21 @@ export const LoginForm = FormFactory({
 
 // Então pode usar a tag <LoginForm /> em algum componente qualquer:
 const LoginPage = () => {
-    return <LoginForm
-              onValidSubmit={(user) => {
-                api
-                  .get("/users/login", user)
-                  // eslint-disable-next-line no-alert
-                  .then(() => alert("logado com sucesso"))
-                  // eslint-disable-next-line no-alert
-                  .catch((er) => alert(er));
-              }}
-              onInvalidSubmit={() => {
-                // opa
-              }}
-              buttonContent="Entrar"
+  return (
+    <LoginForm
+      onValidSubmit={(user) => {
+        api
+          .get("/users/login", user)
+          // eslint-disable-next-line no-alert
+          .then(() => alert("logado com sucesso"))
+          // eslint-disable-next-line no-alert
+          .catch((er) => alert(er));
+      }}
+      onInvalidSubmit={() => {
+        // opa
+      }}
+      buttonContent="Entrar"
     />
-}
-
+  );
+};
 ```

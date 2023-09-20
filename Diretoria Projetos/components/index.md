@@ -1,4 +1,9 @@
-# Introdção
+---
+icon: package
+order: 1
+---
+
+# Componentes
 
 Essa seção do DocStruct apresenta a documentação dos components pré-fabricados no projeto `our-react-components`, que tem como objetivo facilitar o processo de criação de projetos na Struct, disponibilizando e padronizando os componentes do react mais utilizados.
 

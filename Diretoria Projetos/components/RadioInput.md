@@ -1,6 +1,10 @@
-# Documentação: Componente de Radio Input em ReactJS
+---
+icon: circle
+---
 
-O componente `Radio Input` é  um input personalizado que isola a aparência para estilização em React.
+# Radio Input
+
+O componente `Radio Input` é um input personalizado que isola a aparência para estilização em React.
 
 ## Instalação
 
@@ -14,7 +18,7 @@ Para adicionar o Radio Input ao projeto, copie os seguintes arquivos para o seu 
 [RadioInput/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/RadioInput/index.tsx)
 [RadioInput/svgs.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/RadioInput/example/svgs.tsx)
 
-## Utilização 
+## Utilização
 
 Para usar o componente Radio Input em sua aplicação, siga os seguintes passos:
 
