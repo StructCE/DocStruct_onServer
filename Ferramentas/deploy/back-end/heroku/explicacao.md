@@ -4,7 +4,8 @@ icon: rocket
 label: "O que é Heroku ?"
 ---
 
-<!-- Artur Padovesi -->
+<!-- Ultima atualização: 22/09/2023 -->
+<!-- Autor(es): Artur Padovesi e Pedro Augusto Ramalho Duarte -->
 
 !!!
 O Heroku não possui plano gratuito, logo utilizamos self-hosting para o back-end na Struct.

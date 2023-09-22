@@ -1,95 +1,104 @@
 ---
 order: 1
-icon: diamond
+icon: rocket
 label: "Como fazer Self-Hosting (Back-End)?"
 ---
 
-<!-- Artur Padovesi  -->
+<!-- Ultima atualização: 22/09/2023 -->
+<!-- Autor(es): Artur Padovesi e Pedro Augusto Ramalho Duarte -->
 
-### Nossa infraestrutura
+# Configurando o projeto para deploy
 
-Usamos Docker e Docker Compose para poder isolar e rodar vários servidores na mesma máquina. Para levar o tráfego que chega em nossa máquina para o container correto, usamos o [Traefik v2](https://doc.traefik.io/traefik/) como [proxy reverso](https://pt.wikipedia.org/wiki/Proxy_reverso).
+1. Crie uma branch `production`;
+2. Adicione `Dockerfile` ao `.gitignore` do projeto;
 
-É mantido um repositório no gitbucket com os Dockerfiles utilizados para construir as imagens do nosso servidor.
+# Crie a imagem Docker
 
-É mantido um repositório que está presente no servidor, com os arquivos do Docker Compose utilizados para rodar as imagens construídas.
+!!!
+Não coloque Dockerfiles no repositório do projeto, utilize o repositório do GitBucket para isso. Colocar esse arquivo no projeto pode causar problemas de segurança. Muitos dos nossos Dockerfiles usam credenciais que **não devem** ser expostas.
+!!!
 
-### Configure o projeto
+1. Pegue o template de `Dockerfile` no GitBucket
+2. Modifique conforme necessário, a fim de a imagem docker necessária.
+3. Para construir a imagem, use o comando:
 
-Crie uma branch `production`, caso não exista, no projeto desenvolvido, e faça a configuração específica para esse deploy.
+```bash Terminal
+docker build -t structej/projetos:{nome_do_projeto_versão}
+```
 
-{% hint style="warning" %} 
-Também adicione `Dockerfile` ao `.gitignore` do projeto.
-{% endhint %}
-
-### Crie a imagem docker
-
-{% hint style="danger" %}
-Não coloque Dockerfiles no repositório do projeto, utilize o repositório do gitbucket para isso.
-
-Colocar esse arquivo no projeto pode causar problemas de segurança, e não é uma boa prática. Muitos dos nossos Dockerfiles usam credenciais que não devem ser expostas.
-{% endhint %}
-
-Pegue o template de `Dockerfile` (no momento não existe template, então busque do último projeto produzido) e modifique conforme necessário para gerar uma imagem docker.
-
-Para gerar a imagem, use o comando `docker build -t structej/projetos:nome-projeto-1.0 .` na raíz do projeto. Isso constrói a imagem e coloca a tag `nome-projeto-1.0` nela.
+!!!
+Várias das nossas imagens são um pull do projeto, e para isso é necessário um token de acesso no github. Para gerar esse token, pode ser seguida a [Documentação do GitHub](https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic).
+!!!
 
 
-Várias das nossas imagens são um pull do projeto, e para isso é necessário um token de acesso no github. Para gerar esse token, pode ser seguida a [documentação do github](https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic).
+# Faça o Push da imagem Docker
 
+1. Faça login no DockerHub, usando o comando:
 
-### Faça o push da imagem
+```bash Terminal
+docker login
+```
 
-Faça login no Docker Hub, usando o comando `docker login`. Talvez seja necessário inserir as nossas credenciais.
+2. Faça o push da imagem para o DockerHub, usando o comando:
 
-Faça o push da imagem para o Docker Hub, usando o comando `docker push structej/projetos:nome-projeto-1.0`. Isso envia a imagem para o Docker Hub, onde ela pode ser acessada pelo docker-compose.
+```bash Terminal
+docker push structej/projetos:{nome_do_projeto_versão}
+```
 
-{% hint style="info" %}
-O `structej/projetos` é o `usuário/projeto` que enviamos a imagem de tag `nome-projeto-1.0`. É importante fazer assim, pois por padrão projetos no Docker Hub são públicas, então enviamos ela para um repositório que sabemos ser privado.
-{% endhint %}
+!!!
+O `structej/projetos` é o `usuário/projeto` que enviamos a imagem de tag `{nome_do_projeto_versão}`. É importante fazer assim, pois por padrão projetos no DockerHub são públicas, então enviamos ela para um repositório que sabemos ser privado.
+!!!
 
-### Faça o docker-compose no servidor
+# Faça o docker-compose no servidor
 
-{% hint style="info" %} 
-Estamos guardando templates de docker-compose.yml na pasta `templates` do repositório presente no servidor. Veja atualizações por lá.
-{% endhint %}
+!!!
+Os templates de `docker-compose.yml` ficam na pasta `templates` do repositório armazenado no servidor.
+!!!
 
-{% hint style="info" %} 
-É recomendado fazer as atualizações localmente, dar um push para o repositório, e depois dar um pull no servidor.
-{% endhint %}
+1. Fazer as atualizações localmente;
+2. Fazer um push para o repositório;
+3. Fazer um pull no servidor;
+4. Faça o pull/clone do repositório do Docker Compose, usando o comando 
 
-Faça o pull/clone do repositório do Docker Compose, usando o comando `git pull/clone`. Crie um docker-compose.yml com o serviço do projeto, usando o template de `docker-compose.yml` (no momento o template só inclui configuração do traefik, então busque configurações adicionais do último projeto produzido).
+```bash Terminal
+git pull/clone
+```
 
-O template de traefik possui palavras chaves que devem ser substituídas. Utilize múltiplos cursores para garantir que não esqueceu de alterar uma das palavras chaves em algum lugar.
+5. Crie um docker-compose.yml com o serviço do projeto, usando o template de `docker-compose.yml`.
 
-### Atualize a branch `production`
+# Atualize a branch `production`
 
-Peça para que um membro da equipe faça um PR para a branch `production` do projeto, com as adições que devem ser feitas no deploy.
+1. Crie uma PR para a branch `production`, com as adições que devem ser feitas no deploy;
 
+!!!
 Procure por coisas que podem quebrar ou requerem passos adicionais no deploy, como mudanças de banco de dados, ou mudanças de configuração de serviços.
+!!!
 
-### Atualize a imagem docker
+# Atualize a imagem docker
 
-Faça o build da imagem docker, usando o comando `docker build -t structej/projetos:nome-projeto-x.x .` na raíz do projeto.
+1. Faça o build da imagem docker, usando o comando:
 
-Agora a versão da imagem docker é `x.x`. Sempre incrementamos a versão da imagem docker, para que possamos fazer o rollback caso algo aconteça de errado.
+```bash Terminal
+docker build -t structej/projetos:{nome_do_projeto_versão}
+```
 
-Faça o push da imagem para o Docker Hub, usando o comando `docker push structej/projetos:nome-projeto-x.x`.
+!!!
+Agora a versão da imagem docker é `versão`. Sempre incrementamos a `versão` da imagem docker, para que possamos fazer o rollback caso algo aconteça de errado.
+!!!
 
-{% hint style="danger" %}
-O que pode acontecer de errado?
-- A branch possuía coisas que quebram o deploy, e o container fica em estado de erro. Nesse caso, o traefik não consegue acessar o container, e o site fica fora do ar;
-- A atualização à branch introduziu um bug grave, mas o container não fica em estado de erro. Nesse caso, o traefik consegue acessar o container, mas o site pode não funcionar corretamente;
-- O Dockerfile foi alterado e possui alguma coisa errada (por exemplo em versionamento), mas o build ainda funciona. Nesse caso, novamente, o traefik consegue acessar o container, mas o site pode não funcionar corretamente;
-- etc.
-{% endhint %}
+2. Faça o push da imagem para o DockerHub, usando o comando:
 
-### Atualize o docker-compose no servidor
+```bash Terminal
+docker push structej/projetos:{nome_do_projeto_versão}
+```
 
-Mude a propriedade `image` do serviço do projeto no docker-compose.yml para a versão atual da imagem docker. Faça o commit e o push do docker-compose.yml.
+# Atualize o docker-compose no servidor
 
-Exemplo:
-```docker-compose
+1. Mudar a propriedade `image` do serviço do projeto no `docker-compose.yml` para a versão atual da imagem docker;
+2. Faça o commit das alterações;
+3. Faça o push do `docker-compose.yml`;
+
+```yml Exemplo
 version: '3.7'
 
 services:
