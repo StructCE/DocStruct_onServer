@@ -1,22 +1,24 @@
 ---
 order: 1
-icon: diamond
+icon: rocket
 label: "Como faz Self-Hosting (Front-End)?"
 ---
 
-<!-- Artur Padovesi  -->
+<!-- Ultima atualização: 23/09/2023 -->
+<!-- Autor(es): Artur Padovesi -->
 
-### Configurando o repositório
+# Configurando o projeto
 
+!!!
 Considere a [branch production do projeto front-end-template](https://github.com/StructCE/react-template/tree/production) e [suas alterações](https://github.com/StructCE/react-template/compare/main...production).
+!!!
 
-### Configurando o NGinx
+# Configurando o NGinx
 
-O NGinx é um servidor web que pode ser usado para servir arquivos estáticos, como imagens, css, js, etc. Sendo assim, depois que nosso app react é buildado, ele é servido pelo NGinx.
+1. Criar um arquivo `nginx.conf` para configuração do NGinx na raíz do projeto.
+2. Colocar o seguinte conteudo dentro do arquivo criado:
 
-Para isso, é necessário criar um arquivo de configuração para o NGinx na raíz do projeto, chamado `nginx.conf`. Esse arquivo deve conter:
-
-```nginx
+``` Conteudo
 server {
   listen 80 default_server;
   listen [::]:80 default_server;
@@ -30,9 +32,9 @@ server {
 }
 ```
 
-Trocando os valores de `dominio.exemplo.ex` e `www.dominio.exemplo2` pelos domínios que o app será servido. Por exemplo, se o app for servido em `www.struct.com.br`, o arquivo deve conter:
+3. Trocar os valores de `dominio.exemplo.ex` e `www.dominio.exemplo2` pelos domínios que o aplicação que será feito o deploy.Se o app for servido em `www.struct.com.br`, o arquivo deve conter:
 
-```nginx
+``` Exemplo
 server {
   listen 80 default_server;
   listen [::]:80 default_server;
@@ -46,27 +48,38 @@ server {
 }
 ```
 
-### Mudando as urls de localhost
+# Mudando as urls de localhost
 
-O app react usa urls locais para acessar a API, por exemplo, `http://localhost:3333/api/v1`. Essas urls devem ser alteradas para as urls de produção, por exemplo, `https://api.struct.com.br/api/v1`.
+!!!
+A aplicação React usa urls locais para acessar a API, por exemplo, `http://localhost:3333/api/v1`. Essas urls devem ser alteradas para as urls de produção, por exemplo, `https://api.struct.com.br/api/v1`.É possível fazer isso usando variáveis de ambiente, mas no momento deve ser trocado manualmente, como no nosso repositório de exemplo (talvez esse gitbook esteja desatualizado em relação ao repositório, verifique).
+!!!
 
-É possível fazer isso usando variáveis de ambiente, mas no momento deve ser trocado manualmente, como no nosso repositório de exemplo (talvez esse gitbook esteja desatualizado em relação ao repositório, verifique).
+# Mudando o `index.html`
 
+1. Alterar o arquivo `index.html` para conter informações corretas sobre a aplicação, bem como os metadados.
+2. Criar um `robots.txt`, para ajudar os mecanismos de busca, além indexar o site conforme necessario.
+3. Colocar o título correto, colocar descrição, mudar o favicon e a linguagem para pt-BR.
 
-### Mudando o index.html
+# Criando docker image
 
-O arquivo `index.html` deve ser alterado para conter informações corretas sobre o app, e metadados. Talvez também seja útil criar um `robots.txt`, que serve para ajudar mecanismos de busca a indexar o site da maneira desejada, veja de acordo com seu projeto.
+1. Vá para a branch production localmente. 
+2. Crie um arquivo chamado `Dockerfile` na raíz do projeto.
+3. Atualize o url do git presente no arquivo, mudando o nome do projeto e o token de autenticação do GitHub.
 
-As mudanças gerais são colocar o título correto, colocar descrição, mudar o favicon e a linguagem para pt-BR.
+# Criando container
 
-### Criando a docker image
+1. Atualize o repositório de docker_compose da Struct com o seguinte comando:
 
-Vá para a branch production localmente. Crie um arquivo chamado `Dockerfile` na raíz do projeto. Use como base os templates de projetos recentes anteriores, e atualize o url do git presente no arquivo, mudando o nome do projeto e o token de oauth do github.
+```bash Terminal
+git pull
+```
 
-### Criando o container
+2. Crie uma pasta com o nome do projeto.
+3. Modifique o template de `docker-compose.yml` do Traefik com os nomes que podem ser usados para identificar o projeto nos logs, caso ocorra algum erro.
+4. Definir a imagem que será usada com o valor de `image`.
+5. Alterar os valores de `environment`, `restart`, `volumes`, e `networks`.
+6. Crie o container usando o comando:
 
-Dê um git pull no repositório de docker_compose da Struct, e crie uma pasta com o nome do projeto. Modifique o template de docker-compose do Traefik com os nomes que podem ser usados para identificar o projeto nos logs, caso ocorra algum erro.
-
-Além da configuração do traefik, é importante definir a imagem que será usada com o valor de `image`, alterar os valores de `environment`, `restart`, `volumes`, e `networks`. Use um projeto anterior como base.
-
-Crie o container usando o comando `docker-compose up -d`. A imagem será baixada do repositório da Struct, e o container será criado e rodado em plano de fundo.
+```bash Terminal
+`docker-compose up -d`
+```

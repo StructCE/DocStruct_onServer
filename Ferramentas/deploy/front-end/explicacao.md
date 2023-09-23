@@ -1,6 +1,6 @@
 ---
 order: 3
-icon: diamond
+icon: rocket
 label: "O que é deploy Front-End ?"
 ---
 
