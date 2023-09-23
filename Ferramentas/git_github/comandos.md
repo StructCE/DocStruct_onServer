@@ -1,25 +1,29 @@
 ---
 order: 1
-icon: diamond
+icon: rocket
 label: "Quais comandos posso usar ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 23/09/2023 -->
+<!-- Autor(es): Araújo -->
 
-## Comandos Basicos do Git
+# Comandos Basicos do Git
 
-### Git Init
+## Git Init
 
 O comando `git init` é usado para inicializar um repositório Git em um diretório específico. Quando você executa o `git init` em um diretório vazio ou existente, ele cria um novo repositório Git local nesse local.
 
 Aqui está uma explicação passo a passo do acontece quando você executa o comando `git init`:
 
 1. Criação do repositório: O comando `git init` cria uma pasta oculta chamada ".git" no diretório atual. Essa estrutura é onde o Git armazenará todas as informações relacionadas ao controle de versão(**evitar mexer na pasta a não ser que seja necessario ou que voce saiba o que esta fazendo**).
+
 2. Pronto para versionamento: Após a execução bem-sucedida do comando `git init`, o diretório atual está pronto para o versionamento. Agora você pode começar a adicionar arquivos ao repositório, realizar commits para registrar as alterações e usar outros comandos do Git para gerenciar o histórico e colaborar com outras pessoas.
 
+!!!
 **É importante lembrar que o git init cria apenas um REPOSITÓRIO LOCAL**. Se você deseja compartilhar seu repositório com outras pessoas ou colaborar em um projeto, você pode usar serviços de hospedagem em varias plataformas online (GitHub, GitLab, Bitbucket e etc), porém na Struct a platarforma principal e o GitHub para criar um **REPOSITÓRIO REMOTO onde outros desenvolvedores possam contribuir**.
+!!!
 
-### Git Remote
+## Git Remote
 
 O comando `git remote` **é usado para visualizar, adicionar ou remover repositórios remotos em seu repositório local**. Os repositórios remotos são os locais onde você envia ou recebe as alterações do seu código.
 
@@ -31,7 +35,7 @@ Aqui está uma explicação passo a passo do que você pode fazer com o comando 
 
 3. Remover repositórios remotos: Com o comando `git remote remove <nome_do_repositorio>`, você pode remover um repositório remoto existente do seu repositório local. Isso é útil se você não deseja mais colaborar com um determinado repositório remoto.
 
-### Git Status
+## Git Status
 
 O comando `git status` é útil para entender o estado do seu repositório e tomar decisões sobre quais ações devem ser tomadas em relação aos arquivos modificados. Ele ajuda a garantir que você esteja ciente de todas as mudanças antes de realizar um commit ou realizar outras operações no Git.
 
@@ -49,7 +53,7 @@ Aqui está uma explicação passo a passo do acontece quando você executa o com
 
 6. Sugestões de próximos passos: O `git status`  também pode fornecer sugestões sobre o que fazer em seguida, com base no estado atual do repositório. Por exemplo, pode sugerir comandos como `git add`  para adicionar arquivos ao commit ou `git branch`  para listar as ramificações disponíveis.
 
-### Git Add
+## Git Add
 
 O comando `git add` é usado para adicionar arquivos ao índice (também conhecido como área de stage) do Git. Ele prepara os arquivos para serem incluídos no próximo commit.
 
@@ -65,9 +69,11 @@ Aqui está uma explicação passo a passo do acontece quando você executa o com
 
 5. Verificação do status: Após executar `git add`, você pode usar o comando `git status` para verificar o status do repositório e ver quais arquivos foram adicionados ao índice.
 
+!!!
 **Lembrando que o `git add` não realiza um commit imediato**, apenas prepara os arquivos para serem incluídos no próximo commit. Para registrar as alterações no repositório, você ainda precisa executar o comando `git commit` posteriormente.
+!!!
 
-### Git Commit
+## Git Commit
 
 O comando `git commit` é usado para criar um novo commit no repositório Git. Um commit é uma confirmação das alterações feitas em um conjunto de arquivos, representando um ponto específico no histórico do projeto.
 
@@ -85,9 +91,11 @@ Aqui está uma explicação passo a passo do acontece quando você executa o com
 
 6. Rastreando o histórico: O Git mantém um histórico completo dos commits, permitindo que você navegue entre diferentes versões dos arquivos e reverta alterações, se necessário.
 
-**O comando `git commit` pode ser utilizado de forma sucinta `git commit -m <frase_sobre_o_que_fez_no_commit>`, a fim de simplificar o processo de abrir um editor de texto e aumentar a praticidade no versionamento.**
+!!!
+**O comando `git commit` pode ser utilizado da seguinte forma `git commit -m <frase_sobre_o_que_fez_no_commit>`, a fim de simplificar o processo de abrir um editor de texto e aumentar a praticidade no versionamento.**
+!!!
 
-### Git Push
+## Git Push
 
 O comando `git push` é usado para enviar as **alterações locais do seu repositório Git para um repositório remoto. Ele atualiza o branch remoto com os commits feitos localmente.**
 
@@ -105,7 +113,7 @@ Aqui está uma explicação passo a passo do que acontece quando você executa o
 
 6. Confirmação do push: Após a conclusão do `git push`, você receberá uma confirmação de que os commits foram enviados com sucesso e o branch remoto foi atualizado.
 
-### Git Clone
+## Git Clone
 
 **Comando `git clone` é usado para criar uma cópia local de um repositório remoto existente**. Ele permite que você baixe todo o histórico do projeto, incluindo todos os branches e commits, para o seu ambiente de desenvolvimento local, como tambem é a maneira mais comum de iniciar o desenvolvimento em um projeto existente.
 
@@ -121,15 +129,6 @@ Aqui está uma explicação passo a passo do que acontece quando você executa o
 
 5. Configurações adicionais: Além do histórico do projeto, o `git clone` também pode baixar outras configurações do repositório, como hooks personalizados ou arquivos de configuração específicos.
 
-### Quer saber mais comandos do Git ?
+## Quer saber mais comandos do Git ?
 
 ------------------->[Documentação oficial do Github](https://docs.github.com/pt/get-started/using-git/about-git).<--------------------
-
-
-
-
-
-
-
-
-

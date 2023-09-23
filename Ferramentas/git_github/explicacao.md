@@ -1,10 +1,11 @@
 ---
 order: 3
-icon: diamond
+icon: rocket
 label: "O que é Git/GitHub ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 23/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 ## Git
 
