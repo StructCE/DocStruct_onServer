@@ -7,7 +7,7 @@ label: "Como instalar o Git ?"
 <!-- Ultima atualização: 23/09/2023 -->
 <!-- Autor(es): Araújo -->
 
-# Windows
+## Windows
 
 1. Acesse o site oficial do [Git](https://git-scm.com/) e clique no botão de download para Windows;
 2. Aguarde o arquivo de instalação ser baixado e execute-o;
@@ -20,7 +20,7 @@ label: "Como instalar o Git ?"
 9. Selecione o terminal padrão que você deseja usar com o Git (recomenda-se usar o Git Bash);
 10. Conclua a instalação clicando em "Avançar" e, em seguida, em "Concluir";
 
-# MacOS
+## MacOS
 
 Existem várias opções para instalar o Git no macOS, porém iremos utilizar como base a [domentação oficial](https://git-scm.com/download/mac) do git que utiliza o Homebrew, um gerenciador de pacotes, para instalar o Git. 
 
@@ -39,7 +39,7 @@ brew install git
 
 4. Aguarde até que a instalação seja concluída.
 
-# Linux
+## Linux
 
 O Git já vem instalado com a maioria das distribuições do Linux, porém se o git não estiver instalado, você pode instalar o Git usando o gerenciador de pacotes padrão da sua distribuição.Além disso, é importante ressaltar que distribuições diferentes tem comandos diferentes para instalação, logo caso sua distribuição no seja ubuntu, olhe a [documentação oficial](https://git-scm.com/download/linux) para mais instruções.
 
@@ -53,7 +53,7 @@ sudo apt-get install git
 
 3. Aguarde até que a instalação seja concluída.
 
-# Como verificar se o Git esta instalado?
+## Como verificar se o Git esta instalado?
 
 Após concluir a instalação no seu respectivo sistema operacional, você pode verificar se o Git está corretamente instalado digitando o comando abaixo no terminal, o qual devera retornar a versão do git instalada.
 
@@ -61,7 +61,7 @@ Após concluir a instalação no seu respectivo sistema operacional, você pode 
 git --version
 ```
 
-# Tem mais alguma coisa para fazer?
+## Tem mais alguma coisa para fazer?
 
 Após concluir a instalação do Git e verificar se ele esta instalado, siga os proximos passos para fazer configuração inicial do Git.
 
@@ -73,6 +73,6 @@ git config --global user.name <seu_nome>
 git config --global user.email <email_utilizado_no_cadastro_github> 
 ```
 
-# Quer saber mais sobre Git ?
+## Quer saber mais sobre Git ?
 
-------------------->[Documentação oficial do Git](https://git-scm.com/docs/git/pt_BR).<--------------------
+------------------->[Documentação oficial do Git](https://git-scm.com/docs/git/pt_BR)<--------------------

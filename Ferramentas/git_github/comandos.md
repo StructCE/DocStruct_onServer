@@ -7,8 +7,6 @@ label: "Quais comandos posso usar ?"
 <!-- Ultima atualização: 23/09/2023 -->
 <!-- Autor(es): Araújo -->
 
-# Comandos Basicos do Git
-
 ## Git Init
 
 O comando `git init` é usado para inicializar um repositório Git em um diretório específico. Quando você executa o `git init` em um diretório vazio ou existente, ele cria um novo repositório Git local nesse local.
@@ -131,4 +129,4 @@ Aqui está uma explicação passo a passo do que acontece quando você executa o
 
 ## Quer saber mais comandos do Git ?
 
-------------------->[Documentação oficial do Github](https://docs.github.com/pt/get-started/using-git/about-git).<--------------------
+------------------->[Documentação oficial do Github](https://docs.github.com/pt/get-started/using-git/about-git)<--------------------
