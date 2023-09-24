@@ -1,10 +1,11 @@
 ---
 order: 1
-icon: diamond
+icon: rocket
 label: "Como usar Factory Bot ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 ## Utilizando Factory Bot 
 
@@ -51,9 +52,3 @@ end
 ## Quer saber mais sobre Factory Bot?
 
 --------------->[Documentação oficial do Factory Bot](https://github.com/thoughtbot/factory_bot_rails).<-------------------
-
-
-
-
-
-

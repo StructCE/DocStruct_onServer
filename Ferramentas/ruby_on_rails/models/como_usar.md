@@ -1,10 +1,11 @@
 ---
 order: 1
-icon: diamond
+icon: rocket
 label: "Como usar uma Model ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 ## Utilizando as Models
 

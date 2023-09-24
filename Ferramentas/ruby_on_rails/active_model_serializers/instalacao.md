@@ -1,10 +1,11 @@
 ---
 order: 2
-icon: diamond
+icon: rocket
 label: "Como instalar Active Model Serializers ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 1. Adicionar a gem no Gemfile:
 

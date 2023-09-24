@@ -1,10 +1,11 @@
 ---
 order: 2
-icon: diamond
+icon: rocket
 label: "Como instalar RSpec ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 1. Adicionar a gem no Gemfile:
 
@@ -28,6 +29,3 @@ bundle install
 ```bash
 rails generate rspec:install
 ```
-
-
-

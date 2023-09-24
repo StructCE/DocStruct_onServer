@@ -4,8 +4,9 @@ url: docstruct.com
 branding:
   title: DocStruct
   label: 1.0v
+  logo: ./Imagens DocStruct/Logo/logo_struct.png
 links:
-- text: Getting Started
-  link: https://retype.com/guides/getting-started/
+- text: GitHub Struct
+  link: https://github.com/StructCE
 footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved."

@@ -1,10 +1,11 @@
 ---
 order: 1
-icon: diamond
+icon: rocket
 label: "Como usar RSpec ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 ## Utilizando Rspec 
 
@@ -47,9 +48,3 @@ rspec
 ## Quer saber mais sobre RSpec?
 
 --------------->[Documentação oficial do RSpec](https://rspec.info/documentation/).<-------------------
-
-
-
-
-
-

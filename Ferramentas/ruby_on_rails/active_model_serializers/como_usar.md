@@ -1,10 +1,11 @@
 ---
 order: 1
-icon: diamond
+icon: rocket
 label: "Como usar Active Model Serializers ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 ## Utilizando Active Model Serializers
 
@@ -31,9 +32,3 @@ end
 ## Quer saber mais sobre Active Model Serializers?
 
 ------------>[Documentação oficial Active Model Serializers](https://github.com/rails-api/active_model_serializers).<-------------------
-
-
-
-
-
-

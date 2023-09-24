@@ -7,12 +7,16 @@ label: "Como fazer Self-Hosting (Back-End)?"
 <!-- Ultima atualização: 22/09/2023 -->
 <!-- Autor(es): Artur Padovesi e Pedro Augusto Ramalho Duarte -->
 
-# Configurando o projeto para deploy
+## Configurando o projeto para deploy
+
+!!!
+É mantido um repositório no GitBucket com os DockerFiles utilizados para construir as imagens do nosso servidor, bem como um repositório armazenado no servidor, com os arquivos do Docker Compose utilizados para rodar as imagens construídas.
+!!!
 
 1. Crie uma branch `production`;
 2. Adicione `Dockerfile` ao `.gitignore` do projeto;
 
-# Crie a imagem Docker
+## Crie a imagem Docker
 
 !!!
 Não coloque Dockerfiles no repositório do projeto, utilize o repositório do GitBucket para isso. Colocar esse arquivo no projeto pode causar problemas de segurança. Muitos dos nossos Dockerfiles usam credenciais que **não devem** ser expostas.
@@ -31,7 +35,7 @@ Várias das nossas imagens são um pull do projeto, e para isso é necessário u
 !!!
 
 
-# Faça o Push da imagem Docker
+## Faça o Push da imagem Docker
 
 1. Faça login no DockerHub, usando o comando:
 
@@ -49,7 +53,7 @@ docker push structej/projetos:{nome_do_projeto_versão}
 O `structej/projetos` é o `usuário/projeto` que enviamos a imagem de tag `{nome_do_projeto_versão}`. É importante fazer assim, pois por padrão projetos no DockerHub são públicas, então enviamos ela para um repositório que sabemos ser privado.
 !!!
 
-# Faça o docker-compose no servidor
+## Faça o docker-compose no servidor
 
 !!!
 Os templates de `docker-compose.yml` ficam na pasta `templates` do repositório armazenado no servidor.
@@ -66,7 +70,7 @@ git pull/clone
 
 5. Crie um docker-compose.yml com o serviço do projeto, usando o template de `docker-compose.yml`.
 
-# Atualize a branch `production`
+## Atualize a branch `production`
 
 1. Crie uma PR para a branch `production`, com as adições que devem ser feitas no deploy;
 
@@ -74,7 +78,7 @@ git pull/clone
 Procure por coisas que podem quebrar ou requerem passos adicionais no deploy, como mudanças de banco de dados, ou mudanças de configuração de serviços.
 !!!
 
-# Atualize a imagem docker
+## Atualize a imagem docker
 
 1. Faça o build da imagem docker, usando o comando:
 
@@ -92,7 +96,7 @@ Agora a versão da imagem docker é `versão`. Sempre incrementamos a `versão` 
 docker push structej/projetos:{nome_do_projeto_versão}
 ```
 
-# Atualize o docker-compose no servidor
+## Atualize o docker-compose no servidor
 
 1. Mudar a propriedade `image` do serviço do projeto no `docker-compose.yml` para a versão atual da imagem docker;
 2. Faça o commit das alterações;

@@ -7,7 +7,7 @@ label: "Como usar Netlify ?"
 <!-- Ultima atualização: 23/09/2023 -->
 <!-- Autor(es): Artur Padovesi -->
 
-# Configurando o projeto
+## Configurando o projeto
 
 1. Na própria main, mude o `/public/favicon.ico` para o real ícone do projeto. 
 2. Mude o `index.html`, trocando os conteúdos das tags `<meta>`, `<title>` e a `lang` da tag `<html>`. 
@@ -19,7 +19,7 @@ label: "Como usar Netlify ?"
 Se você tem uma instância axios com a url `http://localhost:3333/api/v1`, mude para `https://seu-projeto.railway.app/api/v1` ou equivalente (a url de _staging_). Se a url das imagens é `http://localhost:3333/`, mude para `https://seu-projeto.railway.app` ou equivalente.
 !!!
 
-# Roteamento Client Side
+## Roteamento Client Side
 
 !!!
 Geralmente fazemos _deploy_ de React como [_single page app_](https://en.wikipedia.org/wiki/Single-page_application), com um roteador _client side_, como react-router-dom. Sendo assim, rotas não são [_endpoints_](https://www.cloudflare.com/pt-br/learning/security/api/what-is-api-endpoint/), e sempre devem ser retornados os mesmos arquivos pra requisições, independente da rota. 
@@ -31,7 +31,7 @@ Geralmente fazemos _deploy_ de React como [_single page app_](https://en.wikiped
 /*    /index.html   200
 ```
 
-# Fazendo deploy manual
+## Fazendo deploy manual
 
 1. Vá para a branch `netlify`;
 2. Rode o comando `yarn build` para gerar uma pasta `build` com os arquivos estáticos;

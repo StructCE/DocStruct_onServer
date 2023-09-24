@@ -1,10 +1,11 @@
 ---
 order: 1
-icon: diamond
+icon: rocket
 label: "Como usar o Devise ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 ## Utilizando o Devise
 
@@ -36,9 +37,3 @@ User.all
 ## Quer saber mais sobre Devise?
 
 --------------->[Documentação oficial do Devise](https://github.com/heartcombo/devise#starting-with-rails).<-------------------
-
-
-
-
-
-

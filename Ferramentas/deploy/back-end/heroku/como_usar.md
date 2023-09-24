@@ -7,7 +7,7 @@ label: "Como usar Heroku ?"
 <!-- Ultima atualização: 22/09/2023 -->
 <!-- Autor(es): Artur Padovesi e Pedro Augusto Ramalho Duarte -->
 
-# Configurando o projeto para deploy
+## Configurando o projeto
 
 !!!
 Esse deploy esta sendo feito com base em um projeto Rails
@@ -56,10 +56,9 @@ bundle
 - `config/initializers/active_storage.rb`;
 - Colocar as chaves de acesso do serviço escolhido no Heroku;
 
-# Executando deploy do projeto
+## Executando deploy do projeto
 
-## CLI(Command Line Interface)
-
+### Por CLI
 !!!
 Tutorial para instalar o CLI do heroku https://devcenter.heroku.com/articles/heroku-cli#download-and-install
 !!!
@@ -78,7 +77,7 @@ heroku git:remote -a {nome_da_aplicação}
 git push heroku {nome_da_aplicação}
 ```
 
-## Dashboard
+### Por Dashboard
 
 1. Acesse a dashboard da conta de projetos da Struct;
 2. Crie uma nova aplicação;

@@ -1,10 +1,11 @@
 ---
 order: 3
-icon: diamond
+icon: rocket
 label: "O que é Prisma ORM ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 ## O que é ORM ?
 

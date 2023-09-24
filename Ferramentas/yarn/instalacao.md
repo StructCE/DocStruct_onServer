@@ -1,10 +1,11 @@
 ---
 order: 2
-icon: diamond
+icon: rocket
 label: "Como instalar o Yarn ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 # Como instalar o Yarn ?
 

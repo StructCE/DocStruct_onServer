@@ -1,10 +1,11 @@
 ---
 order: 1
-icon: diamond
+icon: rocket
 label: "Como usar uma Controller ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 ## Utilizando uma Controller
 
@@ -66,9 +67,3 @@ localhost:3000/api/v1/user/index
 ## Quer saber mais sobre Controller?
 
 --------------->[Documentação oficial Controller do Rails](https://guides.rubyonrails.org/action_controller_overview.html).<-------------------
-
-
-
-
-
-

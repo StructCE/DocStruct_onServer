@@ -1,10 +1,11 @@
 ---
 order: 1
-icon: diamond
+icon: rocket
 label: "Como usar Simple Token Authentication ?"
 ---
 
-<!-- Araújo -->
+<!-- Ultima atualização: 24/09/2023 -->
+<!-- Autor(es): Araújo -->
 
 ## Utilizando Simple Token Authentication
 
@@ -50,9 +51,3 @@ end
 ## Quer saber mais sobre Simple Token Authentication?
 
 ------------>[Documentação oficial Simple Token Authentication](https://github.com/gonzalo-bulnes/simple_token_authentication).<-------------------
-
-
-
-
-
-
