@@ -2,10 +2,12 @@
 order: 1
 icon: rocket
 label: "Quais comandos posso usar ?"
+author:
+  name: Araújo
+  avatar: ../../Imagens DocStruct/Logos/logo_struct.png
+date: 2023-09-24
+category: Comandos
 ---
-
-<!-- Ultima atualização: 24/09/2023 -->
-<!-- Autor(es): Araújo -->
 
 ## Comandos basicos WSL
 

@@ -2,10 +2,12 @@
 order: 3
 icon: rocket
 label: "O que é Prisma ORM ?"
+author:
+  name: Araújo
+  avatar: ../../Imagens DocStruct/Logos/logo_struct.png
+date: 2023-09-24
+category: Explicação
 ---
-
-<!-- Ultima atualização: 24/09/2023 -->
-<!-- Autor(es): Araújo -->
 
 ## O que é ORM ?
 

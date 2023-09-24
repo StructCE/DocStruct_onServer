@@ -85,3 +85,56 @@ git push heroku {nome_da_aplicação}
 4. Selecione o repositório do projeto;
 5. Selecione a branch `Heroku`;
 6. Selecione a opção **Deploy Branch**. 
+
+### Deploy front-end com heroku
+
+É possível usar do Heroku para fazer deploy de front-end. Basta criar um único endpoint para enviar os assets estáticos do front. Exemplo:
+
+
+```js
+// /package.json
+
+{
+  "scripts": {
+    "build": "um comando de build qualquer", // comando para gerar os assets estáticos
+    "start": "node server.js" // comando para rodar o servidor que servirá os assets
+  }
+}
+
+
+```
+
+```js
+// /server.js
+
+const express = require("express");
+//chamamos o express para o arquivo
+
+const { resolve } = require('path')
+//para garantir que pegaremos o path exato
+
+const app = express();
+//criamos uma aplicação com o express
+
+app.use("/", 
+  express.static(
+    resolve(
+      __dirname,
+      './build' // Onde os assets estáticos do front-end estão depois de rodar yarn build
+    )
+  )
+);
+//serve para pegarmos os itens de forma estática e servirmos o build
+
+app.listen(process.env.PORT || 3000, (err) => {
+  //usaremos a porta que o heroku definir ou a 300
+  if (err) {
+    return console.log(err);
+  }
+  //caso tenha um erro vai retornar o erro na callback
+  console.log("Deu bom!");
+  //no mais, esse console.log aparecerá na tela
+});
+```
+
+Agora temos uma api, e então o deploy pode ser feito no Heroku.
