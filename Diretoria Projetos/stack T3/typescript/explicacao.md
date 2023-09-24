@@ -12,7 +12,7 @@ Vale reiterar que o TypeScript não é uma nova linguagem. No final, todo seu c�
 
 ## Tipando props
 
-Escrever códido TypeScript com React é bem semelhante a escrever código JavaScript com React. A principal diferença está no fato de que, quando trabalhando com um componente em TypeScript, você terá que declarar e prover tipos para as props dos seus componentes.
+Escrever códido TypeScript com React é bem semelhante a escrever código JavaScript com React. Uma das principais diferenças está no fato de que, quando trabalhando com um componente em TypeScript, você terá que declarar e prover tipos para as props dos seus componentes.
 
 * JavaScript:
 
