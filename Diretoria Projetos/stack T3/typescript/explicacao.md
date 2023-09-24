@@ -1,4 +1,8 @@
-Esta é uma documentação não especificamente do TypeScript, mas em como utilizar o TypeScript com o React, o que é de fato o mais significativo para o nosso estudo do desenvolvimento web.
+---
+order: 3
+icon: diamond
+label: "Como utilizar o TypeScript com o React?"
+---
 
 # De .jsx para .tsx
 
@@ -28,7 +32,7 @@ export function MyButton({ content } : { content: string | ReactElement }) {
 
 No exemplo acima, provemos, de forma inline, um tipo para o content do button. Entretanto, podemos separar isso da declaração do componente. A seguinte sintaxe é uma forma simples e básica de prover tipos para o seu componente React, sem ser de forma inline, o que nos possibilitará, mais a frente, aprendermos como reutilizar e expandir tipagens.
 
-### Declarando tipos
+* Declarando tipos
 
 ```
 interface MyButtonProps {
@@ -48,7 +52,7 @@ export function MyButton({ content, onClick } : MyButtonProps) {
 
 ## Pacote @types/react
 
-O pacote @types/react inclui diversos tipos para o nosso código de React, nos possibilitando prover tipagens para hooks built-in, eventos e elementos. Assim, você pode usá-los sem precisar realizar nenhuma configuração adicional no seu repositório e no seu código.
+O pacote [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts) inclui diversos tipos para o nosso código de React, nos possibilitando prover tipagens para hooks built-in, eventos e diversos elementos. Assim, você pode usá-los sem precisar realizar nenhuma configuração adicional no seu repositório e no seu código.
 
 ### Hooks nativos
 
@@ -101,9 +105,9 @@ export default function MyApp() {
 
 ### Eventos
 
-Quando trabalhamos com eventos DOM no React, o tipo do evento é possível de ser inferido pelo event handler. Entretanto, quando quando você quer criar uma função a ser passada para o event handler, você então precisa explicitamente definir o tipo do evento.
+Quando se trabalha com eventos DOM no React, o tipo do evento é possível de ser inferido pelo event handler. Entretanto, quando quando você quer criar uma função a ser passada para o event handler, você então precisa explicitamente definir o tipo do evento.
 
-O pacote @types/react nos fornece uma lista muito ampla de tipos que podemos usar no nosso código, entre eles, há tipos para os diversos eventos. Eles usam uma sintaxe semelhante, baseada em "FenomenoEvent<Element>", onde Element é o elemento do qual o evento é gerado. Seguem alguns exemplos:
+O pacote @types/react fornece uma [lista muito ampla](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/b580df54c0819ec9df62b0835a315dd48b8594a9/types/react/index.d.ts#L1247C1-L1373) de tipos que você usar para manipular eventos no seu código. Eles usam uma sintaxe semelhante, baseada em `FenomenoEvent<Elemento>`, onde Elemento é o tipo do elemento do qual o evento é gerado. Seguem alguns exemplos:
 
 * Para onChange de um input, use ChangeEvent
 
@@ -160,15 +164,17 @@ export default function MyForm() {
 
 * Demais exemplos
 
-Mais alguns eventos que vocês podem olhar: FocusEvent, InvalidEvent, KeyboardEvent, MouseEvent, TouchEvent, TransitionEvent, ...
+Há mais alguns eventos que vocês podem olhar: FocusEvent, InvalidEvent, KeyboardEvent, MouseEvent, TouchEvent, TransitionEvent, ...
 
-Para completar, se você precisar usar algum evento que não está incluído nessa lista, você pode usar o tipo SyntheticEvent, que é o tipo do qual é extendido todos os outros tipos de evento.
+Por fim, se você precisar usar algum evento que não está incluído nessa lista, você pode usar o tipo SyntheticEvent, que é o tipo do qual é extendido todos os outros tipos de evento.
 
 ### Componentes (ReactNode, ReactElement, HTMLElement)
 
-No @types/react, existem diversos tipos para componentes e marcação do nosso código jsx, o que pode acabar confundindo quem está vendo TypeScript pela primeira vez. Portanto, vamos nos focar nos tipos básicos, que podemos usar para a maioria das situações, como para passagem de componentes em props e para a tipagem de children's.
+No @types/react, existem [diversos tipos](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts#L163C1-L163C1) para componentes e marcação do nosso código jsx, o que pode acabar confundindo quem está vendo TypeScript pela primeira vez. Portanto, vamos nos focar nos tipos básicos, que podemos usar para a maioria das situações, como para passagem de componentes em props e para a tipagem de children's.
 
 Tipando componentes:
+
+* ReactNode
 
 ```
 interface MyComponentProps {
@@ -179,6 +185,8 @@ interface MyComponentProps {
 
 Uma primeira possibilidade é usar o tipo ReactNode, o qual é uma união de todos os possíveis tipos que podem ser passados como children em um código JSX.
 
+* ReactElement
+
 ```
 interface MyComponentProps {
   title: string;
@@ -187,6 +195,8 @@ interface MyComponentProps {
 ```
 
 Uma segunda possibilidade, menos abrangente, é utilizar o ReactElement, o qual abrange apenas elementos JSX, excluindo tipos primitivos do JavaScript como string e number.
+
+* HTMLElement
 
 ```
 interface MyComponentProps {
