@@ -12,7 +12,6 @@ Para adicionar o Button ao projeto, copie os seguintes arquivos para o seu proje
 
 [Button/index.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Button/index.tsx)
 
-[Button/example.tsx](https://github.com/StructCE/our-react-components/blob/main/src/components/Button/example.tsx)
 
 ## Utilização
 
