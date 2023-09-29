@@ -1,6 +1,6 @@
 ---
 order: 3
-icon: diamond
+icon: question
 label: "O que é tRPC?"
 ---
 

@@ -1,6 +1,6 @@
 ---
 order: 2
-icon: diamond
+icon: tools
 label: "Instalação" 
 ---
 
