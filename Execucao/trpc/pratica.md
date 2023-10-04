@@ -10,9 +10,9 @@ tRPC é uma ferramenta para comunicação entre back-end e front-end, então com
 
 ## Iniciando o tRPC no back-end
 
-A primeira tarefa a ser feita é iniciar o tRPC no back-end. O tRPC funciona através de classes e, para termos acesso às propriedades e aos métodos dessa ferramenta, precisamos criar um objeto/instância dessa classe.
+A primeira tarefa a ser feita é iniciar o tRPC no back-end. O tRPC funciona através de chamadas de funções de um lado da aplicação para outro e, para termos acesso às propriedades e aos métodos dessa ferramenta, precisamos inicializar uma instância de roteador.
 
-Assim, criaremos um arquivo `trpc.ts` onde inicializaremos o tRPC por meio de uma `const t` (nome usado somente para exemplo) e exportaremos as propriedades `router`e `procedure` da instância de classe tRPC.
+Assim, criaremos um arquivo `trpc.ts` onde inicializaremos o tRPC por meio de uma `const t` (nome usado somente para exemplo) e exportaremos as propriedades `router`e `procedure` da instância.
 
 ``` ts "./server/trpc.ts"
 import { initTRPC } from '@trpc/server';
@@ -29,14 +29,15 @@ Exportamos duas propriedades que definimos no arquivo `trpc.ts` para facilitar o
 
 ### Uso das propriedades
 
-Para o lado cliente poder se comunicar com o servidor é preciso definir "rotas de comunicação", pois quando o cliente efetuar uma requisição o servidor saberá exatamente que tipo de ação ele tem que tomar, se ele tem que mandar informações, adicionar, excluir, atualizar etc. E é por isso que usamos a propriedade `router`, para definirmos nossas rotas.
+Para o lado cliente poder se comunicar com o servidor é preciso definir "rotas de comunicação", pois é por meio das rotas que o servidor é direcionado ao procedimento/protocolo específico, definidas usando o `router`.
 
+Em seguida, a rota levará a um procedimento (`procedure`) no qual é passado uma função que pode chamar determinadas funções do banco de dados e/ou efetuar outras ações. Logo, também precisamos usar a propriedade `procedure` para definirmos o que deve ser feito e as funções a serem chamadas em uma determinada rota.
 
-Porém, não faria sentido definirmos as rotas de comunicação entre o cliente e o servidor se não temos por onde fazer essa comunicação. Então também precisamos usar a propriedade `procedure` que está definida como publicProcedure pois, no exemplo, definiremos requisições que não exigirão autenticação.
+No caso, `procedures` está definido como publicProcedure pois, no exemplo, definiremos requisições que não exigirão autenticação.
 
 ## Definindo as rotas
 
-Então, importamos em outro arquivo, mais por questão de organização, as propriedades `router` e `publicProcedure`  e definimos um conjunto de rotas em uma `const appRouter`. Também deve-se importar o banco de dados feito em sua aplicação, pois nas rotas serão definidas requisições para o mesmo. 
+Então, importamos em outro arquivo, mais por questão de organização, as propriedades `router` e `publicProcedure` e definimos um conjunto de rotas em uma `const appRouter`. Também deve-se importar o banco de dados feito em sua aplicação, pois nas rotas serão definidas requisições para o mesmo. 
 <br>
 
 Para fazer as definições, é usado um objeto/dicionário onde as chaves serão os nomes das rotas e os valores serão as ações efetuadas no momento em que elas forem chamadas pelo lado cliente.
@@ -58,7 +59,7 @@ Usamos o `publicProcedure`, que definirmos anteriormente, para efetuar requisiç
 Um procedimento pode ser:
 - `query` busca de informação
 - `mutation` criação, atualização ou delete de informação
-- `subscription` cria uma ligação persistente com o servidor e recebe mudanças.
+- `subscription` cria uma ligação persistente com o servidor e recebe mudanças. É o famoso websocket.
 
 No caso, estamos definindo uma requisição `userList` que irá listar todos os usuários de um servidor, logo usamos `query`.
 
@@ -66,7 +67,7 @@ No caso, estamos definindo uma requisição `userList` que irá listar todos os 
 
 Para receber entrada de informações do lado cliente, basta usar o `input()` que irá receber informações e as retornará para o `query()` podendo ser, primeiramente, validadas, caso efetuado um tratamento de dados. 
 Usamos o pacote "zod" para fazer a validação da entrada de dados.
-Os campos nos quais deseja fazer alguma validação coloque z.tipoDeDadoDesejado(validação desejada), exemplo:
+Os campos nos quais deseja fazer alguma validação coloque z.tipoDeDadoDesejado(), exemplo:
 
 ``` ts "./server/index.ts"
 import { z } from 'zod';
