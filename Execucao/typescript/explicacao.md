@@ -60,7 +60,7 @@ O que vem depois dos dois pontos de uma anotação de tipo pode variar de simple
 ## Tipos básicos
 
 - Tipos estáticos primitivos do JavaScript: **undefined**, **null**, **boolean**, **number**, **string**, **symbol**, **object**
-- Tipos específicos do TypeScript: **any** (o tipo de todos os valores), **unknown** (o tipo de um valor desconhecido)
+- Tipos específicos do TypeScript: **any** (o tipo de todos os valores), **unknown** (o tipo de um valor desconhecido), etc.
 
 _Obs.: Tenha cuidado ao utilizar o tipo unknown. Tenha certeza do que está fazendo_
 
@@ -74,3 +74,71 @@ variavel = 123
 ```
 
 O código acima é compilado adequadamente, pois você explicitamente declarou que _variavel_ pode assumir tanto um valor numérico quanto **null**
+
+## Tipos em Array
+
+Os arrays serão definidos aqui das duas formas seguintes (e às vezes uma mistura dos dois):
+
+- _Lists_: Todos os elementos têm o mesmo tipo e comprimento do array pode variar.
+- _Tuple_: Os elementos não têm necessariamente o mesmo tipo, porém o comprimento do array é fixo.
+
+### Array como list
+
+Existem duas maneiras de descrever um array como uma lista:
+
+```
+let arr1 = number[] = [1, 2, 3];
+let arr2 = Array<number> = [1, 2, 3, 4];
+```
+
+No exemplo acima, tanto _arr1_ quanto _arr2_ são tipados como arrays de tamanho variável, cujos elementos são todos valores numéricos
+
+### Array como tuple
+
+Suponha que você deseja agora armazenar um par de chave e valor, resultado da operação _Object.entries(obj)_, onde _obj_ é um objeto cujas chaves são strings e os valores são números.
+
+```
+let obj = {a: 1, b: 2}
+let primeiroParChaveValor: [string, number] = Object.entries(obj)[0]
+```
+
+No exemplo acima, descrevemos _primeiroParChaveValor_ como um array de tamanho definido de 2 elementos, onde o primeiro deve ser uma string e o segundo deve ser um valor numérico.
+
+## Tipos em funções
+
+Ao descrever tipos para funções, estaremos descrevendo tanto os tipos dos parâmetros que a função aguarda, quanto também o tipo do seu retorno. O exemplo abaixo é uma anotação de tipo para todas as funções que aguardam um único parâmetro, sendo ele um número, e retornam um booleano:
+
+```
+(num: number) => boolean
+```
+
+O código a seguir é um exemplo mais realista:
+
+```
+const verificaPositivo: (num: number) => boolean = (num) => {
+    if (num >= 0) {
+        return true;
+    }
+    return false;
+}
+```
+
+Outra forma de descrever a função acima é descrever separadamente os tipos do parâmetro da função e de seu retorno:
+
+```
+function verificaPositivo2(num: number): boolean {
+    if (num >= 0) {
+        return true;
+    }
+    return false;
+}
+```
+
+_Obs.: se excluirmos o boolean na declaração da função acima, o TypeScript é inteligente o suficiente para inferir o tipo do retorno, a partir do escopo da função_
+
+Porém, e se minha função não retornar nada? Terei que forçar um retorno que não desejo, só para poder tipar a função?? Não! Para começar, funções que "não retornam nada" no JavaScript estão na verdade retornando **undefined** implicitamente, e um dos tipos muito úteis que o TypeScript nos fornece é o **void**, o qual diz que a função sempre retorna **undefined**, explícito ou implicitamente.
+
+```
+function retornaNada(): void { return undefined } // ok
+function retornaNada2(): void { } // ok
+```
