@@ -4,11 +4,11 @@ icon: diamond
 label: "Como implementar o Next Auth em um projeto existente?"
 ---
 
-## Instalação
+# Instalação
 
 Para adicionar o Next Auth ao projeto basta utilizar o seguinte comando no terminal: `yarn add next-auth `, ou `pnpm add next-auth  ` se estiver utilizando o pnpm.
 
-## Implementação de Rotas
+# Implementação de Rotas
 
 !!Atenção: verifique a versão do Next.js utilizada no projeto e se o tipo de roteamento usado é o `Pages Router` ou o `App Router`, pois o modo de implementação é diferente.
 
