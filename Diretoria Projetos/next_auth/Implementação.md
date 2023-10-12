@@ -99,11 +99,11 @@ A ideia é armazenar os resultados do useSession em props para comparar com o ba
 
 # Autenticação
 
-O Next Auth possibilita que o critérios de autenticação(providers) seja por meio de credenciais (nome,senha), email e autenticações externas(google,GitHub,etc.)
+O Next Auth possibilita que o critério de autenticação(provider) seja por meio de credenciais (nome,senha), email ou autenticações externas(google,GitHub,etc.)
 
 ## Credenciais
 
-A autenticação por Credenciais permite lidar com o login usando credenciais arbitrárias, como nome de usuário e senha, ele vem com a restrição de que os usuários autenticados dessa maneira não se mantém, no banco de dados e, consequentemente, é necessário o uso de tokens(id) para implementar a validação.Por exemplo:
+A autenticação por Credenciais permite lidar com o login usando credenciais arbitrárias, como nome de usuário e senha, ele vem com a restrição de que os usuários autenticados dessa maneira não se mantém no banco de dados e, consequentemente, é necessário o uso de tokens(id) para implementar a validação.Por exemplo:
 
 
 ```js
