@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 icon: diamond
 label: "Como implementar o Next Auth em um projeto existente?"
 ---

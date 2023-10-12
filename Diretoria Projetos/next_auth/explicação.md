@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 icon: diamond
 label: "O que é NextAuth.js?"
 ---
