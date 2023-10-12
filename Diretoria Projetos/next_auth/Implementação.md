@@ -8,7 +8,7 @@ label: "Como implementar o Next Auth em um projeto existente?"
 
 Para adicionar o Next Auth ao projeto basta utilizar o seguinte comando no terminal: `yarn add next-auth `, ou `pnpm add next-auth  ` se estiver utilizando o pnpm.
 
-# Implementação de Rotas
+# Implementação de Rotas API
 
 !!Atenção: verifique a versão do Next.js utilizada no projeto e se o tipo de roteamento usado é o `Pages Router` ou o `App Router`, pois o modo de implementação é diferente.
 
@@ -45,9 +45,31 @@ Nesse caso, crie um arquivo chamado `route.js` na pasta `app/api/auth/[...nextau
 import NextAuth from "next-auth"
 
 const handler = NextAuth({
-  ...
+  // ...adicione mais provedores aqui
 })
 
 export { handler as GET, handler as POST }
 
 ```
+## Configurando useSession
+
+O `useSession` é um importante hook do React que é utilizado nas aplicações Next Auth para recuperar informações da sessão de usuário.Para utilizá-lo primeiro é preciso expor o conteudo da sessão de usuário por meio do  `<SessionProvider />`,basta aplicá-lo m seu arquivo `app.jsx` como no exemplo:
+
+```js
+
+import { SessionProvider } from "next-auth/react"
+
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
+  return (
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  )
+}
+
+```
+
+Dessa forma, o `useSession` terá acesso aos dados e status da sessão
