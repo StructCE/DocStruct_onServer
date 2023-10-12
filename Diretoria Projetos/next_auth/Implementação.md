@@ -51,6 +51,8 @@ const handler = NextAuth({
 export { handler as GET, handler as POST }
 
 ```
+
+# Utilização
 ## Configurando useSession
 
 O `useSession` é um importante hook do React que é utilizado nas aplicações Next Auth para recuperar informações da sessão de usuário.Para utilizá-lo primeiro é preciso expor o conteudo da sessão de usuário por meio do  `<SessionProvider />`,basta aplicá-lo m seu arquivo `app.jsx` como no exemplo:
@@ -73,3 +75,69 @@ export default function App({
 ```
 
 Dessa forma, o `useSession` terá acesso aos dados e status da sessão
+
+## Utilização do useSession
+
+O Hook do React useSession() usado no NextAuth.js é a maneira mais fácil de verificar se alguém está autenticado.Como no exemplo:
+
+```js
+
+import { useSession } from "next-auth/react"
+
+export default function Component() {
+  const { data: session, status } = useSession()
+
+  if (status === "authenticated") {
+    return <p>Signed in as {session.user.email}</p>
+  }
+
+  return <a href="/api/auth/signin">Sign in</a>
+}
+
+```
+A ideia é armazenar os resultados do useSession em props para comparar com o back end e realizar a autenticação.
+
+# Autenticação
+
+O Next Auth possibilita que o critérios de autenticação(providers) seja por meio de credenciais (nome,senha), email e autenticações externas(google,GitHub,etc.)
+
+## Credenciais
+
+A autenticação por Credenciais permite lidar com o login usando credenciais arbitrárias, como nome de usuário e senha, ele vem com a restrição de que os usuários autenticados dessa maneira não se mantém, no banco de dados e, consequentemente, é necessário o uso de tokens(id) para implementar a validação.Por exemplo:
+
+
+```js
+
+import CredentialsProvider from "next-auth/providers/credentials";
+...
+providers: [
+  CredentialsProvider({
+    // O nome exibido no formulário de login (por exemplo, 'Entrar com...')
+    name: "Credentials",
+    // 'credentials' é usado para gerar um formulário na página de login.
+    // Você pode especificar quais campos devem ser enviados, adicionando chaves ao objeto 'credentials'
+    // por exemplo, domínio, nome de usuário, senha, token de autenticação de dois fatores, etc.
+    // Você pode passar qualquer atributo HTML para a tag <input> por meio do objeto.
+    credentials: {
+      username: { label: "Username", type: "text", placeholder: "jsmith" },
+      password: { label: "Password", type: "password" }
+    },
+    async authorize(credentials, req) {
+      // Adicione parâmetros aqui para procurar o usuário com base nas credenciais fornecidas.
+      const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
+
+      if (user) {
+        // Qualquer objeto retornado será salvo na propriedade user 
+        return user
+      } else {
+        // Se você retornar null, um erro será exibido, aconselhando o usuário a verificar seus dados.
+        return null
+
+        // Você também pode rejeitar este retorno de chamada com um erro, assim o usuário será redirecionado para a página de erro com a mensagem de erro como um parâmetro de consulta
+      }
+    }
+  })
+]
+...
+
+```
