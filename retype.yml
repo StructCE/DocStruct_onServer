@@ -4,10 +4,12 @@ url: structce.github.io/DocStruct/
 branding:
   title: DocStruct
   label: 1.0v
+  logo: ./Imagens DocStruct/Logos/logo_struct.png
 links:
-  - text: Inicie com retype
-    link: https://retype.com/guides/getting-started/
+  - text: GitHub
+    link: https://github.com/StructCE/DocStruct
+    icon: ./Imagens DocStruct/Logos/logo_github.png
   - text: Componentes
-    link: https://structce.github.io/DocStruct/components
+    link: https://structce.github.io/DocStruct/components/introducao/
 footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved."
