@@ -55,7 +55,7 @@ export { handler as GET, handler as POST }
 # Utilização
 ## Configurando useSession
 
-O `useSession` é um importante hook do React que é utilizado nas aplicações Next Auth para recuperar informações da sessão de usuário.Para utilizá-lo primeiro é preciso expor o conteudo da sessão de usuário por meio do  `<SessionProvider />`,basta aplicá-lo m seu arquivo `app.jsx` como no exemplo:
+O `useSession` é um importante hook do React que é utilizado nas aplicações Next Auth para recuperar informações da sessão de usuário.Para utilizá-lo primeiro é preciso expor o conteudo da sessão de usuário por meio do  `<SessionProvider />`,basta aplicá-lo e m seu arquivo `app.jsx` como no exemplo:
 
 ```js
 
@@ -139,5 +139,31 @@ providers: [
   })
 ]
 ...
+
+```
+
+## OAuth
+
+OAuth é o processo de autenticação do NextAuth que utiliza de processos de login externos preexistentes, ou seja, da ao usúario a opção de fazer a autenticação por outra plataforma como Github, Google, Twitter, etc.
+
+Por serem processos externos de várias fontes diferentes, cada autenticação escolhida terá uma documentação específica diferente. Para acessar todos os providers externos suportados pelo NextAuth e suas respectivas documentações clique [Aqui](https://github.com/nextauthjs/next-auth/tree/main/packages/next-auth/src/providers).
+
+Segue um exemplo demonstrativo do Google como provider OAuth:
+
+```js
+
+import GoogleProvider from "next-auth/providers/google"
+
+GoogleProvider({
+  clientId: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  profile(profile) {
+    return {
+      // Retorne todas as informações de perfil de que você precisa.
+      // O único campo obrigatório é o 'id'
+      // para ser capaz de identificar a conta quando adicionada a um banco de dados.
+    }
+  },
+})
 
 ```
