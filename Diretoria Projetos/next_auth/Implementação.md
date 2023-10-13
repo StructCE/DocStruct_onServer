@@ -8,7 +8,7 @@ label: "Como implementar o Next Auth em um projeto existente?"
 
 Para adicionar o Next Auth ao projeto basta utilizar o seguinte comando no terminal: `yarn add next-auth `, ou `pnpm add next-auth  ` se estiver utilizando o pnpm.
 
-# Implementação de Rotas API
+# Implementação
 
 !!Atenção: verifique a versão do Next.js utilizada no projeto e se o tipo de roteamento usado é o `Pages Router` ou o `App Router`, pois o modo de implementação é diferente.
 
@@ -74,11 +74,11 @@ export default function App({
 
 ```
 
-Dessa forma, o `useSession` terá acesso aos dados e status da sessão
+Dessa forma, o `useSession` terá acesso aos dados e status da sessão.
 
 ## Utilização do useSession
 
-O Hook do React useSession() usado no NextAuth.js é a maneira mais fácil de verificar se alguém está autenticado.Como no exemplo:
+O Hook do React `useSession` usado no NextAuth.js é a maneira mais fácil de verificar se alguém está autenticado.Como no exemplo:
 
 ```js
 
@@ -95,11 +95,11 @@ export default function Component() {
 }
 
 ```
-A ideia é armazenar os resultados do useSession em props para comparar com o back end e realizar a autenticação.
+A ideia é armazenar os resultados do `useSession` em props para comparar com o back end e realizar a autenticação.
 
 # Autenticação
 
-O Next Auth possibilita que o critério de autenticação(provider) seja por meio de credenciais (nome,senha), email ou autenticações externas(google,GitHub,etc.)
+O Next Auth possibilita que o critério de autenticação(provedores) seja por meio de credenciais (nome,senha), email ou autenticações externas(google,GitHub,etc.).
 
 ## Credenciais
 
@@ -144,11 +144,11 @@ providers: [
 
 ## OAuth
 
-OAuth é o processo de autenticação do NextAuth que utiliza de processos de login externos preexistentes, ou seja, da ao usúario a opção de fazer a autenticação por outra plataforma como Github, Google, Twitter, etc.
+OAuth é o processo de autenticação do NextAuth que utiliza de processos de login externos preexistentes, ou seja, dá ao usúario a opção de realizar a autenticação por outra plataforma como Github, Google, Twitter, etc.
 
-Por serem processos externos de várias fontes diferentes, cada autenticação escolhida terá uma documentação específica diferente. Para acessar todos os providers externos suportados pelo NextAuth e suas respectivas documentações clique [Aqui](https://github.com/nextauthjs/next-auth/tree/main/packages/next-auth/src/providers).
+Por serem processos externos de várias fontes diferentes, cada autenticação escolhida terá uma documentação específica diferente. Para acessar todos os provedores de autenticação externa suportados pelo NextAuth e suas respectivas documentações clique [Aqui](https://github.com/nextauthjs/next-auth/tree/main/packages/next-auth/src/providers).
 
-Segue um exemplo demonstrativo do Google como provider OAuth:
+Segue um exemplo demonstrativo do Google como provedor OAuth:
 
 ```js
 
