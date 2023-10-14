@@ -6,7 +6,6 @@ edit:
   label: Altere essa página no GitHub.
 branding:
   title: DocStruct
-  label: 1.0v
   logo: ./Imagens DocStruct/Logos/logo_struct.png
 links:
   - text: GitHub
@@ -15,4 +14,8 @@ links:
   - text: Componentes
     link: https://structce.github.io/DocStruct/components/introducao/
 footer:
-  copyright: "&copy; Copyright {{ year }}. All rights reserved."
+  copyright: "&copy; Copyright {{ year }}. [StructCE](https://www.struct.unb.br/) Todos os direitos reservados."
+locale: pt-BR
+
+meta:
+  title: " | DocStruct" # append to page title

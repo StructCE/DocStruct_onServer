@@ -10,14 +10,13 @@ Neste espaço deve-se concentrar todos os conhecimentos de gestão e execução 
 
 ### Repositório
 
-Para começar a trabalhar no Retype, clone o [repositório no GitHub](https://github.com/StructCE/DocStruct/), acesse a branch da sua diretoria e começe a fazer as modificações nela. É recomendado avisar os outros membros da sua diretoria, para que não haja duas pessoas trabalhando na mesma branch ao mesmo tempo.
+Para começar a trabalhar no DocStruct, clone o [repositório no GitHub](https://github.com/StructCE/DocStruct/), acesse a branch da sua diretoria e começe a fazer as modificações nela. É recomendado avisar os outros membros da sua diretoria, para que não haja duas pessoas trabalhando na mesma branch ao mesmo tempo.
 
 #### Observações importantes:
 
 - Use, preferencialmente, a branch de desenvolvimento da sua diretoria para fazer mudanças;
-- **Jamais** faça mudanças diretamente na master \(boatos de que quem o fez não está mais na Struct para contar a história\);
-- Antes de abrir um pull request, verifique o funcionamento da branch no ambiente de deploy;
-- Quando abrir um pull request, peça para alguém da diretoria de Adm-Fin revisar.
+- **Jamais** faça mudanças diretamente na main \(boatos de que quem o fez não está mais na Struct para contar a história\);
+- Antes de abrir um pull request, verifique o funcionamento da branch no ambiente de desenvolvimento;
 
 ### Instalação
 
@@ -165,4 +164,4 @@ Para realizar modificações nas páginas do Retype, é necessário ter um conhe
 O Retype usa arquivos de formato markdown, como componentes, para a estruturação da documentação online, os exibindo na forma de páginas web. O roteamento dos componentes é feita de forma automática pelo Retype e de acordo com os diretórios do projeto. O diretório raiz do projeto pode conter um arquivo .yml que cuida da configuração do site, como a navbar, footer etc. Assim como, cada componente do projeto também pode conter um arquivo .yml para a configuração separada do componente e um arquivo .md para a própria estruturação em markdown.
 
 - Em um arquivo `.yml`, com nome padrão de index.yml, é feita a personalização e configuração do site ou de um componente específico. Para a configuração do site, pode ser necessário a consulta das ferramentas providas pelo [Retype](https://retype.com/configuration/project/#project-configuration). Já para a configuração de um componente específico há outras [ferramentas](https://retype.com/configuration/page/#page-configuration) disponíveis.
-- Em um arquivo `.md` é feita a estruturação em markdown do site ou componente, sem ele nada deve aparecer no site ou no componente. O Retype provê muitas [ferramentas](https://retype.com/components/) para estruturar o conteúdo da documentação. Caso deseje aprender mais sobre como escrever em arquivos markdown, seria interessante também dar uma olhada em sua [sintaxe básica](guia-markdown.md).
+- Em um arquivo `.md` é feita a estruturação em markdown do site ou componente, sem ele nada deve aparecer no site ou no componente. O Retype provê muitas [ferramentas](https://retype.com/components/) para estruturar o conteúdo da documentação. Caso deseje aprender mais sobre como escrever em arquivos markdown, seria interessante também dar uma olhada em sua [sintaxe básica](https://retype.com/guides/formatting/).
