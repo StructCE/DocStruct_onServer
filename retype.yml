@@ -1,6 +1,8 @@
 input: .
 output: .retype
 url: structce.github.io/DocStruct/
+edit:
+  repo: https://github.com/StructCE/DocStruct
 branding:
   title: DocStruct
   label: 1.0v
