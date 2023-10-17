@@ -6,26 +6,18 @@ label: "TypeScript"
 
 # Por que usar TypeScript?
 
-Brainstorm:
+Se você já programou em JavaScript, torna-se ainda mais fácil programar em TypeScript, afinal eles são basicamente "a mesma coisa". O que isso quer dizer? É que o TypeScript é na verdade um superset open-source, desenvolvido pela Microsoft, ou seja, uma extensão da linguagem JavaScript, com a adição de algumas propriedades que melhoram o nosso código.
 
-TypeScript é um superset do JavaScript
-TypeScript é uma linguagem open-source, desenvolvida pela Microsoft, que é uma extensão do JavaScript. Ele adicionar tipagem estática ao JavaScript, tornando mais fácil detectar e prevenir erros durante o processo de desenvolvimento
-Inclusão de ferramentas que não possuem no JavaScript e que nos auxiliem na construção de códigos com menos erros, eliminando a necessiade de algumas depurações complexas
-Benefício principal do TypeScript é que ele pode destacar comportamento inesperado no seu código, diminuindo a chance de bugs.
-TypeScript funciona como uma ferramente fortemente tipada que pode ser escrita em qualquer ambiente de desenvolvimento e que, quando instalado via gerenciador de pacotes JS, permite checar erros e utilizar outros compiladores que suportam este mecanismo
-TypeScript eleva o nível de produtividade e ainda garante o desenvolvimento de aplicações complexas, eficazes e seguras.
-Vantagens: o potencial de detecção de erros durante o desenvolvimento de projetos e a possibilidade de incluir a IntelliSense da IDE que está sendo usada. Isso reflete num ambiente muito mais ágil e seguro enquanto o código está sendo digitado pelo usuário
+Tá, mas ainda não chegamos no tópico principal desta introduçaço né... por que usar o TypeScript? Para começar, ele funciona como uma ferramenta que adiciona tipagem estática ao JavaScript, que pode ser escrita em qualquer ambiente de desenvolvimento e que, quando instalada via gerenciador de pacotes JS, permite checar erros e utilizar outros compiladores que suportam este mecanismo. Com isso, o TypeScript eleva o nível de produtividade e ainda garante o desenvolvimento de aplicações complexas, eficazes e seguras.
+Além do potencial de detecção de erros durante o desenvolvimento de projetos, outra vantagem é a possibilidade de incluir a IntelliSense da IDE que está sendo usada. Isso reflete num ambiente muito mais ágil e seguro enquanto o código está sendo digitado pelo usuário.
 
 ## Verificador de Tipos Estáticos
 
-Brainstorm:
+Detecção de erros sem execução do código é chamada de verificação estática, e determinar o que é um erro e o que não é, baseado nos tipos dos valores sendo operados é chamado de verificação estática de tipos. TypeScript verifica um programa por erros antes de sua execução e faz isso baseado nos tipos dos valores, ou seja, é um verificador de tipos estático. Ele adiciona regras de tipagem e regras sobre como diferentes tipos de valores podem ser usados
 
-Detecção de erros sem execução do código é chamada de verificação estática. Determinar o que é um erro e o que não é, baseado nos tipos dos valores sendo operados é chamado de verificação estática de tipos.
-TypeScript verifica um programa por erros antes de sua execução e faz isso baseado nos tipos dos valores, ou seja, é um verificador de tipos estáticos.
-TypeScript adiciona regras de tipagem e regras sobre como diferentes tipos de valores podem ser usados.
-O verificador de tipo do TypeScript é desenvolvido para permitir programas corretos, enquanto previne quantos erros comuns forem possíveis
-A grosso modo, uma vez que o compilador do TypeScript terminou de verificar o seu código, ele apaga os tipos para produzir o código resultante "compilado". Isso significa que uma vez que seu código for compilado, o código JS puro de resultado não tem informação de tipo. Isso significa que TypeScript nunca muda o comportamento do seu programa baseado nos tipos que infere.
-O TypeScript tem um [playground online](https://www.typescriptlang.org/play#). Para obter as verificações mais completas, você deve ativar todas as opções no menu "Settings". Isso é equivalente a executar o compilador do TypeScript no modo "--strict"
+Além do mais, a grosso modo, uma vez que o compilador do TypeScript terminou de verificar o seu código, ele apaga os tipos para produzir o código resultante "compilado". Isso significa que uma vez que seu código for compilado, o código JS puro de resultado não tem informação de tipo, ou seja, o TypeScript nunca muda o comportamento do seu programa baseado nos tipos que infere.
+
+Para treinar e exercitar nossa escrita de código, o TypeScript tem um [playground online](https://www.typescriptlang.org/play#). Nele, você pode obter as verificações mais completas, basta ativar todas as opções no menu "Settings". Isso é equivalente a executar o compilador do TypeScript no modo "--strict"
 O "--strict" possibilita o uso do TypeScript com a configuração mais completa, como:
 
 - --noImplicityAny: Se o TypeScript não puder inferir um tipo, você deverá especificá-lo. Isso se aplica principalmente a parâmetros de funções e métodos
@@ -34,16 +26,17 @@ O "--strict" possibilita o uso do TypeScript com a configuração mais completa,
 - --strictNullChecks: null não faz parte de nenhum tipo (diferente do seu próprio tipo null) e deve ser explicitamente mencionado se for um valor aceitável
 - --strictFunctionTypes: Verificações mais fortes para tipos de funções
 - --strictPropertyInitialization: Se uma propriedade não puder ter o valor undefined, ela deverá ser inicializada no constructor
+  (...)
 
 # Definindo Tipos
 
-Dois pontos depois de um nome de variável inicia uma anotação de tipo, a assinatura de tipo depois dos dois pontos descreve os valores que a variável pode ter. Por exemplo, a linha a seguir informa ao TypeScript que _variavel_ sempre armazenará números:
+Em TypeScript, dois pontos depois de um nome de variável inicia uma anotação de tipo, a assinatura de tipo depois dos dois pontos descreve os valores que a variável pode ter. Por exemplo, a linha a seguir informa ao TypeScript que _variavel_ sempre armazenará números:
 
 ```
 let variavel: number;
 ```
 
-Você pode se perguntar se a inicialização de undefined de _variavel_ não viola o tipo estático. O TypeScript contorna esse problema não permitindo que você leia _variavel_ antes de atribuir um valor a ele.
+Você pode se perguntar se a inicialização de **undefined** de _variavel_ não viola o tipo estático. O TypeScript contorna esse problema não permitindo que você leia _variavel_ antes de atribuir um valor a ele.
 
 # Tipos por Inferência
 
