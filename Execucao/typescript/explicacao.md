@@ -40,7 +40,7 @@ Você pode se perguntar se a inicialização de **undefined** de _variavel_ não
 
 # Tipos por Inferência
 
-TypeScript conhece a linguagem JavaScript e vai gerar tipos para você em muitos casos, inferindo por meio da atribuição de valores, quando na declaração do que está sendo atribuído. Ficou muito confuso? Por exemplo, quando criando uma variável e atribuindo a ela um determinado valor, como uma string, TypeScript usará o valor como seu tipo, ou seja, esta varíavel estará automaticamente tipada para aguardar uma string, sem a necessidade de explicitar isso.
+TypeScript conhece a linguagem JavaScript e vai gerar tipos para você em muitos casos, inferindo por meio da atribuição de valores, quando na declaração do que está sendo atribuído. Ficou muito confuso? Por exemplo, quando criamos uma variável e atribuímos a ela um determinado valor, como uma string, TypeScript usará o valor como seu tipo, ou seja, esta varíavel estará automaticamente tipada para aguardar uma string, sem a necessidade de explicitar isso.
 
 ```
 let variavel = "algum texto";  // variavel: string
@@ -72,7 +72,7 @@ O código acima é compilado adequadamente, pois você explicitamente declarou q
 
 Os arrays serão definidos aqui das duas formas seguintes (e às vezes uma mistura dos dois):
 
-- _Lists_: Todos os elementos têm o mesmo tipo e comprimento do array pode variar.
+- _Lists_: Todos os elementos têm o mesmo tipo e o comprimento do array pode variar.
 - _Tuple_: Os elementos não têm necessariamente o mesmo tipo, porém o comprimento do array é fixo.
 
 ### Array como list
@@ -88,7 +88,7 @@ No exemplo acima, tanto _arr1_ quanto _arr2_ são tipados como arrays de tamanho
 
 ### Array como tuple
 
-Suponha que você deseja agora armazenar um par de chave e valor, resultado da operação _Object.entries(obj)_, onde _obj_ é um objeto cujas chaves são strings e os valores são números.
+Suponha que você deseja agora armazenar um par de chave e valor, resultado da operação _Object.entries(obj)_, e você espera que _obj_ é um objeto cujas chaves são strings e os valores são números.
 
 ```
 let obj = {a: 1, b: 2}
