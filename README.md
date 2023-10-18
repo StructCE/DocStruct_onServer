@@ -18,9 +18,9 @@ Para começar a trabalhar no DocStruct, clone o [repositório no GitHub](https:/
 - **Jamais** faça mudanças diretamente na main \(boatos de que quem o fez não está mais na Struct para contar a história\);
 - Antes de abrir um pull request, verifique o funcionamento da branch no ambiente de desenvolvimento;
 
-### Instalação
+### Rodando localmente
 
-Para instalar a nova ferramenta para documentação, execute os comandos dependendo do gerenciador de pacotes que você usa:
+Instale a nova ferramenta para documentação com o gerenciador de pacotes desejado, e rode `retype start`:
 
 +++ NPM
 
