@@ -69,55 +69,6 @@ O Prisma também permite gerar migrações em sql (útil em ambiente de produç�
 
 [Documentação Relacionamento entre Models](https://www.prisma.io/docs/concepts/components/prisma-schema/relations)
 
-## Instanciando novo cliente prisma
-
-Para podermos consumir/usar o banco de dados, precisamos instanciar um cliente. Como só deve ser instanciado um cliente por aplicação, é comum centralizarmos o código de instanciação em um único arquivo.
-
-### Simples
-
-A forma mais simples de instanciar um novo cliente é:
-
-```ts
-// prisma/index.ts
-import { PrismaClient } from "@prisma/client";
-
-// exportando tipagens a partir desse arquivo
-export * from "@prisma/client";
-
-// exportando o cliente
-export const prisma = new PrismaClient({
-  // // Opções, como:
-  // log: ["query", "error", "warn"]
-});
-```
-
-### Melhorada
-
-A **maneira anterior pode causar vazamento de memória em ambiente de desenvolvimento**. Às vezes ao recarregar a aplicação, que acontece quando salvas um arquivo, o código que gera o cliente é rodado outra vez. Isso pode acabar gerando várias instâncias.
-
-```ts
-// prisma/index.ts
-import { PrismaClient } from "@prisma/client";
-
-export * from "@prisma/client";
-
-// globalThis é palavra chave para uma variável global em JS
-// a passagem é por referência quando usamos objeto
-const globalForPrisma = globalThis as { prisma?: PrismaClient };
-
-export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    log:
-      process.env.NODE_ENV === "development"
-        ? ["query", "error", "warn"]
-        : ["error"],
-  });
-
-// se não estiver em ambiente de produção, guarde a instância na variável global
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
-```
-
 ## CRUD
 
 Garanta que seguiu primeiro o [passo anterior](#instanciando-novo-cliente-prisma).
@@ -304,6 +255,10 @@ pnpm ts-node delete.ts
 
 [Documentação CRUD do Prisma](https://www.prisma.io/docs/concepts/components/prisma-client/crud)
 
+## Mais detalhes (Referência da API)
+
+[Referência da API](https://www.prisma.io/docs/reference/api-reference)
+
 ## Criando uma seed
 
 Vendo as operações de CRUD, é meio claro que para criarmos uma seed, basta usarmos a ideia do [create](#create).
@@ -314,10 +269,52 @@ Vendo as operações de CRUD, é meio claro que para criarmos uma seed, basta us
 touch prisma/seed.ts
 ```
 
+```ts
+// prisma/seed.ts
+
+import { prisma } from "./prisma";
+
+async function seed() {
+  await prisma.user.create({
+    data: {
+      username,
+      email,
+      // ...
+    },
+  });
+
+  await prisma.blogPost.create({
+    data: {
+      title: "TITO",
+      body: "opa eae",
+    },
+  });
+}
+
+seed().then(() => {
+  console.log("Seed realizada com sucesso");
+});
+```
+
 2. Caso não já esteja no projeto, adicione o pacote `ts-node`;
 
 ```bash
 pnpm add ts-node
 ```
 
-3. Adicione um script ao `package.json` que rodará a seed;
+3. Adicione um script ao `package.json` que facilitará rodar a seed:
+
+```json
+{
+  "scripts": {
+    ...outros scripts,
+    "db:seed": "ts-node --esm prisma/seed.ts"
+  }
+}
+```
+
+Agora, para rodar a seed basta usar o comando:
+
+```bash
+pnpm db:seed
+```

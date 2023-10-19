@@ -11,6 +11,8 @@ category: Explicação
 
 ## O que é ORM ?
 
+<!-- Trecho feito por Araújo -->
+
 ORM, ou Mapeamento Objeto-Relacional, é uma técnica de programação que permite que os desenvolvedores de software interajam com bancos de dados relacionais usando objetos e classes no lugar de consultas SQL diretas. A ideia principal por trás do ORM é eliminar a necessidade de escrever consultas SQL manualmente e simplificar a interação entre o código da aplicação e o banco de dados relacional. Em vez de tratar as tabelas e registros do banco de dados como entidades separadas e escrever SQL para buscar, inserir, atualizar ou excluir dados, os desenvolvedores podem trabalhar com objetos em código que representam diretamente os dados do banco de dados. O ORM mapeia esses objetos para tabelas do banco de dados e vice-versa.
 
 ## O que é Prisma?
@@ -18,8 +20,9 @@ ORM, ou Mapeamento Objeto-Relacional, é uma técnica de programação que permi
 O [prisma](https://www.prisma.io) é uma biblioteca desenvolvida em typescript que pode ser usada com JS/TS. Ela possui diferentes módulos, entre eles estão:
 
 - Prisma (ou Prisma CLI);
+  - Prisma Studio;
+  - Prisma db/migrate;
 - Prisma Client;
-- Prisma Studio;
 
 A ideia do Prisma é ser uma ORM. Ela pode ser utilizada no desenvolvimento de aplicativos de banco de dados em JavaScript ou TypeScript. Ela é bem amigável com iniciantes e permite segurança de tipos. Não é a melhor em questão de performance, mas a gente nunca precisou de performance (pelo menos por enquanto).
 
@@ -41,4 +44,4 @@ O cliente Prisma, pacote `@prisma/client`, **permite usar código para ler e alt
 
 ### Prisma studio
 
-É um adicional do Prisma, que **permite ver e alterar o estado do banco de dados por interface gráfica**. Ele é totalmente independente dos outros pacotes, e pode ser usado mesmo que Prisma não esteja sendo usado no projeto. Basta passar a url de conexão do banco de dados e _tadan_, interface gráfica.
+É um adicional do Prisma, que **permite ver e alterar o estado do banco de dados por interface gráfica**. Ele pode ser usado mesmo que Prisma não esteja sendo usado no projeto. Basta passar a url de conexão do banco de dados e _tadan_, interface gráfica.

@@ -3,21 +3,21 @@ order: 2
 icon: command-palette
 label: "Como 'instalar' o Prisma?"
 author:
-  name: Araújo
+  name: Araújo e Padovesi
   avatar: ../../Imagens DocStruct/Logos/logo_struct.png
 date: 2023-09-24
 category: Instalação
 ---
 
-## Configuração do Prisma.
+## Configuração do Prisma CLI.
 
-### Adicionando o Prisma ao projeto
+Primeiro adicione o pacote ao projeto:
 
 ```bash
 pnpm add prisma --save-dev
 ```
 
-#### Criar arquivos `schema.prisma` e `.env`
+### Criar arquivos `schema.prisma` e `.env`
 
 ```bash
 pnpm prisma init
@@ -26,7 +26,7 @@ pnpm prisma init
 `.env`: o arquivo para definir a URL de conexão do seu banco de dados.
 `prisma/schema.prisma`: o arquivo de configuração principal para o seu projeto Prisma (incluirá o seu modelo de dados).
 
-#### Conectar o prisma ao seu banco de dados
+### Conectar o prisma ao seu banco de dados
 
 A maneira mais **fácil** é **usar** o **SQLite**, pois é um banco de dados contido num arquivo, **sem precisar instalar** nada.
 Além disso, para limpar o banco de dados, basta deletar o arquivo `.sqlite`.
@@ -43,7 +43,57 @@ Muitas vezes **não é bom** usar **SQLite em produção**. Por esse motivo, atu
 
 ## Configuração do Prisma Client
 
-<!-- aaaaaaaaaaa -->
+Primeiro adicione o pacote ao projeto:
+
+```bash
+pnpm add @prisma/client
+```
+
+### Instanciando novo cliente prisma
+
+Para podermos consumir/usar o banco de dados, precisamos instanciar um cliente. Como só deve ser instanciado um cliente por aplicação, é comum centralizarmos o código de instanciação em um único arquivo.
+
+#### Mínima
+
+A forma mais simples de instanciar um novo cliente é:
+
+```ts
+// prisma/index.ts
+import { PrismaClient } from "@prisma/client";
+
+// exportando tipagens a partir desse arquivo
+export * from "@prisma/client";
+
+// exportando o cliente
+export const prisma = new PrismaClient();
+```
+
+#### Melhorada
+
+A **maneira anterior pode causar vazamento de memória em ambiente de desenvolvimento**. Às vezes ao recarregar a aplicação, que acontece quando salvas um arquivo, o código que gera o cliente é rodado outra vez. Isso pode acabar gerando várias instâncias.
+
+```ts
+// prisma/index.ts
+import { PrismaClient } from "@prisma/client";
+
+export * from "@prisma/client";
+
+// globalThis é palavra chave para uma variável global em JS
+// a passagem é por referência quando usamos objeto
+const globalForPrisma = globalThis as { prisma?: PrismaClient };
+
+export const prisma =
+  globalForPrisma.prisma ||
+  new PrismaClient({
+    log:
+      process.env.NODE_ENV === "development"
+        ? ["query", "error", "warn"]
+        : ["error"],
+  });
+
+// se não estiver em ambiente de produção, guarde a instância na variável global
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+```
 
 ## Quer saber mais Prisma ORM ?
 
