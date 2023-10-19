@@ -9,28 +9,19 @@ label: "TypeScript"
 Se você já programou em JavaScript, torna-se ainda mais fácil programar em TypeScript, afinal eles são basicamente "a mesma coisa". O que isso quer dizer? É que o TypeScript é na verdade um superset open-source, desenvolvido pela Microsoft, ou seja, uma extensão da linguagem JavaScript, com a adição de algumas propriedades que melhoram o nosso código.
 
 Tá, mas ainda não chegamos no tópico principal desta introduçaço né... por que usar o TypeScript? Para começar, ele funciona como uma ferramenta que adiciona tipagem estática ao JavaScript, que pode ser escrita em qualquer ambiente de desenvolvimento e que, quando instalada via gerenciador de pacotes JS, permite checar erros e utilizar outros compiladores que suportam este mecanismo. Com isso, o TypeScript eleva o nível de produtividade e ainda garante o desenvolvimento de aplicações complexas, eficazes e seguras.
-Além do potencial de detecção de erros durante o desenvolvimento de projetos, outra vantagem é a possibilidade de incluir a IntelliSense da IDE que está sendo usada. Isso reflete num ambiente muito mais ágil e seguro enquanto o código está sendo digitado pelo usuário.
+Além do potencial de detecção de erros durante o desenvolvimento de projetos, outra vantagem é a possibilidade de incluir a IntelliSense da IDE que está sendo usada. Isso reflete num ambiente muito mais ágil e seguro enquanto o código está sendo digitado pelo desenvolvedor.
 
 ## Verificador de Tipos Estáticos
 
-Detecção de erros sem execução do código é chamada de verificação estática, e determinar o que é um erro e o que não é, baseado nos tipos dos valores sendo operados é chamado de verificação estática de tipos. TypeScript verifica um programa por erros antes de sua execução e faz isso baseado nos tipos dos valores, ou seja, é um verificador de tipos estático. Ele adiciona regras de tipagem e regras sobre como diferentes tipos de valores podem ser usados
+Detecção de erros sem execução do código é chamada de verificação estática, e determinar o que é um erro e o que não é, baseado nos tipos dos valores sendo operados é chamado de verificação de tipos. TypeScript verifica um programa por erros antes de sua execução e faz isso baseado nos tipos dos valores, ou seja, é um verificador de tipos estático. Ele adiciona regras de tipagem e regras sobre como diferentes tipos de valores podem ser usados
 
 Além do mais, a grosso modo, uma vez que o compilador do TypeScript terminou de verificar o seu código, ele apaga os tipos para produzir o código resultante "compilado". Isso significa que uma vez que seu código for compilado, o código JS puro de resultado não tem informação de tipo, ou seja, o TypeScript nunca muda o comportamento do seu programa baseado nos tipos que infere.
 
-Para treinar e exercitar nossa escrita de código, o TypeScript tem um [playground online](https://www.typescriptlang.org/play#). Nele, você pode obter as verificações mais completas, basta ativar todas as opções no menu "Settings". Isso é equivalente a executar o compilador do TypeScript no modo "--strict"
-O "--strict" possibilita o uso do TypeScript com a configuração mais completa, como:
-
-- --noImplicityAny: Se o TypeScript não puder inferir um tipo, você deverá especificá-lo. Isso se aplica principalmente a parâmetros de funções e métodos
-- --noImplicityThis: Reclama se o tipo de _this_ não estiver claro
-- --alwaysStrict: Use o modo estrito do JavaScript sempre que possível
-- --strictNullChecks: null não faz parte de nenhum tipo (diferente do seu próprio tipo null) e deve ser explicitamente mencionado se for um valor aceitável
-- --strictFunctionTypes: Verificações mais fortes para tipos de funções
-- --strictPropertyInitialization: Se uma propriedade não puder ter o valor undefined, ela deverá ser inicializada no constructor
-  (...)
+Para treinar e exercitar nossa escrita de código, o TypeScript tem um [playground online](https://www.typescriptlang.org/play#).
 
 # Definindo Tipos
 
-Em TypeScript, dois pontos depois de um nome de variável inicia uma anotação de tipo, a assinatura de tipo depois dos dois pontos descreve os valores que a variável pode ter. Por exemplo, a linha a seguir informa ao TypeScript que _variavel_ sempre armazenará números:
+Em TypeScript, dois pontos depois de um nome de variável inicia uma anotação de tipo, e a assinatura de tipo depois dos dois pontos descreve os valores que a variável pode ter. Por exemplo, a linha a seguir informa ao TypeScript que _variavel_ sempre armazenará números:
 
 ```
 let variavel: number;
@@ -135,3 +126,127 @@ Porém, e se minha função não retornar nada? Terei que forçar um retorno que
 function retornaNada(): void { return undefined } // ok
 function retornaNada2(): void { } // ok
 ```
+
+## Tipos em objetos
+
+Para tipar objetos, iremos aqui definir uma quantidade fixa de propriedades, conhecidas no momento do desenvolvimento, e cada propriedade pode ter um tipo diferente.
+
+Por exemplo, para criar um objeto com um tipo definido por incluir _nome: string_ e _id: number_, faremos as seguintes descrição e declaração:
+
+```
+let usuario: {
+    nome: string;
+    id: number;
+}
+
+usuario = {
+    nome: 'Fulano',
+    id: 1
+}
+```
+
+## Criando tipos personalizados
+
+Suponha que tenhamos no nosso código diversas variáveis que utilizam a mesma notação de tipo. Se formos reescrever a notação toda vez que declararmos mais uma variável, a escrita do código não seria nada prática e produtiva para o nosso desenvolvimento. Porém, o TypeScript nos fornece poderosas abstrações para reutilização de tipos: **interface** (para denotar tipos de objetos ou classes) e **type** (para denotar qualquer tipo)
+
+```
+type Point = {
+    x: number;
+    y: number;
+}
+
+// interface Point {
+//     x: number;
+//     y: number;
+// }
+
+let point: Point;
+let point2: Point;
+```
+
+Essa alteração permite que o tipo _Point_ seja usado em vários locais dentro do código sem precisar redefinir os detalhes do tipo repetidas vezes.
+
+E ainda não acabou, o TypeScript também nos permite estender **types** ou **interfaces**, para compor tipos mais complexos a partir de tipos simples:
+
+```
+type Point3d = Point & {
+    z: number;
+}
+
+// interface Point3d extends Point {
+//     z: number;
+// }
+
+const point3d = {
+    x: 5,
+    y: -5,
+    z: 2
+};
+```
+
+No exemplo acima, o tipo _Point3d_ resultante consistiria nas propriedades _x_ e _y_ do type ou da interface _Point_, além da nova propriedade _z_
+
+## type alias x interface
+
+Embora **type** e **interface** pareçam similar em uma primeira olhada superficial, há na verdade muitas diferenças entre eles
+
+Portanto, vamos examinar as principais características de cada uma dessas duas ferramentas e comparar suas utilizações
+
+### Interfaces
+
+As interfaces possibilitam o que chamamos de **declaration merging**: quando duas interfaces são declaradas com o mesmo nome, ocorre uma mescla e junção dessas duas. Está é uma maneira de extender uma interface, porém de forma menos explícita, o que não é uma prática recomendável quando no desenvolvimento de determinados projetos.
+
+Ótimas para definir a estrutura de objetos ou classes, as interfaces são ideais para desenvolver um projeto aberto para implementações e extensões de comportamento, como para o desenvolvimento de bibliotecas e frameworks.
+
+### Type alias
+
+Permitindo criar "aliases" - ou seja, apelidos - para tipos primitivos, funções, objetos e uniões ou composições destes tipos básicos, **type** é uma ferramenta poderosa para expandir a tipagem do seu projeto a um nível muito avançado.
+
+Ele permite você denotar diversos tipos e realizar uniões e interseções deles
+
+```
+type PersonName = {
+    name: string;
+}
+
+type PersonAge = {
+    age: number;
+}
+
+type Person = PersonName & PersonAge;
+type PersonNameOrAge = PersonName | PersonAge
+
+const person1: Person = {
+    name: 'Fulano',
+    age: 18
+};
+const person2: PersonNameOrAge = {
+    name: 'Beltrano'
+};
+const person3: PersonNameOrAge = {
+    age: 20
+};
+```
+
+## Parâmetros opcionais
+
+Se na estrutura da sua anotação de tipo, uma propriedade pode ser omitida, você pode colocar um ponto de interrogação após o seu nome:
+
+```
+type Point = {
+    x: number;
+    y: number;
+    z?: number;
+}
+
+let point: Point;
+
+point = { x: 0, y: 0, z: 0 } // OK
+point = { x: 0, y: 0 } // OK
+```
+
+Aqui, ao invés de especificar um tipo separado para um ponto tridimensional, simplesmente tornamos a propriedade _z_ opcional.
+
+## Sistemas de Tipos Estruturais
+
+Quando o TypeScript compara dois tipos de objetos diferentes, para decidir se eles correspondem ou não, isso é feito estruturalmente. Isso significa que, ao invés de comparar os tipos, verificando se os dois herdam o mesmo objeto de restrição (como **instanceof**), as propriedades de cada objeto são comparadas
