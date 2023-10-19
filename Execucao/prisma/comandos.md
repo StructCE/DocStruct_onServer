@@ -1,6 +1,6 @@
 ---
 order: 1
-icon: rocket
+icon: file-code
 label: "Como usar Prisma ORM ?"
 author:
   name: Araújo
@@ -11,8 +11,12 @@ category: Comandos
 
 ## Criando Models
 
-```prisma
-# prisma/schema.prisma
+O Prisma tem sua própria sintaxe para declarar o schema no banco de dados.
+
+<!-- syntax highlighting de go porque não existe de Prisma -->
+
+```go
+// prisma/schema.prisma
 
 generator client {
   provider = "prisma-client-js"
@@ -47,19 +51,74 @@ Neste exemplo, criamos duas models: "User" e "Post", na qual a model "User" tem 
 Atenção que ao usar autenticação por biblioteca pode ser necessário conformar as tabelas do banco de dados à biblioteca!! Por exemplo, o [Next Auth requer 3 models](https://authjs.dev/reference/adapter/prisma#create-the-prisma-schema-from-scratch) com certos atributos para que funcione corretamente.
 !!!
 
-### Criar as tabelas no banco de dados
+### Efetivando as alterações no prisma.schema
+
+Em desenvolvimento, o recomendado é simplesmente rodar
 
 ```bash
 pnpm prisma db push
 ```
 
-### Documentação sobre a criação de models
+!!! push ou migrate?
+O Prisma também permite gerar migrações em sql (útil em ambiente de produção). Em ambiente de desenvolvimento, usar `db push` para forçar a mudança no banco de dados facilita nossa vida.
+!!!
+
+### Documentação oficial sobre
 
 [Documentação Criação de Models](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#defining-a-default-value)
 
 [Documentação Relacionamento entre Models](https://www.prisma.io/docs/concepts/components/prisma-schema/relations)
 
+## Instanciando novo cliente prisma
+
+Para podermos consumir/usar o banco de dados, precisamos instanciar um cliente. Como só deve ser instanciado um cliente por aplicação, é comum centralizarmos o código de instanciação em um único arquivo.
+
+A forma mais simples de instanciar um novo cliente é:
+
+```ts
+// prisma/index.ts
+import { PrismaClient } from "@prisma/client";
+
+// exportando tipagens a partir desse arquivo
+export * from "@prisma/client";
+
+// exportando o cliente
+export const prisma = new PrismaClient({
+  // // Opções, como:
+  // log: ["query", "error", "warn"]
+});
+```
+
+A maneira anterior pode causar vazamento de memória em ambiente de desenvolvimento. Às vezes o recarregamento da aplicação, quando salvas um arquivo, o código que gera o cliente é rodado outra vez. Isso pode acabar gerando várias instâncias.
+
+```ts
+// prisma/index.ts
+import { PrismaClient } from "@prisma/client";
+
+export * from "@prisma/client";
+
+// globalThis é palavra chave para uma variável global em JS
+// a passagem é por referência quando usamos objeto
+const globalForPrisma = globalThis as { prisma?: PrismaClient };
+
+export const prisma =
+  globalForPrisma.prisma ||
+  new PrismaClient({
+    log:
+      process.env.NODE_ENV === "development"
+        ? ["query", "error", "warn"]
+        : ["error"],
+  });
+
+// se não estiver em ambiente de produção, guarde a instância na variável global
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+```
+
 ## CRUD
+
+Garanta que seguiu primeiro o [passo anterior](#instanciando-novo-cliente-prisma).
+
+Neste exemplo, estamos rodando os arquivos com ts-node, que transpila o TS e roda o JS resultante com Node. A ideia é a mesma usando api em Express, NextJS, etc.
 
 ### Read(Get/Index)
 
@@ -74,8 +133,7 @@ touch index.ts
 ```ts
 // index.ts
 
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { prisma } from "./prisma";
 
 async function getAllUsers() {
   const users = await prisma.user.findMany();
@@ -93,10 +151,6 @@ getAllUsers().then((users) => {
 pnpm ts-node index.ts
 ```
 
-#### Quer saber mais sobre Read ?
-
-[Documentação Pesquisa de Dados](https://www.prisma.io/docs/concepts/components/prisma-client/crud#read)
-
 ### Read(Get/Show)
 
 1. Criar um arquivo TypeScript
@@ -110,8 +164,7 @@ touch show.ts
 ```ts
 // show.ts
 
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { prisma } from "./prisma";
 
 async function getUserById(userId) {
   const user = await prisma.user.findUnique({
@@ -133,10 +186,6 @@ getUserById(1).then((user) => {
 pnpm ts-node show.ts
 ```
 
-#### Quer saber mais sobre Read ?
-
-[Documentação Pesquisa de Dados](https://www.prisma.io/docs/concepts/components/prisma-client/crud#read)
-
 ### Create(Post)
 
 1. Criar um arquivo TypeScript
@@ -150,8 +199,7 @@ touch create.ts
 ```ts
 // create.ts
 
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { prisma } from "./prisma";
 
 async function createUser(username, email) {
   const user = await prisma.user.create({
@@ -175,10 +223,6 @@ createUser("john_doe", "john@example.com").then((user) => {
 pnpm ts-node create.ts
 ```
 
-#### Quer saber mais sobre Create ?
-
-[Documentação Criação de Dados](https://www.prisma.io/docs/concepts/components/prisma-client/crud#create)
-
 ### Delete(Delete)
 
 1. Criar um arquivo TypeScript
@@ -192,8 +236,7 @@ touch delete.ts
 ```ts
 // delete.ts
 
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { prisma } from "./prisma";
 
 async function deleteUser(userId) {
   const user = await prisma.user.delete({
@@ -214,10 +257,6 @@ deleteUser(1).then((user) => {
 ```bash
 pnpm ts-node delete.ts
 ```
-
-#### Quer saber mais sobre Delete ?
-
-[Documentação Exclusão de Dados](https://www.prisma.io/docs/concepts/components/prisma-client/crud#delete)
 
 ### Update(Put e Patch)
 
@@ -257,6 +296,6 @@ updateUser(1, {'new_email@example.com'})
 pnpm ts-node update.ts
 ```
 
-#### Quer saber mais sobre Update ?
+### Documentação oficial sobre
 
-[Documentação Atualização de Dados](https://www.prisma.io/docs/concepts/components/prisma-client/crud#update)
+[Documentação CRUD do Prisma](https://www.prisma.io/docs/concepts/components/prisma-client/crud)

@@ -1,7 +1,7 @@
 ---
 order: 2
-icon: rocket
-label: "Como instalar o Prisma ORM ?"
+icon: command-palette
+label: "Como 'instalar' o Prisma?"
 author:
   name: Araújo
   avatar: ../../Imagens DocStruct/Logos/logo_struct.png
@@ -11,11 +11,10 @@ category: Instalação
 
 ## Configuração do Prisma.
 
-### Instalando o Prisma
+### Adicionando o Prisma ao projeto
 
 ```bash
 pnpm add prisma --save-dev
-pnpm add @prisma/client
 ```
 
 ### Criar arquivos `schema.prisma` e `.env`
@@ -29,7 +28,7 @@ pnpm prisma init
 
 ### Conectar o prisma ao seu banco de dados
 
-A maneira mais fácil é usar o SQLite, pois é um banco de dados num arquivo, sem precisar instalar nada.
+A maneira mais fácil é usar o SQLite, pois é um banco de dados contido num arquivo, sem precisar instalar nada.
 
 ```bash
 #.env
@@ -37,7 +36,7 @@ A maneira mais fácil é usar o SQLite, pois é um banco de dados num arquivo, s
 DATABASE_URL="file:./db.sqlite"
 ```
 
-!!!
+!!!Particularidade do SQLite
 O prisma geralmente não cria o banco de dados, mas simplesmente se conecta a ele. SQLite é uma exceção, onde o Prisma cria o arquivo `.sqlite` caso ele ainda não exista. Caso seja usado outro SGBD, o ideal é usar docker para facilitar a vida.
 !!!
 
