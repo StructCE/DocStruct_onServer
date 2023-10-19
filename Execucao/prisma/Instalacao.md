@@ -17,7 +17,7 @@ category: Instalação
 pnpm add prisma --save-dev
 ```
 
-### Criar arquivos `schema.prisma` e `.env`
+#### Criar arquivos `schema.prisma` e `.env`
 
 ```bash
 pnpm prisma init
@@ -26,9 +26,10 @@ pnpm prisma init
 `.env`: o arquivo para definir a URL de conexão do seu banco de dados.
 `prisma/schema.prisma`: o arquivo de configuração principal para o seu projeto Prisma (incluirá o seu modelo de dados).
 
-### Conectar o prisma ao seu banco de dados
+#### Conectar o prisma ao seu banco de dados
 
-A maneira mais fácil é usar o SQLite, pois é um banco de dados contido num arquivo, sem precisar instalar nada.
+A maneira mais **fácil** é **usar** o **SQLite**, pois é um banco de dados contido num arquivo, **sem precisar instalar** nada.
+Além disso, para limpar o banco de dados, basta deletar o arquivo `.sqlite`.
 
 ```bash
 #.env
@@ -36,15 +37,15 @@ A maneira mais fácil é usar o SQLite, pois é um banco de dados contido num ar
 DATABASE_URL="file:./db.sqlite"
 ```
 
-!!!Particularidade do SQLite
-O prisma geralmente não cria o banco de dados, mas simplesmente se conecta a ele. SQLite é uma exceção, onde o Prisma cria o arquivo `.sqlite` caso ele ainda não exista. Caso seja usado outro SGBD, o ideal é usar docker para facilitar a vida.
-!!!
-
 !!!warning SQLite em produção?
-Muitas vezes não é bom usar SQLite em produção. Por esse motivo, atualmente (em 2023) trocamos de SQLite para MySQL ao entrar em produção. Isso torna necessário realizar mudanças, como adicionar `@db.Text` aos campos String que podem conter mais de 256 caracteres, etc.
+Muitas vezes **não é bom** usar **SQLite em produção**. Por esse motivo, atualmente (em 2023) **trocamos de SQLite para MySQL** ao entrar em produção. Isso **torna necessário** realizar **mudanças**, como adicionar `@db.Text` aos campos String que podem conter mais de 256 caracteres, etc.
 !!!
 
-### Quer saber mais Prisma ORM ?
+## Configuração do Prisma Client
+
+<!-- aaaaaaaaaaa -->
+
+## Quer saber mais Prisma ORM ?
 
 ----------------->[Documentação oficial do Prisma](https://www.prisma.io/docs).<--------------------
 

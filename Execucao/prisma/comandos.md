@@ -9,7 +9,7 @@ date: 2023-09-24
 category: Comandos
 ---
 
-## Criando Models
+## Criando Models (Prisma CLI)
 
 O Prisma tem sua própria sintaxe para declarar o schema no banco de dados.
 
@@ -53,7 +53,7 @@ Atenção que ao usar autenticação por biblioteca pode ser necessário conform
 
 ### Efetivando as alterações no prisma.schema
 
-Em desenvolvimento, o recomendado é simplesmente rodar
+É possível gerar migrações em `.sql` ou simplesmente forçar o schema do banco de dados a atualizar. **Em desenvolvimento, o recomendado é** forçar a atualização, e simplesmente **rodar**:
 
 ```bash
 pnpm prisma db push
@@ -63,7 +63,7 @@ pnpm prisma db push
 O Prisma também permite gerar migrações em sql (útil em ambiente de produção). Em ambiente de desenvolvimento, usar `db push` para forçar a mudança no banco de dados facilita nossa vida.
 !!!
 
-### Documentação oficial sobre
+### Mais sobre
 
 [Documentação Criação de Models](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#defining-a-default-value)
 
@@ -72,6 +72,8 @@ O Prisma também permite gerar migrações em sql (útil em ambiente de produç�
 ## Instanciando novo cliente prisma
 
 Para podermos consumir/usar o banco de dados, precisamos instanciar um cliente. Como só deve ser instanciado um cliente por aplicação, é comum centralizarmos o código de instanciação em um único arquivo.
+
+### Simples
 
 A forma mais simples de instanciar um novo cliente é:
 
@@ -89,7 +91,9 @@ export const prisma = new PrismaClient({
 });
 ```
 
-A maneira anterior pode causar vazamento de memória em ambiente de desenvolvimento. Às vezes o recarregamento da aplicação, quando salvas um arquivo, o código que gera o cliente é rodado outra vez. Isso pode acabar gerando várias instâncias.
+### Melhorada
+
+A **maneira anterior pode causar vazamento de memória em ambiente de desenvolvimento**. Às vezes ao recarregar a aplicação, que acontece quando salvas um arquivo, o código que gera o cliente é rodado outra vez. Isso pode acabar gerando várias instâncias.
 
 ```ts
 // prisma/index.ts
@@ -120,73 +124,7 @@ Garanta que seguiu primeiro o [passo anterior](#instanciando-novo-cliente-prisma
 
 Neste exemplo, estamos rodando os arquivos com ts-node, que transpila o TS e roda o JS resultante com Node. A ideia é a mesma usando api em Express, NextJS, etc.
 
-### Read(Get/Index)
-
-1. Criar um arquivo TypeScript
-
-```bash
-touch index.ts
-```
-
-2. Modificar o arquivo typescript
-
-```ts
-// index.ts
-
-import { prisma } from "./prisma";
-
-async function getAllUsers() {
-  const users = await prisma.user.findMany();
-  return users;
-}
-
-getAllUsers().then((users) => {
-  console.log("Usuários encontrados:", users);
-});
-```
-
-3. Executar arquivo typescript
-
-```bash
-pnpm ts-node index.ts
-```
-
-### Read(Get/Show)
-
-1. Criar um arquivo TypeScript
-
-```bash
-touch show.ts
-```
-
-2. Modificar o arquivo typescript
-
-```ts
-// show.ts
-
-import { prisma } from "./prisma";
-
-async function getUserById(userId) {
-  const user = await prisma.user.findUnique({
-    where: {
-      id: userId,
-    },
-  });
-  return user;
-}
-
-getUserById(1).then((user) => {
-  console.log("Usuário encontrado:", user);
-});
-```
-
-3. Executar arquivo typescript
-
-```bash
-pnpm ts-node show.ts
-```
-
-### Create(Post)
+### Create
 
 1. Criar um arquivo TypeScript
 
@@ -223,23 +161,54 @@ createUser("john_doe", "john@example.com").then((user) => {
 pnpm ts-node create.ts
 ```
 
-### Delete(Delete)
+### Read (Index)
 
 1. Criar um arquivo TypeScript
 
 ```bash
-touch delete.ts
+touch index.ts
 ```
 
 2. Modificar o arquivo typescript
 
 ```ts
-// delete.ts
+// index.ts
 
 import { prisma } from "./prisma";
 
-async function deleteUser(userId) {
-  const user = await prisma.user.delete({
+async function getAllUsers() {
+  const users = await prisma.user.findMany();
+  return users;
+}
+
+getAllUsers().then((users) => {
+  console.log("Usuários encontrados:", users);
+});
+```
+
+3. Executar arquivo typescript
+
+```bash
+pnpm ts-node index.ts
+```
+
+### Read (Show)
+
+1. Criar um arquivo TypeScript
+
+```bash
+touch show.ts
+```
+
+2. Modificar o arquivo typescript
+
+```ts
+// show.ts
+
+import { prisma } from "./prisma";
+
+async function getUserById(userId) {
+  const user = await prisma.user.findUnique({
     where: {
       id: userId,
     },
@@ -247,18 +216,18 @@ async function deleteUser(userId) {
   return user;
 }
 
-deleteUser(1).then((user) => {
-  console.log("Usuário excluído:", user);
+getUserById(1).then((user) => {
+  console.log("Usuário encontrado:", user);
 });
 ```
 
 3. Executar arquivo typescript
 
 ```bash
-pnpm ts-node delete.ts
+pnpm ts-node show.ts
 ```
 
-### Update(Put e Patch)
+### Update
 
 1. Criar um arquivo TypeScript
 
@@ -296,6 +265,59 @@ updateUser(1, {'new_email@example.com'})
 pnpm ts-node update.ts
 ```
 
-### Documentação oficial sobre
+### Delete
+
+1. Criar um arquivo TypeScript
+
+```bash
+touch delete.ts
+```
+
+2. Modificar o arquivo typescript
+
+```ts
+// delete.ts
+
+import { prisma } from "./prisma";
+
+async function deleteUser(userId) {
+  const user = await prisma.user.delete({
+    where: {
+      id: userId,
+    },
+  });
+  return user;
+}
+
+deleteUser(1).then((user) => {
+  console.log("Usuário excluído:", user);
+});
+```
+
+3. Executar arquivo typescript
+
+```bash
+pnpm ts-node delete.ts
+```
+
+### Mais sobre
 
 [Documentação CRUD do Prisma](https://www.prisma.io/docs/concepts/components/prisma-client/crud)
+
+## Criando uma seed
+
+Vendo as operações de CRUD, é meio claro que para criarmos uma seed, basta usarmos a ideia do [create](#create).
+
+1. Crie o arquivo `seed.ts`;
+
+```bash
+touch prisma/seed.ts
+```
+
+2. Caso não já esteja no projeto, adicione o pacote `ts-node`;
+
+```bash
+pnpm add ts-node
+```
+
+3. Adicione um script ao `package.json` que rodará a seed;
