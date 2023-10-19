@@ -9,63 +9,51 @@ date: 2023-09-24
 category: Instalação
 ---
 
-## Iniciar um projeto TypeScript
+## Configuração do Prisma.
 
-### Criando pasta
-
-```bash
-mkdir teste 
-```
-
-### Acessando pasta
+### Instalando o Prisma
 
 ```bash
-cd teste 
+pnpm add prisma --save-dev
+pnpm add @prisma/client
 ```
 
-### Iniciar projeto
+### Criar arquivos `schema.prisma` e `.env`
 
 ```bash
-yarn init -y
+pnpm prisma init
 ```
 
-### Adicionar typescript e pacotes complementares
+`.env`: o arquivo para definir a URL de conexão do seu banco de dados.
+`prisma/schema.prisma`: o arquivo de configuração principal para o seu projeto Prisma (incluirá o seu modelo de dados).
+
+### Conectar o prisma ao seu banco de dados
+
+A maneira mais fácil é usar o SQLite, pois é um banco de dados num arquivo, sem precisar instalar nada.
 
 ```bash
-yarn add -D typescript ts-node @types/node
+#.env
+
+DATABASE_URL="file:./db.sqlite"
 ```
 
-### Criar arquivo `tsconfig.json`
+!!!
+O prisma geralmente não cria o banco de dados, mas simplesmente se conecta a ele. SQLite é uma exceção, onde o Prisma cria o arquivo `.sqlite` caso ele ainda não exista. Caso seja usado outro SGBD, o ideal é usar docker para facilitar a vida.
+!!!
 
-```bash
-yarn tsc --init
-```
+!!!warning SQLite em produção?
+Muitas vezes não é bom usar SQLite em produção. Por esse motivo, atualmente (em 2023) trocamos de SQLite para MySQL ao entrar em produção. Isso torna necessário realizar mudanças, como adicionar `@db.Text` aos campos String que podem conter mais de 256 caracteres, etc.
+!!!
 
-## Modificar o arquivo `tsconfig.json`
+### Quer saber mais Prisma ORM ?
 
-Dependendo do ambiente de execução JavaScript, pode existir um `tsconfig.json` pronto com uma configuração **BASE**, o qual pode ser encontrado em [pré-definidos](https://github.com/tsconfig/bases). Segue um exemplo, no qual é utilizado uma configuração recomendada.
-
-### Instalação da configuração
-
-```bash
-yarn add --dev @tsconfig/recommended
-```
-
-### Adicionando a configuração no arquivo `tsconfig.json`
-
-```bash
-# teste/tsconfig.json
-
-"extends": "@tsconfig/recommended/tsconfig.json",
-```
-
-### Configuração personalizada do `tsconfig.json`
-
-[Documentação tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+----------------->[Documentação oficial do Prisma](https://www.prisma.io/docs).<--------------------
 
 ## Configurar banco de dados PostgreSQL usando o Docker
 
-**É importante ressaltar que nesse passo o Docker esta sendo utilizado como um 'simulador' 
+<!-- Não acho que isso devia estar aqui, mas é a vida por enquanto -->
+
+**É importante ressaltar que nesse passo o Docker esta sendo utilizado como um 'simulador'
 de banco de dados PostgreSQL.**
 
 ### Criando arquivo `docker-compose.yml`
@@ -89,9 +77,27 @@ services:
       POSTGRES_USER: teste
       POSTGRES_PASSWORD: teste
     ports:
-      - "5432:5432"
+      - "5436:5432"
     volumes:
       - ./dados_postgres:/var/lib/postgresql/data
+```
+
+### Definir localização do seu banco de dados
+
+Considerando as variáveis usadas no docker,
+
+- POSTGRES_DB = nome do banco de dados = teste
+- POSTGRES_USER = usuario definido no `docker-compose.yml` = teste
+- POSTGRES_PASSWORD = senha definida no `docker-compose.yml` = teste
+
+Declare a URL do banco de dados substituindo as `{var}` por seus valores:
+
+```bash
+#.env
+
+DATABASE_URL="postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@localhost:5432/{POSTGRES_DB}"
+#substituindo no exemplo, ficaria
+# DATABASE_URL="postgresql://teste:teste@localhost:5432/teste"
 ```
 
 ### Inicie o Docker
@@ -111,36 +117,3 @@ sudo docker-compose up -d
 ```bash
 sudo docker ps
 ```
-
-## Configuração do Prisma.
-
-### Instalando o Prisma
-
-```bash
-yarn add prisma --save-dev
-```
-
-### Criar arquivos `schema.prisma` e `.env`
-
-```bash
-yarn prisma init
-```
-
-`.env`: o arquivo para definir a URL de conexão do seu banco de dados.
-`prisma/schema.prisma`: o arquivo de configuração principal para o seu projeto Prisma (incluirá o seu modelo de dados).
-
-### Definir localização do seu banco de dados
- 
-- PATH = diretório raiz = teste
-- POSTGRES_USER = usuario definido no `docker-compose.yml` = teste
-- POSTGRES_PASSWORD = senha definida no `docker-compose.yml` = teste
-
-```bash
-#.env
-
-DATABASE_URL="postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@localhost:5432/{PATH}?schema=public"
-```
-
-### Quer saber mais Prisma ORM ?
-
------------------>[Documentação oficial do Prisma](https://www.prisma.io/docs).<--------------------

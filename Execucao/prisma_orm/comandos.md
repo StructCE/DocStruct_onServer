@@ -11,7 +11,7 @@ category: Comandos
 
 ## Criando Models
 
-```bash
+```prisma
 # prisma/schema.prisma
 
 generator client {
@@ -43,10 +43,14 @@ model Post {
 
 Neste exemplo, criamos duas models: "User" e "Post", na qual a model "User" tem campos como "id", "username" e "email", enquanto a model "Post" possui campos como "id", "title", "content", "published", "authorId", e uma relação com o autor ("User").
 
+!!! Autenticação por biblioteca
+Atenção que ao usar autenticação por biblioteca pode ser necessário conformar as tabelas do banco de dados à biblioteca!! Por exemplo, o [Next Auth requer 3 models](https://authjs.dev/reference/adapter/prisma#create-the-prisma-schema-from-scratch) com certos atributos para que funcione corretamente.
+!!!
+
 ### Criar as tabelas no banco de dados
 
 ```bash
-yarn prisma db push
+pnpm prisma db push
 ```
 
 ### Documentação sobre a criação de models
@@ -55,7 +59,7 @@ yarn prisma db push
 
 [Documentação Relacionamento entre Models](https://www.prisma.io/docs/concepts/components/prisma-schema/relations)
 
-## CRUD 
+## CRUD
 
 ### Read(Get/Index)
 
@@ -67,30 +71,26 @@ touch index.ts
 
 2. Modificar o arquivo typescript
 
-```bash
-# index.ts
+```ts
+// index.ts
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function getAllUsers() {
-    const users = await prisma.user.findMany()
-    return users;
+  const users = await prisma.user.findMany();
+  return users;
 }
 
-getAllUsers()
-  .then((users) => {
-    console.log('Usuários encontrados:', users);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+getAllUsers().then((users) => {
+  console.log("Usuários encontrados:", users);
+});
 ```
 
 3. Executar arquivo typescript
 
 ```bash
-yarn ts-node index.ts
+pnpm ts-node index.ts
 ```
 
 #### Quer saber mais sobre Read ?
@@ -107,10 +107,10 @@ touch show.ts
 
 2. Modificar o arquivo typescript
 
-```bash
-# show.ts
+```ts
+// show.ts
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function getUserById(userId) {
@@ -122,19 +122,15 @@ async function getUserById(userId) {
   return user;
 }
 
-getUserById(1)
-  .then((user) => {
-    console.log('Usuário encontrado:', user);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+getUserById(1).then((user) => {
+  console.log("Usuário encontrado:", user);
+});
 ```
 
 3. Executar arquivo typescript
 
 ```bash
-yarn ts-node show.ts
+pnpm ts-node show.ts
 ```
 
 #### Quer saber mais sobre Read ?
@@ -151,10 +147,10 @@ touch create.ts
 
 2. Modificar o arquivo typescript
 
-```bash
-# create.ts
+```ts
+// create.ts
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function createUser(username, email) {
@@ -162,25 +158,21 @@ async function createUser(username, email) {
     data: {
       username,
       email,
-      # ...   
+      // ...
     },
   });
   return user;
 }
 
-createUser('john_doe', 'john@example.com')
-  .then((user) => {
-    console.log('Usuário criado:', user);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+createUser("john_doe", "john@example.com").then((user) => {
+  console.log("Usuário criado:", user);
+});
 ```
 
 3. Executar arquivo typescript
 
 ```bash
-yarn ts-node create.ts
+pnpm ts-node create.ts
 ```
 
 #### Quer saber mais sobre Create ?
@@ -197,10 +189,10 @@ touch delete.ts
 
 2. Modificar o arquivo typescript
 
-```bash
-# delete.ts
+```ts
+// delete.ts
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function deleteUser(userId) {
@@ -212,20 +204,15 @@ async function deleteUser(userId) {
   return user;
 }
 
-deleteUser(1)
-  .then((user) => {
-    console.log('Usuário excluído:', user);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
-
+deleteUser(1).then((user) => {
+  console.log("Usuário excluído:", user);
+});
 ```
 
 3. Executar arquivo typescript
 
 ```bash
-yarn ts-node delete.ts
+pnpm ts-node delete.ts
 ```
 
 #### Quer saber mais sobre Delete ?
@@ -242,7 +229,7 @@ touch update.ts
 
 2. Modificar o arquivo typescript
 
-```bash
+```ts
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
@@ -262,15 +249,12 @@ updateUser(1, {'new_email@example.com'})
   .then((user) => {
     console.log('Usuário atualizado:', user);
   })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
 ```
 
 3. Executar arquivo typescript
 
 ```bash
-yarn ts-node update.ts
+pnpm ts-node update.ts
 ```
 
 #### Quer saber mais sobre Update ?
