@@ -7,6 +7,9 @@ author:
   avatar: ../../Imagens DocStruct/Logos/logo_struct.png
 date: 2023-09-24
 category: Explicação
+tags:
+  - orm
+  - explicacao
 ---
 
 ## O que é ORM ?

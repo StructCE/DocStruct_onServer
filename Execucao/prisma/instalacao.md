@@ -49,7 +49,7 @@ Primeiro adicione o pacote ao projeto:
 pnpm add @prisma/client
 ```
 
-### Instanciando novo cliente prisma
+### Instanciando um cliente prisma
 
 Para podermos consumir/usar o banco de dados, precisamos instanciar um cliente. Como só deve ser instanciado um cliente por aplicação, é comum centralizarmos o código de instanciação em um único arquivo.
 

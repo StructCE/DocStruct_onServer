@@ -3,10 +3,14 @@ order: 1
 icon: file-code
 label: "Como usar Prisma ORM ?"
 author:
-  name: Araújo
+  name: Araújo e Padovesi
   avatar: ../../Imagens DocStruct/Logos/logo_struct.png
 date: 2023-09-24
-category: Comandos
+category: Utilização
+tags:
+  - utilização
+  - orm
+  - prisma
 ---
 
 ## Criando Models (Prisma CLI)
@@ -71,7 +75,7 @@ O Prisma também permite gerar migrações em sql (útil em ambiente de produç�
 
 ## CRUD
 
-Garanta que seguiu primeiro o [passo anterior](#instanciando-novo-cliente-prisma).
+Verifique que já [criou uma instância do prisma client](./instalacao.md#configuração-do-prisma-client).
 
 Neste exemplo, estamos rodando os arquivos com ts-node, que transpila o TS e roda o JS resultante com Node. A ideia é a mesma usando api em Express, NextJS, etc.
 
@@ -189,8 +193,7 @@ touch update.ts
 2. Modificar o arquivo typescript
 
 ```ts
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
+import { prisma } from './prisma';
 
 async function updateUser(userId, newData) {
   const user = await prisma.user.update({
@@ -313,7 +316,7 @@ pnpm add ts-node
 }
 ```
 
-Agora, para rodar a seed basta usar o comando:
+Agora, para rodar a seed do projeto basta usar o comando:
 
 ```bash
 pnpm db:seed
