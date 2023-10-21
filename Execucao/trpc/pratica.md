@@ -14,14 +14,15 @@ A primeira tarefa a ser feita é iniciar o tRPC no back-end. O tRPC funciona atr
 
 Assim, criaremos um arquivo `trpc.ts` onde inicializaremos o tRPC por meio de uma `const t` (nome usado somente para exemplo) e exportaremos as propriedades `router`e `procedure` da instância.
 
-``` ts "./server/trpc.ts"
-import { initTRPC } from '@trpc/server';
+```ts "./server/trpc.ts"
+import { initTRPC } from "@trpc/server";
 
 const t = initTRPC.create();
 export const router = t.router;
 export const publicProcedure = t.procedure;
 ```
-<br> 
+
+<br>
 
 ### Por que exportar?
 
@@ -37,26 +38,26 @@ No caso, `procedures` está definido como publicProcedure pois, no exemplo, defi
 
 ## Definindo as rotas
 
-Então, importamos em outro arquivo, mais por questão de organização, as propriedades `router` e `publicProcedure` e definimos um conjunto de rotas em uma `const appRouter`. Também deve-se importar o banco de dados feito em sua aplicação, pois nas rotas serão definidas requisições para o mesmo. 
+Então, importamos em outro arquivo, mais por questão de organização, as propriedades `router` e `publicProcedure` e definimos um conjunto de rotas em uma `const appRouter`. Também deve-se importar o banco de dados feito em sua aplicação, pois nas rotas serão definidas requisições para o mesmo.
 <br>
 
 Para fazer as definições, é usado um objeto/dicionário onde as chaves serão os nomes das rotas e os valores serão as ações efetuadas no momento em que elas forem chamadas pelo lado cliente.
 
-``` ts "./server/index.ts"
-import { db } from './db'; // Banco de dados previamente construído
-import { publicProcedure, router } from './trpc'; // Propriedades que exportamos no trpc.ts
+```ts "./server/index.ts"
+import { db } from "./db"; // Banco de dados previamente construído
+import { publicProcedure, router } from "./trpc"; // Propriedades que exportamos no trpc.ts
 
 const appRouter = router({
-  userList: publicProcedure
-    .query(async () => {
-      const users = await db.user.findMany();
-      return users; 
-    }),
+  userList: publicProcedure.query(async () => {
+    const users = await db.user.findMany();
+    return users;
+  }),
 });
 ```
 
 Usamos o `publicProcedure`, que definirmos anteriormente, para efetuar requisições/procedimento ao servidor.
 Um procedimento pode ser:
+
 - `query` busca de informação
 - `mutation` criação, atualização ou delete de informação
 - `subscription` cria uma ligação persistente com o servidor e recebe mudanças. É o famoso websocket.
@@ -65,18 +66,17 @@ No caso, estamos definindo uma requisição `userList` que irá listar todos os 
 
 ## Entrada de Dados
 
-Para receber entrada de informações do lado cliente, basta usar o `input()` que irá receber informações e as retornará para o `query()` podendo ser, primeiramente, validadas, caso efetuado um tratamento de dados. 
+Para receber entrada de informações do lado cliente, basta usar o `input()` que irá receber informações e as retornará para o `query()` podendo ser, primeiramente, validadas, caso efetuado um tratamento de dados.
 Usamos o pacote "zod" para fazer a validação da entrada de dados.
 Os campos nos quais deseja fazer alguma validação coloque z.tipoDeDadoDesejado(), exemplo:
 
-``` ts "./server/index.ts"
-import { z } from 'zod';
- 
+```ts "./server/index.ts"
+import { z } from "zod";
 const appRouter = router({
   userById: publicProcedure
     .input(z.string()) // No caso queremos que o input seja uma string (o nome)
     .query(async (opts) => {
-      const { input } = opts
+      const { input } = opts;
       const user = await db.user.findById(input);
       return user;
     }),
@@ -88,10 +88,10 @@ O `query()` recebe um objeto com várias informações como dados de contexto, d
 !!!
 É possível passar um objeto com alguns parâmetros de mensagens personalizadas, por exemplo:
 
-``` ts
+```ts
 const name = z.string({
   required_error: "É requirido um nome",
-  invalid_type_error: "O nome deve ser uma string"
+  invalid_type_error: "O nome deve ser uma string",
 });
 ```
 
@@ -102,32 +102,26 @@ Para mais informações sobre o a validação de dados, clique [aqui](https://zo
 
 O servidor é o que irá ouvir as requisições e, de acordo com as rotas definidas, dar uma determinada resposta. Porém, ainda não iniciamos nenhum servidor, logo, a seguinte etapa será iniciar um. É importado o método `createHTPPServer`do próprio tRPC, que irá criar o servidor, sendo necessário passar um roteador para o mesmo saber como reagir às requisições. Também usado o método listen, que define o endereço em que o servidor receberá requisições.
 
-
-``` ts "./server/index.ts"
-import { createHTTPServer } from '@trpc/server/adapters/standalone';
- 
+```ts "./server/index.ts"
+import { createHTTPServer } from "@trpc/server/adapters/standalone";
 const appRouter = router({
   // Todas as rotas aqui, anteriormente definidas.
 });
- 
 const server = createHTTPServer({
   router: appRouter,
 });
- 
-server.listen(3000); 
+server.listen(3000);
 ```
-
-
 
 ## Configurando servidor no lado cliente
 
 ### Definindo a conexão entre servidor e cliente
 
-Da mesma forma que é necessário criar um servidor para conseguir estabelecer uma comunicação com o cliente, é necessário haver no lado cliente uma maneira de se comunicar com o servidor, uma maneira por onde mandar suas requisições. 
+Da mesma forma que é necessário criar um servidor para conseguir estabelecer uma comunicação com o cliente, é necessário haver no lado cliente uma maneira de se comunicar com o servidor, uma maneira por onde mandar suas requisições.
 
 O lado cliente fica ciente das informações que estão sendo manipuladas por meio dos tipos de dados do roteador. Logo, para estabelecer essa conexão primeiro temos que exportar o tipo do nosso roteador adicionando o seguinte trecho no arquivo `/server/index.ts`:
 
-``` ts ./server/index.ts
+```ts ./server/index.ts
 export type AppRouter = typeof appRouter;
 ```
 
@@ -136,14 +130,14 @@ Então, o `AppRouter` é importado e passado ao método `createTRPCProxyclient` 
 
 Assim, também iremos definir um `httpBatchLink` que é um tipo de link que lida com requisições em lote como se fosse uma, declarando o endereço do nosso servidor para efetuarmos as nossas requisições e de forma mais otimizada:
 
-``` ts "./client/index.ts"
-import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
-import type { AppRouter } from './server/index.ts';
+```ts "./client/index.ts"
+import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
+import type { AppRouter } from "./server/index.ts";
 
 export const trpc = createTRPCProxyClient<AppRouter>({
   links: [
     httpBatchLink({
-      url: 'http://localhost:3000',
+      url: "http://localhost:3000",
     }),
   ],
 });
@@ -155,23 +149,24 @@ Com o proxy `trpc`, exportamos para facilitar o reuso em outros arquivos ou pode
 
 Com o proxy definido e exportado, podemos importar o proxy `trpc` para qualquer arquivo e fazermos requisições através dele, no exemplo usaremos no mesmo arquivo:
 
-``` ts "./client/index.ts"
+```ts "./client/index.ts"
 // import trpc from "./client/index.ts" (Caso esteja manipulando
 // o proxy em um arquivo diferente daquele em que foi definido, não é o caso)
-import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
-import type { AppRouter } from './server/index.ts';
+import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
+import type { AppRouter } from "./server/index.ts";
 
 export const trpc = createTRPCProxyClient<AppRouter>({
   links: [
     httpBatchLink({
-      url: 'http://localhost:3000',
+      url: "http://localhost:3000",
     }),
   ],
 });
 
-const user = await trpc.userById.query('1');
-const createdUser = await trpc.userCreate.mutate({ name: 'sachinraja' });
+const user = await trpc.userById.query("1");
+const createdUser = await trpc.userCreate.mutate({ name: "sachinraja" });
 ```
+
 Como estabelecemos uma conexão cliente-servidor dos tipos de dados e definimos o endereço do servidor, temos acesso às rotas definidadas no back-end e podemos efetuar as requisições.
 <br>
 
