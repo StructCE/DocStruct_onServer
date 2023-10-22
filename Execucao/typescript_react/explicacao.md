@@ -16,7 +16,7 @@ Escrever códido TypeScript com React é bem semelhante a escrever código JavaS
 
 - JavaScript:
 
-```
+```tsx
 export function MyButton({ content }) {
   return <button>{ content }<button/>
 }
@@ -24,7 +24,7 @@ export function MyButton({ content }) {
 
 - TypeScript:
 
-```
+```tsx
 export function MyButton({ content } : { content: string | ReactElement }) {
   return <button>{ content }<button/>
 }
@@ -34,7 +34,7 @@ No exemplo acima, provemos, de forma inline, um tipo para o content do button. E
 
 ### Declarando tipos
 
-```
+```tsx
 type MyButtonProps = {
   content: string | ReactElement;
   onClick?: () => void;
@@ -55,22 +55,24 @@ O pacote [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/
 
 O hook useState é capaz de realizar inferência de tipos, a partir do valor inicial passado na declaração do estado.
 
-```
-const [state, setState] = useState("valor inicial")
+```tsx
+const [state, setState] = useState("valor inicial");
 ```
 
 No código acima, será inferido que state é uma string e que setState é uma função que aguarda uma string ou uma função que retorna uma string.
 
 Uma forma mais inteligente de tipar seus estados é realizando a declaração de tipos na chamada do useState, como no código abaixo:
 
-```
-const [state, setState] = useState<string | number>("45")
+```tsx
+const [state, setState] = useState<string | number>("45");
 
 type Pet =
-  |  { cat: { meowing: "meow" | "meooow", color: "orange" | "black" | "white" } }
-  |  { dog: { bark: "auau" | "auuuuu", color: "caramel" | "brown" | "black" } };
+  | { cat: { meowing: "meow" | "meooow"; color: "orange" | "black" | "white" } }
+  | { dog: { bark: "auau" | "auuuuu"; color: "caramel" | "brown" | "black" } };
 
-const [pet, setPet] = useState<Pet>({ cat: { meowing: "meow", color: "black" } })
+const [pet, setPet] = useState<Pet>({
+  cat: { meowing: "meow", color: "black" },
+});
 ```
 
 - useContext
@@ -79,8 +81,8 @@ A tipagem, quando no uso do useContext, ocorre na criação do contexto, por mei
 
 Assim como no useState, é possível a inferência de tipos, de acordo com o valor default passado dentro do createContext; porém, para casos mais complexos, recomenda-se realizar uma tipagem de forma mais inteligente, como no exemplo abaixo:
 
-```
-import { createContext, useContext, useState } from 'react';
+```tsx
+import { createContext, useContext, useState } from "react";
 
 type Theme = "light" | "dark" | "system";
 const ThemeContext = createContext<Theme>("system");
@@ -88,13 +90,13 @@ const ThemeContext = createContext<Theme>("system");
 const useThemeContext = () => useContext(ThemeContext);
 
 export default function MyApp() {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>("light");
 
   return (
     <ThemeContext.Provider value={theme}>
       <MyComponent />
     </ThemeContext.Provider>
-  )
+  );
 }
 ```
 
@@ -106,8 +108,8 @@ O pacote @types/react fornece uma [lista muito ampla](https://github.com/Definit
 
 - Para onChange de um input, use ChangeEvent
 
-```
-import { useState, type ChangeEvent } from 'react';
+```tsx
+import { useState, type ChangeEvent } from "react";
 
 export default function MyInput() {
   const [value, setValue] = useState("");
@@ -127,7 +129,7 @@ export default function MyInput() {
 
 - Para onSubmit de um form, use FormEvent
 
-```
+```tsx
 import {
   useState,
   type FormEvent,
@@ -160,9 +162,13 @@ export default function MyForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input value={email} placeholder="email" onChange={handleEmail}/>
-      <input value={password} placeholder="password" onChange={handlePassword}/>
-      <button type="submit"/>
+      <input value={email} placeholder="email" onChange={handleEmail} />
+      <input
+        value={password}
+        placeholder="password"
+        onChange={handlePassword}
+      />
+      <button type="submit" />
     </form>
   );
 }
@@ -182,10 +188,10 @@ Tipando componentes:
 
 - PropsWithChildren
 
-```
+```tsx
 type MyComponentProps = React.PropsWithChildren<{
   title: string;
-}>
+}>;
 ```
 
 Com o PropsWithChildren, você consegue, de forma simples, tipar props para um componente, definindo automaticamente o children para ser capaz de receber tudo aquilo que ele pode receber (elementos JSX, string e number).
@@ -196,33 +202,33 @@ Seguem abaixo alguns exemplos de como podemos lidar com isso:
 
 - ReactNode
 
-```
+```tsx
 type MyComponentProps = React.PropsWithChildren<{
   title: string;
   content: ReactNode;
-}>
+}>;
 ```
 
 Uma primeira possibilidade é usar o tipo ReactNode, o qual é uma união de todos elementos JSX e tipos primitivos do JavaScript como string e number.
 
 - ReactElement
 
-```
+```tsx
 type MyComponentProps = React.PropsWithChildren<{
   title: string;
   content: ReactElement;
-}>
+}>;
 ```
 
 Uma segunda possibilidade, menos abrangente, é utilizar o ReactElement, o qual abrange apenas elementos JSX, excluindo tipos primitivos do JavaScript como string e number.
 
 - HTMLElement
 
-```
+```tsx
 type MyComponentProps = React.PropsWithChildren<{
   title: string;
   content: HTMLElement;
-}>
+}>;
 ```
 
 Mais uma possibilidade, ainda menos abrangente, é utilizar o HTMLElement, o qual abrange apenas marcações do HTML, excluindo componentes React e tipos primitivos do JavaScript.
@@ -231,8 +237,8 @@ Mais uma possibilidade, ainda menos abrangente, é utilizar o HTMLElement, o qua
 
 Quando usando estilização inline no React, você pode usar o tipo CSSProperties, para descrever um objeto passado para a prop style de um componente. Este tipo é uma união de todas as possíveis propriedades CSS, e é uma ótima maneira de garantir que você está passando propriedades CSS válidas.
 
-```
+```tsx
 type MyComponentProps = {
   style: React.CSSProperties;
-}
+};
 ```

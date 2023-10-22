@@ -23,7 +23,7 @@ Para treinar e exercitar nossa escrita de código, o TypeScript tem um [playgrou
 
 Em TypeScript, dois pontos depois de um nome de variável inicia uma anotação de tipo, e a assinatura de tipo depois dos dois pontos descreve os valores que a variável pode ter. Por exemplo, a linha a seguir informa ao TypeScript que _variavel_ sempre armazenará números:
 
-```
+```tsx
 let variavel: number;
 ```
 
@@ -33,8 +33,8 @@ Você pode se perguntar se a inicialização de **undefined** de _variavel_ não
 
 TypeScript conhece a linguagem JavaScript e vai gerar tipos para você em muitos casos, inferindo por meio da atribuição de valores, quando na declaração do que está sendo atribuído. Ficou muito confuso? Por exemplo, quando criamos uma variável e atribuímos a ela um determinado valor, como uma string, TypeScript usará o valor como seu tipo, ou seja, esta varíavel estará automaticamente tipada para aguardar uma string, sem a necessidade de explicitar isso.
 
-```
-let variavel = "algum texto";  // variavel: string
+```tsx
+let variavel = "algum texto"; // variavel: string
 ```
 
 ## Como descrever tipos?
@@ -52,9 +52,9 @@ _Obs.: Tenha cuidado ao utilizar o tipo unknown. Tenha certeza do que está faze
 
 Com TypeScript, você pode criar tipos complexos combinando os simples. Com uma união, você pode declarar que um tipo pode ser um de muitos. Para isso, basta combinar os tipos que deseja com o operador **|**.
 
-```
+```tsx
 let variavel: number | null = null;
-variavel = 123
+variavel = 123;
 ```
 
 O código acima é compilado adequadamente, pois você explicitamente declarou que _variavel_ pode assumir tanto um valor numérico quanto **null**.
@@ -70,7 +70,7 @@ _Tuple_: Os elementos não têm necessariamente o mesmo tipo, porém o comprimen
 
 Existem duas maneiras de descrever um array como uma lista:
 
-```
+```tsx
 let arr1 = number[] = [1, 2, 3];
 let arr2 = Array<number> = [1, 2, 3, 4];
 ```
@@ -81,9 +81,9 @@ No exemplo acima, tanto _arr1_ quanto _arr2_ são tipados como arrays de tamanho
 
 Suponha que você deseja agora armazenar um par de chave e valor, resultado da operação _Object.entries(obj)_, e você espera que _obj_ é um objeto cujas chaves são strings e os valores são números.
 
-```
-let obj = {a: 1, b: 2}
-let primeiroParChaveValor: [string, number] = Object.entries(obj)[0]
+```tsx
+let obj = { a: 1, b: 2 };
+let primeiroParChaveValor: [string, number] = Object.entries(obj)[0];
 ```
 
 No exemplo acima, descrevemos _primeiroParChaveValor_ como um array de tamanho definido de 2 elementos, onde o primeiro deve ser uma string e o segundo deve ser um valor numérico.
@@ -92,23 +92,23 @@ No exemplo acima, descrevemos _primeiroParChaveValor_ como um array de tamanho d
 
 Ao descrever tipos para funções, estaremos descrevendo tanto os tipos dos parâmetros que a função aguarda, quanto também o tipo do seu retorno. O exemplo abaixo é uma anotação de tipo para todas as funções que aguardam um único parâmetro, sendo ele um número, e retornam um booleano:
 
-```
-(num: number) => boolean
+```tsx
+(num: number) => boolean;
 ```
 
 O código a seguir é um exemplo mais realista:
 
-```
+```tsx
 const verificaPositivo: (num: number) => boolean = (num) => {
-    return num >= 0;
-}
+  return num >= 0;
+};
 ```
 
 Outra forma de descrever a função acima é descrever separadamente os tipos do parâmetro da função e de seu retorno:
 
-```
+```tsx
 function verificaPositivo2(num: number): boolean {
-    return num >= 0;
+  return num >= 0;
 }
 ```
 
@@ -116,9 +116,11 @@ _Obs.: se excluirmos o boolean na declaração da função acima, o TypeScript �
 
 Porém, e se minha função não retornar nada? Terei que forçar um retorno que não desejo, só para poder tipar a função?? Não! Para começar, funções que "não retornam nada" no JavaScript estão na verdade retornando **undefined** implicitamente, e um dos tipos muito úteis que o TypeScript nos fornece é o **void**, o qual diz que a função sempre retorna **undefined**, explícito ou implicitamente.
 
-```
-function retornaNada(): void { return undefined } // ok
-function retornaNada2(): void { } // ok
+```tsx
+function retornaNada(): void {
+  return undefined;
+} // ok
+function retornaNada2(): void {} // ok
 ```
 
 ### Tipos em objetos
@@ -127,27 +129,27 @@ Para tipar objetos, iremos aqui definir uma quantidade fixa de propriedades, con
 
 Por exemplo, para criar um objeto com um tipo definido por incluir _nome: string_ e _id: number_, faremos as seguintes descrição e declaração:
 
-```
+```tsx
 let usuario: {
-    nome: string;
-    id: number;
-}
+  nome: string;
+  id: number;
+};
 
 usuario = {
-    nome: 'Fulano',
-    id: 1
-}
+  nome: "Fulano",
+  id: 1,
+};
 ```
 
 ### Criando tipos Personalizados
 
 Suponha que tenhamos no nosso código diversas variáveis que utilizam a mesma notação de tipo. Se formos reescrever a notação toda vez que declararmos mais uma variável, a escrita do código não seria nada prática e produtiva para o nosso desenvolvimento. Porém, o TypeScript nos fornece poderosas abstrações para reutilização de tipos: **interface** (para denotar tipos de objetos ou classes) e **type** (para denotar qualquer tipo).
 
-```
+```tsx
 type Ponto = {
-    x: number;
-    y: number;
-}
+  x: number;
+  y: number;
+};
 
 // interface Ponto {
 //     x: number;
@@ -162,19 +164,19 @@ Essa alteração permite que o tipo _Ponto_ seja usado em vários locais dentro 
 
 E ainda não acabou, o TypeScript também nos permite estender **types** ou **interfaces**, para compor tipos mais complexos a partir de tipos simples:
 
-```
+```tsx
 type Ponto3d = Ponto & {
-    z: number;
-}
+  z: number;
+};
 
 // interface Ponto3d extends Ponto {
 //     z: number;
 // }
 
 const ponto3d = {
-    x: 5,
-    y: -5,
-    z: 2
+  x: 5,
+  y: -5,
+  z: 2,
 };
 ```
 
@@ -190,18 +192,18 @@ Portanto, vamos examinar as principais características de cada uma dessas duas 
 
 As interfaces possibilitam o que chamamos de **declaration merging**: quando duas interfaces são declaradas com o mesmo nome, ocorre uma mescla e junção dessas duas. Está é uma maneira de extender uma interface, porém de forma menos explícita, o que não é uma prática recomendável quando no desenvolvimento de determinados projetos.
 
-```
+```tsx
 interface Pessoa {
-    nome: string;
+  nome: string;
 }
 
 interface Pessoa {
-    idade: number;
+  idade: number;
 }
 
 const pessoa: Pessoa = {
-    nome: 'Ricardo',
-    idade: 19
+  nome: "Ricardo",
+  idade: 19,
 };
 ```
 
@@ -213,27 +215,27 @@ Permitindo criar "aliases" - ou seja, apelidos - para tipos primitivos, funçõe
 
 Ele permite você denotar diversos tipos e realizar uniões e interseções deles:
 
-```
+```tsx
 type PessoaNome = {
-    name: string;
-}
+  name: string;
+};
 
 type PessoaIdade = {
-    age: number;
-}
+  age: number;
+};
 
 type Pessoa = PessoaNome & PessoaIdade;
-type PessoaNomeOuIdade = PessoaNome | PessoaIdade
+type PessoaNomeOuIdade = PessoaNome | PessoaIdade;
 
 const pessoa1: Pessoa = {
-    name: 'Fulano',
-    age: 18
+  name: "Fulano",
+  age: 18,
 };
 const pessoa2: PessoaNomeOuIdade = {
-    name: 'Beltrano'
+  name: "Beltrano",
 };
 const pessoa3: PessoaNomeOuIdade = {
-    age: 20
+  age: 20,
 };
 ```
 
@@ -241,17 +243,17 @@ const pessoa3: PessoaNomeOuIdade = {
 
 Se, na estrutura da sua anotação de tipo, uma propriedade pode ser omitida, você pode colocar um ponto de interrogação após o seu nome:
 
-```
+```tsx
 type Ponto = {
-    x: number;
-    y: number;
-    z?: number;
-}
+  x: number;
+  y: number;
+  z?: number;
+};
 
 let ponto: Ponto;
 
-ponto = { x: 0, y: 0, z: 0 } // OK
-ponto = { x: 0, y: 0 } // OK
+ponto = { x: 0, y: 0, z: 0 }; // OK
+ponto = { x: 0, y: 0 }; // OK
 ```
 
 Aqui, ao invés de especificar um tipo separado para um ponto tridimensional, simplesmente tornamos a propriedade _z_ opcional.
