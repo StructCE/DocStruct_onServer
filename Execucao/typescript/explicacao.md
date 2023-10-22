@@ -8,7 +8,7 @@ label: "TypeScript"
 
 Se você já programou em JavaScript, torna-se ainda mais fácil programar em TypeScript, afinal eles são basicamente "a mesma coisa". O que isso quer dizer? É que o TypeScript é na verdade um superset open-source, desenvolvido pela Microsoft, ou seja, uma extensão da linguagem JavaScript, com a adição de algumas propriedades que melhoram o nosso código.
 
-Tá, mas ainda não chegamos no tópico principal desta introduçaço né... por que usar o TypeScript? Para começar, ele funciona como uma ferramenta que adiciona tipagem estática ao JavaScript, que pode ser escrita em qualquer ambiente de desenvolvimento e que, quando instalada via gerenciador de pacotes JS, permite checar erros e utilizar outros compiladores que suportam este mecanismo. Com isso, o TypeScript eleva o nível de produtividade e ainda garante o desenvolvimento de aplicações complexas, eficazes e seguras.
+Tá, mas ainda não chegamos no tópico principal desta introdução né... por que usar o TypeScript? Para começar, ele funciona como uma ferramenta que adiciona tipagem estática ao JavaScript, que pode ser escrita em qualquer ambiente de desenvolvimento e que, quando instalada via gerenciador de pacotes JS, permite checar erros e utilizar outros compiladores que suportam este mecanismo. Com isso, o TypeScript eleva o nível de produtividade e ainda garante o desenvolvimento de aplicações complexas, eficazes e seguras.
 Além do potencial de detecção de erros durante o desenvolvimento de projetos, outra vantagem é a possibilidade de incluir a IntelliSense da IDE que está sendo usada. Isso reflete num ambiente muito mais ágil e seguro enquanto o código está sendo digitado pelo desenvolvedor.
 
 ## Verificador de Tipos Estáticos
