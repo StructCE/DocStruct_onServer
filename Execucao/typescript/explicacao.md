@@ -100,10 +100,7 @@ O código a seguir é um exemplo mais realista:
 
 ```
 const verificaPositivo: (num: number) => boolean = (num) => {
-    if (num >= 0) {
-        return true;
-    }
-    return false;
+    return num >= 0;
 }
 ```
 
@@ -111,10 +108,7 @@ Outra forma de descrever a função acima é descrever separadamente os tipos do
 
 ```
 function verificaPositivo2(num: number): boolean {
-    if (num >= 0) {
-        return true;
-    }
-    return false;
+    return num >= 0;
 }
 ```
 
