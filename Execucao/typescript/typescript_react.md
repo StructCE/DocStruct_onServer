@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 1
 icon: diamond
 label: "Como utilizar TypeScript com React?"
 ---
@@ -10,7 +10,11 @@ TypeScript é uma extensão da linguagem JavaScript. Em suma, ele traz definiç�
 
 Vale reiterar que o TypeScript não é uma nova linguagem. No final, todo seu código irá ser transpilado (convertido) em JavaScript, para poder ser interpretado.
 
-## Tipando props
+## Pacote @types/react
+
+O pacote [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts) inclui diversos tipos para o nosso código de React, nos possibilitando prover tipagens para hooks built-in, eventos e diversos elementos. Assim, você pode usá-los sem precisar realizar nenhuma configuração adicional no seu repositório e no seu código.
+
+### Tipando props
 
 Escrever códido TypeScript com React é bem semelhante a escrever código JavaScript com React. Uma das principais diferenças está no fato de que, quando trabalhando com um componente em TypeScript, você terá que declarar e prover tipos para as props dos seus componentes.
 
@@ -32,8 +36,6 @@ export function MyButton({ content } : { content: string | ReactElement }) {
 
 No exemplo acima, provemos, de forma inline, um tipo para o content do button. Entretanto, podemos separar isso da declaração do componente. A seguinte sintaxe é uma forma simples e básica de prover tipos para o seu componente React, sem ser de forma inline, o que nos possibilitará, mais a frente, aprendermos como reutilizar e expandir tipagens.
 
-### Declarando tipos
-
 ```tsx
 type MyButtonProps = {
   content: string | ReactElement;
@@ -45,9 +47,68 @@ export function MyButton({ content, onClick } : MyButtonProps) {
 }
 ```
 
-## Pacote @types/react
+#### Componentes (ReactNode, ReactElement, HTMLElement)
 
-O pacote [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts) inclui diversos tipos para o nosso código de React, nos possibilitando prover tipagens para hooks built-in, eventos e diversos elementos. Assim, você pode usá-los sem precisar realizar nenhuma configuração adicional no seu repositório e no seu código.
+No @types/react, existem [diversos tipos](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts#L163C1-L163C1) para componentes e marcação do nosso código jsx, o que pode acabar confundindo quem está vendo TypeScript pela primeira vez. Portanto, vamos nos focar nos tipos básicos, que podemos usar para a maioria das situações, como para passagem de componentes em props e para a tipagem de children's.
+
+Tipando componentes:
+
+- PropsWithChildren
+
+```tsx
+type MyComponentProps = React.PropsWithChildren<{
+  title: string;
+}>;
+```
+
+Com o PropsWithChildren, você consegue, de forma simples, tipar props para um componente, definindo automaticamente o children para ser capaz de receber tudo aquilo que ele pode receber (elementos JSX, string e number).
+
+Agora, suponha que estejamos criando um componente e ele possui, além de um children que pode agir como trigger, um conteúdo para o preencher, que pode ser tanto uma string quanto um outro componente. Bom, poderíamos pensar em passar dois childrens né?! Mas, como iríamos diferir o que é trigger e o que é content?? Assim, o PropsWithChildren não será o suficiente para nos satisfazer nessa situação.
+
+Seguem abaixo alguns exemplos de como podemos lidar com isso:
+
+- ReactNode
+
+```tsx
+type MyComponentProps = React.PropsWithChildren<{
+  title: string;
+  content: ReactNode;
+}>;
+```
+
+Uma primeira possibilidade é usar o tipo ReactNode, o qual é uma união de todos elementos JSX e tipos primitivos do JavaScript como string e number.
+
+- ReactElement
+
+```tsx
+type MyComponentProps = React.PropsWithChildren<{
+  title: string;
+  content: ReactElement;
+}>;
+```
+
+Uma segunda possibilidade, menos abrangente, é utilizar o ReactElement, o qual abrange apenas elementos JSX, excluindo tipos primitivos do JavaScript como string e number.
+
+- HTMLElement
+
+```tsx
+type MyComponentProps = React.PropsWithChildren<{
+  title: string;
+  content: HTMLElement;
+}>;
+```
+
+Mais uma possibilidade, ainda menos abrangente, é utilizar o HTMLElement, o qual abrange apenas marcações do HTML, excluindo componentes React e tipos primitivos do JavaScript.
+
+#### Props de estilização
+
+Quando usando estilização inline no React, você pode usar o tipo CSSProperties, para descrever um objeto passado para a prop style de um componente. Este tipo é uma união de todas as possíveis propriedades CSS, e é uma ótima maneira de garantir que você está passando propriedades CSS válidas.
+
+```tsx
+type MyComponentProps = {
+  style: React.CSSProperties;
+};
+```
 
 ### Hooks nativos
 
@@ -179,66 +240,3 @@ export default function MyForm() {
 Há mais alguns eventos que vocês podem olhar: FocusEvent, InvalidEvent, KeyboardEvent, MouseEvent, TouchEvent, TransitionEvent, ...
 
 Por fim, se você precisar usar algum evento que não está incluído nessa lista, você pode usar o tipo SyntheticEvent, que é o tipo do qual é extendido todos os outros tipos de evento.
-
-### Componentes (ReactNode, ReactElement, HTMLElement)
-
-No @types/react, existem [diversos tipos](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts#L163C1-L163C1) para componentes e marcação do nosso código jsx, o que pode acabar confundindo quem está vendo TypeScript pela primeira vez. Portanto, vamos nos focar nos tipos básicos, que podemos usar para a maioria das situações, como para passagem de componentes em props e para a tipagem de children's.
-
-Tipando componentes:
-
-- PropsWithChildren
-
-```tsx
-type MyComponentProps = React.PropsWithChildren<{
-  title: string;
-}>;
-```
-
-Com o PropsWithChildren, você consegue, de forma simples, tipar props para um componente, definindo automaticamente o children para ser capaz de receber tudo aquilo que ele pode receber (elementos JSX, string e number).
-
-Agora, suponha que estejamos criando um componente e ele possui, além de um children que pode agir como trigger, um conteúdo para o preencher, que pode ser tanto uma string quanto um outro componente. Bom, poderíamos pensar em passar dois childrens né?! Mas, como iríamos diferir o que é trigger e o que é content?? Assim, o PropsWithChildren não será o suficiente para nos satisfazer nessa situação.
-
-Seguem abaixo alguns exemplos de como podemos lidar com isso:
-
-- ReactNode
-
-```tsx
-type MyComponentProps = React.PropsWithChildren<{
-  title: string;
-  content: ReactNode;
-}>;
-```
-
-Uma primeira possibilidade é usar o tipo ReactNode, o qual é uma união de todos elementos JSX e tipos primitivos do JavaScript como string e number.
-
-- ReactElement
-
-```tsx
-type MyComponentProps = React.PropsWithChildren<{
-  title: string;
-  content: ReactElement;
-}>;
-```
-
-Uma segunda possibilidade, menos abrangente, é utilizar o ReactElement, o qual abrange apenas elementos JSX, excluindo tipos primitivos do JavaScript como string e number.
-
-- HTMLElement
-
-```tsx
-type MyComponentProps = React.PropsWithChildren<{
-  title: string;
-  content: HTMLElement;
-}>;
-```
-
-Mais uma possibilidade, ainda menos abrangente, é utilizar o HTMLElement, o qual abrange apenas marcações do HTML, excluindo componentes React e tipos primitivos do JavaScript.
-
-### Props de estilização
-
-Quando usando estilização inline no React, você pode usar o tipo CSSProperties, para descrever um objeto passado para a prop style de um componente. Este tipo é uma união de todas as possíveis propriedades CSS, e é uma ótima maneira de garantir que você está passando propriedades CSS válidas.
-
-```tsx
-type MyComponentProps = {
-  style: React.CSSProperties;
-};
-```

@@ -1,7 +1,7 @@
 ---
-order: 3
+order: 2
 icon: diamond
-label: "TypeScript"
+label: "Entendendo a Linguagem"
 ---
 
 # Por que usar TypeScript?
