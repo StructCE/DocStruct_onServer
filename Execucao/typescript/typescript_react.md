@@ -18,7 +18,7 @@ O pacote [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/
 
 Escrever códido TypeScript com React é bem semelhante a escrever código JavaScript com React. Uma das principais diferenças está no fato de que, quando trabalhando com um componente em TypeScript, você terá que declarar e prover tipos para as props dos seus componentes.
 
-- JavaScript:
+- _JavaScript_
 
 ```tsx
 export function MyButton({ content }) {
@@ -26,7 +26,7 @@ export function MyButton({ content }) {
 }
 ```
 
-- TypeScript:
+- _TypeScript_
 
 ```tsx
 export function MyButton({ content } : { content: string | ReactElement }) {
@@ -53,7 +53,7 @@ No @types/react, existem [diversos tipos](https://github.com/DefinitelyTyped/Def
 
 Tipando componentes:
 
-- PropsWithChildren
+- _PropsWithChildren_
 
 ```tsx
 type MyComponentProps = React.PropsWithChildren<{
@@ -67,7 +67,7 @@ Agora, suponha que estejamos criando um componente e ele possui, além de um chi
 
 Seguem abaixo alguns exemplos de como podemos lidar com isso:
 
-- ReactNode
+- _ReactNode_
 
 ```tsx
 type MyComponentProps = React.PropsWithChildren<{
@@ -78,7 +78,7 @@ type MyComponentProps = React.PropsWithChildren<{
 
 Uma primeira possibilidade é usar o tipo ReactNode, o qual é uma união de todos elementos JSX e tipos primitivos do JavaScript como string e number.
 
-- ReactElement
+- _ReactElement_
 
 ```tsx
 type MyComponentProps = React.PropsWithChildren<{
@@ -89,7 +89,7 @@ type MyComponentProps = React.PropsWithChildren<{
 
 Uma segunda possibilidade, menos abrangente, é utilizar o ReactElement, o qual abrange apenas elementos JSX, excluindo tipos primitivos do JavaScript como string e number.
 
-- HTMLElement
+- _HTMLElement_
 
 ```tsx
 type MyComponentProps = React.PropsWithChildren<{
@@ -112,7 +112,7 @@ type MyComponentProps = {
 
 ### Hooks nativos
 
-- useState
+- _useState_
 
 O hook useState é capaz de realizar inferência de tipos, a partir do valor inicial passado na declaração do estado.
 
@@ -136,7 +136,7 @@ const [pet, setPet] = useState<Pet>({
 });
 ```
 
-- useContext
+- _useContext_
 
 A tipagem, quando no uso do useContext, ocorre na criação do contexto, por meio da chamada do createContext.
 
@@ -167,7 +167,7 @@ Quando se trabalha com eventos DOM no React, o tipo do evento é possível de se
 
 O pacote @types/react fornece uma [lista muito ampla](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/b580df54c0819ec9df62b0835a315dd48b8594a9/types/react/index.d.ts#L1247C1-L1373) de tipos que você usar para manipular eventos no seu código. Eles usam uma sintaxe semelhante, baseada em `FenomenoEvent<Elemento>`, onde Elemento é o tipo do elemento do qual o evento é gerado. Seguem alguns exemplos:
 
-- Para onChange de um input, use ChangeEvent
+- _Para onChange de um input, use ChangeEvent_
 
 ```tsx
 import { useState, type ChangeEvent } from "react";
@@ -188,7 +188,7 @@ export default function MyInput() {
 }
 ```
 
-- Para onSubmit de um form, use FormEvent
+- _Para onSubmit de um form, use FormEvent_
 
 ```tsx
 import {
@@ -235,7 +235,7 @@ export default function MyForm() {
 }
 ```
 
-- Demais exemplos
+- _Demais exemplos_
 
 Há mais alguns eventos que vocês podem olhar: FocusEvent, InvalidEvent, KeyboardEvent, MouseEvent, TouchEvent, TransitionEvent, ...
 
