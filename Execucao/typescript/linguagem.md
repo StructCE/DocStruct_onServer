@@ -1,10 +1,10 @@
 ---
 order: 2
-icon: diamond
+icon: code
 label: "Entendendo a Linguagem"
 ---
 
-# Por que usar TypeScript?
+## Por que usar TypeScript?
 
 Se você já programou em JavaScript, torna-se ainda mais fácil programar em TypeScript, afinal eles são basicamente "a mesma coisa". O que isso quer dizer? É que o TypeScript é na verdade um superset open-source, desenvolvido pela Microsoft, ou seja, uma extensão da linguagem JavaScript, com a adição de algumas propriedades que melhoram o nosso código.
 

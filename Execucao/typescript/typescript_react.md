@@ -1,10 +1,10 @@
 ---
 order: 1
-icon: diamond
+icon: terminal
 label: "Como utilizar TypeScript com React?"
 ---
 
-# De .jsx para .tsx
+## De .jsx para .tsx
 
 TypeScript é uma extensão da linguagem JavaScript. Em suma, ele traz definições de tipos para o seu código, a fim de se evitar alguns tipos de bugs e diversas depurações relacionadas tanto com a passagem de parâmetros quanto com a validação de que objetos, estados e variáveis irão se comportar como você espera.
 
