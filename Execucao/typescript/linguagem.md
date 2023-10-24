@@ -2,6 +2,14 @@
 order: 2
 icon: code
 label: "Entendendo a Linguagem"
+author:
+  name: Paulo Fernando
+  avatar: ../../Imagens DocStruct/Logos/logo_struct.png
+category: Explicação
+tags:
+  - typescript
+  - explicacao
+date: 2023-10-24
 ---
 
 ## Definindo Tipos

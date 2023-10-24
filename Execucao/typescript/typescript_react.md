@@ -2,6 +2,15 @@
 order: 1
 icon: terminal
 label: "Como utilizar TypeScript com React?"
+author:
+  name: Paulo Fernando
+  avatar: ../../Imagens DocStruct/Logos/logo_struct.png
+category: Explicação
+tags:
+  - typescript
+  - react
+  - explicacao
+date: 2023-10-24
 ---
 
 ## De .jsx para .tsx
