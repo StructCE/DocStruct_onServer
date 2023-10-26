@@ -39,7 +39,7 @@ export default function Layout({ children }) {
 
 Neste exemplo, a navbar e a footer são importadas para um arquivo de layout e, assim, cria uma função Layout que recebe um componente como parâmetro a children, que será o que estiver envolvido pelo componente.
 
-Assim, pode-se importar o layout para o arquivo `_app.tsx`, onde fica a estrutura executada na aplicação:
+Assim, pode-se importar o layout para o arquivo `_app.tsx`, onde fica a estrutura executada em todas as páginas da aplicação:
 
 ```ts pages/_app.tsx
 import Layout from '../components/layout'
