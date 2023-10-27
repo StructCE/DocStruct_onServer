@@ -85,6 +85,39 @@ export default function App({
 
 Dessa forma, o `useSession` terá acesso aos dados e status da sessão.
 
+### AVISO!!
+
+A desestruturação dos `pageProps` em session e no resto das pageProps significa uma alteração no comportamento normal de `getServerSideProps` e `getStaticProps`.
+
+Caso pegue a session no servidor e tente passar para a página como suas pageProps, a session será interceptada aqui no App e nunca chegará no seu componente da página. Ao invés disso será usada para alimentar o hook `useSession`, portanto use-o.
+Exemplo:
+
+```js
+
+export async function getServerSideProps(ctx) {
+    const session = await getServerSession(ctx.req, ctx.res, authOptions);
+
+    if (!session || !session.user) return { redirect: { permanent: false, destination: "/login" } }
+
+    return {
+        props: {
+            session
+        }
+    }
+}
+
+// Dá erro, e a tipagem é mentirosa:
+export default function HomePage({ session }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    return <pre>{JSON.stringify(session.user)}</pre>
+}
+// Dá certo:
+export default function HomePage() {
+    const { data: session } = useSession();
+    return <pre>{JSON.stringify(session.user)}</pre>
+}
+
+```
+
 ## Utilização do useSession
 
 O Hook do React `useSession` usado no NextAuth.js é a maneira mais fácil de verificar se alguém está autenticado.Como no exemplo:
@@ -92,15 +125,18 @@ O Hook do React `useSession` usado no NextAuth.js é a maneira mais fácil de ve
 ```js
 
 import { useSession } from "next-auth/react"
-
 export default function Component() {
   const { data: session, status } = useSession()
-
   if (status === "authenticated") {
-    return <p>Signed in as {session.user.email}</p>
+    return (
+      <p>
+        Signed in as {session.user.email}
+        <br />
+        <button onClick={() => signOut()}>Sign out</button>
+      </p>
+    )
   }
-
-  return <a href="/api/auth/signin">Sign in</a>
+  return <button onClick={() => signIn()}>Sign in</button>
 }
 
 ```
