@@ -1,7 +1,15 @@
 ---
 order: 2
-icon: Imagens DocStruct/Logos/logo_Next_Auth.png
+icon: question
 label: "O que é NextAuth.js?"
+author:
+  name: João Santos
+  # avatar: ../../Imagens DocStruct/Logos/logo_struct.png
+date: 2023-10-27
+category: Explicação
+tags:
+  - Next Auth 
+  - explicacao
 ---
 
 ## Next Auth

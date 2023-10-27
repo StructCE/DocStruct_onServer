@@ -1,6 +1,16 @@
 ---
-order: 3
+order: 1
+icon: file-code
 label: "Como implementar o Next Auth em um projeto existente?"
+author:
+  name: João Santos
+  # avatar: ../../Imagens DocStruct/Logos/logo_struct.png
+date: 2023-10-27
+category: Implementação
+tags:
+  - Next Auth 
+  - explicacao
+  - Next.js
 ---
 
 # Instalação
