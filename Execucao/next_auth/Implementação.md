@@ -176,3 +176,35 @@ GoogleProvider({
 })
 
 ```
+
+## Como conseguir as credenciais para a autenticação externa Next auth(Google)
+
+Utilizarei o exemplo do Google como autenticador externo, pela grande gama de [documentação](https://developers.google.com/identity/protocols/oauth2?hl=pt-br) disponível.
+
+Para configurar a autenticação com o Next Auth usando o Google como provedor, você precisará obter as credenciais apropriadas do Google. Siga estas etapas:
+
+1. Acesse o [Console de Desenvolvedores do Google](https://console.developers.google.com/apis/credentials).
+
+2. Com o projeto criado e/ou adicionado na plataforma, na barra de opções lateral clique no item `APIs e serviços ativados` e em seguida, no botão `ATIVAR APIS E SERVIÇOS`.
+
+3. Instale uma API de autenticaçõa do Google como `Google Identity`, e ative-a.
+
+4. Agora, selecione a aba `Credenciais` do painel lateral, clique em `Criar credenciais` e escolha `ID do cliente OAuth` como tipo de credencial,e por fim , configure as informações do OAuth de acordo com as necessidades do projeto.
+
+5. Após configurar você receberá um `ID` e um `segredo` do clinte.
+
+6. Por fim, crie um arquivo `process.env` para guardar essas informações.Como no exemplo:
+
+```js
+import GoogleProvider from "next-auth/providers/google";
+...
+providers: [
+  GoogleProvider({
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET
+  })
+]
+...
+```
+
+Com as credenciais armazenadas de forma segura em seu arquivo .env, você pode configurar a autenticação com o provedor do Google de maneira segura e eficaz em seu projeto Next Auth.
