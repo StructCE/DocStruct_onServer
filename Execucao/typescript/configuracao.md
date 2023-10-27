@@ -9,6 +9,7 @@ category: Instalação
 tags:
   - typescript
   - instalacao
+  - configuracao
 date: 2023-10-24
 ---
 
