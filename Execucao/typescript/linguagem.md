@@ -9,7 +9,7 @@ category: Explicação
 tags:
   - typescript
   - explicacao
-date: 2023-10-24
+date: 2023-10-27
 ---
 
 ## Definindo Tipos
