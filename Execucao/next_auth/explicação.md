@@ -1,5 +1,6 @@
 ---
 order: 2
+icon: Imagens DocStruct/Logos/logo_Next_Auth.png
 label: "O que é NextAuth.js?"
 ---
 
