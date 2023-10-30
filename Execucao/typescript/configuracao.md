@@ -36,24 +36,31 @@ Geralmente, na criação do seu projeto, seja em Vite ou seja em Next, é possí
 > _Os passos a seguir servem apenas para exemplificação de como o TypeScript surge e opera no nosso diretório. **É altamente recomendável que você escolha a utilização da linguagem TypeScript, quando nas opções de criação do seu projeto**._
 
 Primeiramente, para adicionar o TypeScript nas dependências do projeto, basta executar um dos seguintes comandos no terminal, de acordo com o gerenciador de pacotes que você e sua equipe estejam utilizando:
++++ PNPM
 
-```
-npm install typescript
-```
-
-```
+```bash
 pnpm install typescript
 ```
 
++++ NPM
+
+```bash
+npm install typescript
 ```
+
++++ YARN
+
+```bash
 yarn add typescript
 ```
+
++++
 
 Porém, ainda precisamos explicitar que desejamos configurar a ferramenta, e para isso precisamos do arquivo **tsconfig.json**, onde iremos ajustar o modo de operação do TypeScript sobre o nosso projeto.
 
 Para a criação do arquivo, basta rodar o seguinte comando no terminal:
 
-```
+```bash
 npx tsc --init
 ```
 
@@ -65,7 +72,7 @@ Entretanto, o Vite e o Next são capazes de já realizarem uma configuração b�
 
 tsconfig.json:
 
-```tsx
+```json
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -91,12 +98,11 @@ tsconfig.json:
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
-
 ```
 
 tsconfig.node.json:
 
-```tsx
+```json
 {
   "compilerOptions": {
     "composite": true,
@@ -107,14 +113,13 @@ tsconfig.node.json:
   },
   "include": ["vite.config.ts"]
 }
-
 ```
 
 #### Next
 
 tsconfig.json:
 
-```tsx
+```json
 {
   "compilerOptions": {
     "target": "es5",
@@ -137,7 +142,6 @@ tsconfig.json:
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
-
 ```
 
 ### Opções do _tsconfig.json_
@@ -150,7 +154,7 @@ Primeiramente, o arquivo é constituído por um objeto, no qual colocamos nossas
 
 Estrutura básica de um arquivo **tsconfig.json**:
 
-```tsx
+```json
 {
   "compilerOptions": {
     // objeto com opções de como o compilador do TypeScript agirá

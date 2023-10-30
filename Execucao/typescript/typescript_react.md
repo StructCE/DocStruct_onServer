@@ -29,7 +29,7 @@ Escrever código TypeScript com React é bem semelhante a escrever código JavaS
 
 - _JavaScript_
 
-```tsx
+```jsx
 export function MyButton({ content }) {
   return <button>{ content }<button/>
 }
