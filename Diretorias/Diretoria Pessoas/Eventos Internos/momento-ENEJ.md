@@ -24,9 +24,8 @@ Estes foram os temaos abordados em cada Momento ENEJ que tivemos ao longos dos a
 
 ### Fotos
 
-Essas são algumas das fotos tiradas durante o nossos Momentos ENEJ:
-[Imagem do Momento ENEJ 2022]
-[Imagem do Momento ENEJ 2023]
+Essas são algumas das fotos tiradas durante os nossos Momentos ENEJ:
+![Imagem do Momento ENEJ 2023](<../../../Imagens DocStruct/Pessoas/momento_enej_2023.jpg>)
 
 ### Feedback
 
