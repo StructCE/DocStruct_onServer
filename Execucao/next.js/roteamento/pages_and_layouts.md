@@ -2,6 +2,11 @@
 icon: project-symlink
 label: "Páginas e Layouts"
 order: 5
+author:
+    name: Matheus das Neves
+date: 2023-10-26
+avatar: ../../Imagens DocStruct/Logos/logo_struct.png
+category: Explicação
 ---
 
 # Páginas e Layouts
@@ -16,6 +21,11 @@ Arquivos com nome `index` funcionam como a página padrão do diretório em que 
 
 Componentes em pastas e subpastas também são roteados automaticamente pelo diretório, obedecendo à hierarquia de pastas.
 Exemplo: `pages/user/login.tsx` teria uma rota `/user/login`
+
+!!!
+Observação: um arquivo ```pages/user/index.tsx``` teria a mesma rota que a pasta ```pages/user```, pois arquivos `index` são tratados como a página de "aterrissagem" daquele diretório.
+Deste modo, não deve-se criar um arquivo e uma pasta no mesmo diretório com nomes iguais, pois haveria confusão nas rotas geradas por ambos.
+!!!
 
 ## Layouts
 

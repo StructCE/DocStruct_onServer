@@ -2,6 +2,11 @@
 icon: globe
 label: "Navegação e Link"
 order: 3
+author:
+    name: Matheus das Neves
+date: 2023-10-26
+avatar: ../../Imagens DocStruct/Logos/logo_struct.png
+category: Explicação
 ---
 
 O Next, com o componente `Link`, permite a transição entre rotas pelo lado do cliente. Esse componente redireciona para uma rota, mas sem fazer o carregamento total da página, algumas informações são guardadas no navegador para tornar o roteamento mais rápido.
@@ -24,25 +29,7 @@ O componento Link adiciona o parâmetro recebido em `href` à rota atual. Ou sej
 
 ## Linkando para rotas dinâmicas
 
-Para passar rotas dinâmicas para o componente Link através de URL's dinâmicos:
-
-```ts
-import Link from 'next/link'
- 
-function Post( post ) {
-  return (
-        <Link href={`/user/profile/${encodeURIComponent(post.userId)}`}>
-          Perfil do Usuário
-        </Link>
-  )
-}
- 
-export default Post
-```
-
-No TypeScript, para passar um parâmetro em meio a uma string deve-se usar crase (``) no lugar de aspas e envolver o segmento dinâmico entre ${segmento dinâmico}. Além da função `encodeURIComponent`, que codifica uma string para torná-la compatível ao sistema de caracteres utf-8.
-
-Ou, invés de se passar uma URL para o componente Link, pode-se passar um objeto URL, como exemplo:
+Para passar rotas dinâmicas, pode-se passar um objeto URL como no exemplo:
 
 ```ts
 import Link from 'next/link'
@@ -62,6 +49,24 @@ export default Posts
 ```
 
 Onde no parâmetro `pathname` deve-se passar a rota do componente a qual quer se redirecionar. No parâmetro `query`, passa-se um objeto declarando o seguimento dinâmico, no caso é o `[id]`.
+
+Já para passar rotas dinâmicas para o componente Link através de URL's dinâmicos:
+
+```ts
+import Link from 'next/link'
+ 
+function Post( post ) {
+  return (
+        <Link href={`/user/profile/${encodeURIComponent(post.userId)}`}>
+          Perfil do Usuário
+        </Link>
+  )
+}
+ 
+export default Post
+```
+
+No TypeScript, para passar um parâmetro em meio a uma string deve-se usar crase (``) no lugar de aspas e envolver o segmento dinâmico entre ${segmento dinâmico}. Além da função `encodeURIComponent`, que codifica uma string para torná-la compatível ao sistema de caracteres utf-8.
 
 ## Usando router
 
