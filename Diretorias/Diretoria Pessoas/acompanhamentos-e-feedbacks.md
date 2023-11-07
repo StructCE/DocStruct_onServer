@@ -61,7 +61,7 @@ O Plano de Densenvolvimento Individual (PDI) é um plano de ação cujo foco é 
 
 - Para salvar no drive pessoal:
 	- *Arquivo -> Fazer uma cópia -> Selecione a pasta “Meu drive”* (precisa apertar no “selecionar” quando já estiver no local da pasta).
-	![Tabela PDI](../../Imagens%20DocStruct/Pessoas/copiaTabelaPDI.png)
+![Tabela PDI](<../../Imagens DocStruct/Pessoas/copiaTabelaPDI.png>)
 
 Na tabela existem várias divisões que auxiliarão no estabelecimento de objetivos e na identificação de pontos fracos e fortes. Sendo elas:
 
