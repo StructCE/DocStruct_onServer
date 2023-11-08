@@ -8,13 +8,13 @@ date: 2023-11-07
 ---
 ## Introdução
 
-A diretoria de Gestão de Pessoas representa o setor de recursos humanos na Struct e tem como principais funções garantir o rendimento dos membros e detectar e solucionar possíveis problemas internos. Responsável por cuidar do bem estar dos membros e sempre mantê-los integrados com a cultura da empresa, a GP também deve realizar acompanhamentos e pesquisas de satisfação periodicamente. Também possui como função repassar feedbacks aos membros, com o objetivo de aumentar o reconhecimento formal dentro da empresa. Em suma, a diretoria é responsável por garantir que as demais equipes possam se concentrar unicamente em suas respectivas tarefas, dando voz aos problemas dos membros e buscando possíveis soluções.
+A diretoria de Gestão de Pessoas representa o setor de recursos humanos na Struct e tem como principais funções garantir o [rendimento dos membros](corrida-de-foguetes.md) e detectar e solucionar possíveis problemas internos. Responsável por cuidar do bem estar dos membros e sempre mantê-los integrados com a [cultura da empresa](<./Eventos Internos/panorama_geral.md>), a GP também deve realizar [acompanhamentos e pesquisas de satisfação periodicamente](acompanhamentos-e-feedbacks.md). Também possui como função repassar feedbacks aos membros, com o objetivo de aumentar o reconhecimento formal dentro da empresa. Em suma, a diretoria é responsável por garantir que as demais equipes possam se concentrar unicamente em suas respectivas tarefas, dando voz aos problemas dos membros e buscando possíveis soluções.
 
 ---
 
 ## CDT
 
-As solicitações de cadastramento, desligamento de membros e listas de frequência mensais devem ser enviadas pelo formulário abaixo. Não há mais necessidade de enviá-las por e-mail. Para responder ao forms, vocês devem estar logados no e-mail institucional da UnB.
+As solicitações de [cadastramento, desligamento de membros](entrada-e-saída-de-membro.md) e listas de frequência mensais devem ser enviadas pelo formulário abaixo. Não há mais necessidade de enviá-las por e-mail. Para responder ao forms, vocês devem estar logados no e-mail institucional da UnB.
 
 - [Formulário CDT](https://forms.office.com/Pages/ResponsePage.aspx?id=oZs17AtjK024M8jm1I-AWclQzKODPB5BlMGNlsmts3JUM1AxNFNVNk1HNzgyRVRUNllIUk1aQVlBNC4u)
 
