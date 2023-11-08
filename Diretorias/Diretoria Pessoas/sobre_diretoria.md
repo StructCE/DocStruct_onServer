@@ -32,22 +32,6 @@ Para mais informações, segue links e email na lista abaixo (temos também, um 
 
 ---
 
-## Momento Arcade
-
-Uma das principais funções da diretoria de gestão de pessoas é garantir que todos os membros se sintam confortáveis trabalhando na empresa. Ao se sentir à vontade, um membro se torna mais participativo nas suas atividades, expressando mais suas opiniões e consequentemente tendo um melhor rendimento. É nesse momento que entram as dinâmicas. A ideia é criar eventos virtuais ou presenciais onde os membros possam interagir, conhecer mais sobre os outros e se divertir ao máximo.
-A periodicidade das dinâmicas é um fator importante a se definir. Como é um momento de descontração, é ideal que os membros não tratem esse momento como mais uma obrigação da empresa. Para isso, um número bom de dinâmicas por mês tende a ser algo entre 1 ou 2 no máximo. Claro que existem momentos que não são muito propícios para realizar dinâmicas como final de semestre, feriados que muitos viajam, etc. No final das contas, cabe às pessoas responsáveis pelas dinâmicas planejarem quando ficará melhor para a maioria e não se prenderem a datas fixas. 
-As dinâmicas não se resumem apenas a diversão. Nem toda dinâmica precisa ser necessariamente uma brincadeira. A ideia principal aqui é criar um momento para os membros construírem um sentimento de união e de fazerem parte de um time. Algumas ideias de dinâmicas interessantes:	
-
-- Tarde de jogos de tabuleiro
-- Comer e jogar juntos
-- Jogos de browser que todos possam jogar
-- Paintball da Struct
-- Abrir servidor de minecraft da struct
-- Fut com churrasco 
-- Competição de algum jogo muito jogado (CS, LOL, etc)
-
----
-
 ## Organização Interna e Trello
 
 Para o cumprimento das atividades da GP, são utilizadas ferramentas de organização que facilitam a visualização, priorização e execução das tarefas pendentes, além de servir como ferramenta de documentação de atividades já realizadas. A principal ferramenta de organização utilizada na GP é o Trello.
