@@ -183,16 +183,18 @@ OBS:A segunda URL depende de como foram implementadas as rotas no projeto!!
 
 5. Por fim, crie um arquivo `.env` para guardar essas informações.Como no exemplo:
 
-```js
-import GoogleProvider from "next-auth/providers/google";
-...
-providers: [
-  GoogleProvider({
-    clientId: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET
-  })
-]
-...
+```bash
+# Next Auth
+# You can generate a new secret on the command line with:
+# openssl rand -base64 32
+# https://next-auth.js.org/configuration/options#secret
+NEXTAUTH_SECRET="tefsdfadagdsdfagdf123413afadf"
+
+NEXTAUTH_URL="http://localhost:3000"
+
+# Next Auth GOOGLE Provider
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
 ```
 
 Com as credenciais armazenadas de forma segura em seu arquivo .env, você pode configurar a autenticação com o provedor do Google de maneira segura e eficaz em seu projeto Next Auth.
