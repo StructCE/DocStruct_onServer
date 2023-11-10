@@ -221,15 +221,12 @@ Para configurar a autenticação com o Next Auth usando o Google como provedor, 
 
 1. Acesse o [Console de Desenvolvedores do Google](https://console.developers.google.com/apis/credentials).
 
-2. Com o projeto criado e/ou adicionado na plataforma, na barra de opções lateral clique no item `APIs e serviços ativados` e em seguida, no botão `ATIVAR APIS E SERVIÇOS`.
+2. Com o projeto criado e/ou adicionado na plataforma, na barra de opções lateral clique no item `Credenciais` e em seguida, no botão `Criar credenciais`, e escolha `ID do cliente OAuth` como tipo de credencial, configure as informações do OAuth de acordo com as necessidades do projeto. Preencha o campo `Tipo de aplicativo` com a opção `Aplicativo da Web`, nas seções `Origens JavaScript autorizadas` e `URLs de redirecionamento autorizados`, adicione URLs de acordo com a natureza do aplicativo, por exemplo, vale colocar `http://localhost:3000` e `http://localhost:3000/api/auth/callback/google` respectivamente para uma aplicação que está rodando localmente. E , por fim ,clique em `Criar`.
+OBS:A segunda URL depende de como foram implementadas as rotas no projeto!!
 
-3. Instale uma API de autenticaçõa do Google como `Google Identity`, e ative-a.
+3. Após a criação do cliente OAuth, serão exibidos O `ID do cliente` e a `Chave secreta do cliente`.
 
-4. Agora, selecione a aba `Credenciais` do painel lateral, clique em `Criar credenciais` e escolha `ID do cliente OAuth` como tipo de credencial,e por fim , configure as informações do OAuth de acordo com as necessidades do projeto.
-
-5. Após configurar você receberá um `ID` e um `segredo` do clinte.
-
-6. Por fim, crie um arquivo `process.env` para guardar essas informações.Como no exemplo:
+4. Por fim, crie um arquivo `.env` para guardar essas informações.Como no exemplo:
 
 ```js
 import GoogleProvider from "next-auth/providers/google";
