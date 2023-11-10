@@ -174,12 +174,14 @@ Para configurar a autenticação com o Next Auth usando o Google como provedor, 
 
 1. Acesse o [Console de Desenvolvedores do Google](https://console.developers.google.com/apis/credentials).
 
-2. Com o projeto criado e/ou adicionado na plataforma, na barra de opções lateral clique no item `Credenciais` e em seguida, no botão `Criar credenciais`, e escolha `ID do cliente OAuth` como tipo de credencial, configure as informações do OAuth de acordo com as necessidades do projeto. Preencha o campo `Tipo de aplicativo` com a opção `Aplicativo da Web`, nas seções `Origens JavaScript autorizadas` e `URLs de redirecionamento autorizados`, adicione URLs de acordo com a natureza do aplicativo, por exemplo, vale colocar `http://localhost:3000` e `http://localhost:3000/api/auth/callback/google` respectivamente para uma aplicação que está rodando localmente. E , por fim ,clique em `Criar`.
+2. Com o projeto criado e/ou adicionado na plataforma, na barra de opções lateral clique no item `Credenciais` e em seguida, no botão `Criar credenciais`, escolha `ID do cliente OAuth` como tipo de credencial, e configure as informações do OAuth de acordo com as necessidades do projeto e seguindo as intruções. 
+
+3. Preencha o campo `Tipo de aplicativo` com a opção `Aplicativo da Web`, nas seções `Origens JavaScript autorizadas` e `URLs de redirecionamento autorizados`, adicione URLs de acordo com a natureza do aplicativo, por exemplo, vale colocar `http://localhost:3000` e `http://localhost:3000/api/auth/callback/google` respectivamente, para uma aplicação que está rodando localmente. E , por fim ,clique em `Criar`.
 OBS:A segunda URL depende de como foram implementadas as rotas no projeto!!
 
-3. Após a criação do cliente OAuth, serão exibidos O `ID do cliente` e a `Chave secreta do cliente`.
+4. Após a criação do cliente OAuth, serão exibidos O `ID do cliente` e a `Chave secreta do cliente`.
 
-4. Por fim, crie um arquivo `.env` para guardar essas informações.Como no exemplo:
+5. Por fim, crie um arquivo `.env` para guardar essas informações.Como no exemplo:
 
 ```js
 import GoogleProvider from "next-auth/providers/google";
