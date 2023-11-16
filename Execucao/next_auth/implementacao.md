@@ -97,7 +97,7 @@ const Providers = (props: Props) => {
 export default Providers;
 ```
 
-Agora, no aqrquivo `layout.tsx`, adicione as tags de `<Providers>` por fora do elemento {children} como no exemplo:
+Agora, no aqrquivo `layout.tsx`, adicione as tags de `<Providers>` por fora do elemento `{children}` como no exemplo:
 
 ```js
 import Providers from "./components/provider";
@@ -167,6 +167,7 @@ export default function HomePage() {
 O Hook do React `useSession` usado no NextAuth.js é a maneira mais fácil de verificar se alguém está autenticado.Como no exemplo de botão de SignIn:
 
 ```js
+"use client";
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 const SigninButton = () => {
