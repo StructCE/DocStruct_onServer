@@ -27,14 +27,14 @@ Para adicionar o NextAuth.js a um projeto, crie um arquivo chamado `[...nextauth
 
 ```js
 import NextAuth from "next-auth";
-import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions = {
   // Configure um ou mais provedores de autenticação
   providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
     }),
     // ...adicione mais provedores aqui
   ],
@@ -57,25 +57,44 @@ const handler = NextAuth({
 export { handler as GET, handler as POST };
 ```
 
+Exemplo de route.js com GoogleProvider(Google como autenticador):
+
+```js
+import NextAuth from "next-auth/next";
+import GoogleProvider from "next-auth/providers/google";
+
+const handler = NextAuth({
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ,
+    }),
+  ],
+});
+
+export { handler as GET, handler as POST };
+```
+
 # Utilização
 
 ## Configurando useSession
 
-O `useSession` é um importante hook do React que é utilizado nas aplicações Next Auth para recuperar informações da sessão de usuário.Para utilizá-lo primeiro é preciso expor o conteudo da sessão de usuário por meio do `<SessionProvider />`,basta aplicá-lo e m seu arquivo `app.jsx` como no exemplo:
+O `useSession` é um importante hook do React que é utilizado nas aplicações Next Auth para recuperar informações da sessão de usuário.Para utilizá-lo primeiro é preciso expor o conteudo da sessão de usuário por meio do `<SessionProvider />`,para implementá-lo,dentro da pasta `app`, crie uma pasta `components` e, dentro desta um arquivo `provider.tsx` com o seguinte código:
 
 ```js
+"use client";
 import { SessionProvider } from "next-auth/react";
+import React, { ReactNode } from "react";
 
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-}) {
-  return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
-  );
+interface Props {
+  children: ReactNode;
 }
+
+const Providers = (props: Props) => {
+  return <SessionProvider>{props.children}</SessionProvider>;
+};
+
+export default Providers;
 ```
 
 Dessa forma, o `useSession` terá acesso aos dados e status da sessão.
@@ -117,26 +136,35 @@ export default function HomePage() {
 
 ## Utilização do useSession
 
-O Hook do React `useSession` usado no NextAuth.js é a maneira mais fácil de verificar se alguém está autenticado.Como no exemplo:
+O Hook do React `useSession` usado no NextAuth.js é a maneira mais fácil de verificar se alguém está autenticado.Como no exemplo de botão de SignIn:
 
 ```js
-import { useSession } from "next-auth/react";
-export default function Component() {
-  const { data: session, status } = useSession();
-  if (status === "authenticated") {
+import React from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
+const SigninButton = () => {
+  const { data: session } = useSession();
+
+  if (session && session.user) {
     return (
-      <p>
-        Signed in as {session.user.email}
-        <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </p>
+      <div className="flex gap-4 ml-auto">
+        <p className="text-sky-600">{session.user.name}</p>
+        <button onClick={() => signOut()} className="text-red-600">
+          Sign Out
+        </button>
+      </div>
     );
   }
-  return <button onClick={() => signIn()}>Sign in</button>;
-}
+  return (
+    <button onClick={() => signIn()} className="text-green-600 ml-auto">
+      Sign In
+    </button>
+  );
+};
+
+export default SigninButton;
 ```
 
-A ideia é armazenar os resultados do `useSession` em props para comparar com o back end e realizar a autenticação.
+A ideia é armazenar os resultados do `useSession` em props para aferir se o usuário ja foi autenticado.
 
 # Autenticação
 
