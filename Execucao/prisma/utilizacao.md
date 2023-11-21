@@ -28,7 +28,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -49,7 +49,13 @@ model Post {
 }
 ```
 
-Neste exemplo, criamos duas models: "User" e "Post", na qual a model "User" tem campos como "id", "username" e "email", enquanto a model "Post" possui campos como "id", "title", "content", "published", "authorId", e uma relação com o autor ("User").
+É interessante notar que o `prisma.schema` possui 3 partes:
+
+- **generator**: declara quais _assets_ (artefatos/arquivos) são criados ao rodar o comando `generate` do prisma.
+- **datasource**: Declare qual o **SGBD** (Sistema de Gerenciamento de Banco de Dados) utilizado, e a **url de conexão** ao banco de dados do projeto.
+- **models**: Isso é a modelagem de fato do banco de dados, que vai para o schema do banco de dados do projeto;
+
+Veja mais na [documentação deles](https://www.prisma.io/docs/concepts/components/prisma-schema).
 
 !!! Autenticação por biblioteca
 Atenção que ao usar autenticação por biblioteca pode ser necessário conformar as tabelas do banco de dados à biblioteca!! Por exemplo, o [Next Auth requer 3 models](https://authjs.dev/reference/adapter/prisma#create-the-prisma-schema-from-scratch) com certos atributos para que funcione corretamente.
@@ -57,14 +63,36 @@ Atenção que ao usar autenticação por biblioteca pode ser necessário conform
 
 ### Efetivando as alterações no prisma.schema
 
-É possível gerar migrações em `.sql` ou simplesmente forçar o schema do banco de dados a atualizar. **Em desenvolvimento, o recomendado é** forçar a atualização, e simplesmente **rodar**:
+É possível gerar migrações em `.sql` - ou seja, arquivos escritos em código _sql_, que contém as alterações realizadas no `schema.prisma` (desde a última migração) e que devem ser realizadas no schema do seu banco de dados -, ou simplesmente forçar o schema do banco de dados a atualizar. **Em desenvolvimento, o recomendado é** forçar a atualização, e simplesmente **rodar** o seguinte comando:
+
++++ PNPM
 
 ```bash
 pnpm prisma db push
 ```
 
++++ BUN
+
+```bash
+bunx prisma db push
+```
+
++++ NPM
+
+```bash
+npx prisma db push
+```
+
++++ YARN
+
+Não
+
++++
+
 !!! push ou migrate?
-O Prisma também permite gerar migrações em sql (útil em ambiente de produção). Em ambiente de desenvolvimento, usar `db push` para forçar a mudança no banco de dados facilita nossa vida.
+O Prisma também permite gerar migrações em _sql_ (útil em ambiente de produção). Em ambiente de desenvolvimento, usar `db push` para forçar a mudança no banco de dados facilita nossa vida.
+
+As migrações em _sql_ dão maior liberdade para escrever scripts na migração.
 !!!
 
 ### Mais sobre
@@ -75,7 +103,11 @@ O Prisma também permite gerar migrações em sql (útil em ambiente de produç�
 
 ## CRUD
 
-Verifique que já [criou uma instância do prisma client](./instalacao.md#configuração-do-prisma-client).
+CRUD é uma acrônimo para as quatro maneiras básicas de se operar com informações armazenadas em uma aplicação. Estas operações são: **Create**, **Read**, **Update** e **Delete**.
+
+Então, a seguir seguem formas de construirmos um CRUD utiilizando o Prisma, para interação com as instâncias do nosso banco de dados.
+
+**Verifique** que já [**criou** uma instância do prisma **client**](./instalacao.md#configuração-do-prisma-client).
 
 Neste exemplo, estamos rodando os arquivos com ts-node, que transpila o TS e roda o JS resultante com Node. A ideia é a mesma usando api em Express, NextJS, etc.
 
@@ -112,9 +144,29 @@ createUser("john_doe", "john@example.com").then((user) => {
 
 3. Executar arquivo typescript
 
++++ PNPM
+
 ```bash
 pnpm ts-node create.ts
 ```
+
++++ BUN
+
+```bash
+bunx ts-node create.ts
+```
+
++++ NPM
+
+```bash
+npx ts-node create.ts
+```
+
++++ YARN
+
+Não
+
++++
 
 ### Read (Index)
 
@@ -143,9 +195,29 @@ getAllUsers().then((users) => {
 
 3. Executar arquivo typescript
 
++++ PNPM
+
 ```bash
 pnpm ts-node index.ts
 ```
+
++++ BUN
+
+```bash
+bunx ts-node index.ts
+```
+
++++ NPM
+
+```bash
+npx ts-node index.ts
+```
+
++++ YARN
+
+Não
+
++++
 
 ### Read (Show)
 
@@ -178,9 +250,29 @@ getUserById(1).then((user) => {
 
 3. Executar arquivo typescript
 
++++ PNPM
+
 ```bash
 pnpm ts-node show.ts
 ```
+
++++ BUN
+
+```bash
+bunx ts-node show.ts
+```
+
++++ NPM
+
+```bash
+npx ts-node show.ts
+```
+
++++ YARN
+
+Não
+
++++
 
 ### Update
 
@@ -215,9 +307,29 @@ updateUser(1, {'new_email@example.com'})
 
 3. Executar arquivo typescript
 
++++ PNPM
+
 ```bash
 pnpm ts-node update.ts
 ```
+
++++ BUN
+
+```bash
+bunx ts-node update.ts
+```
+
++++ NPM
+
+```bash
+npx ts-node update.ts
+```
+
++++ YARN
+
+Não
+
++++
 
 ### Delete
 
@@ -250,17 +362,33 @@ deleteUser(1).then((user) => {
 
 3. Executar arquivo typescript
 
++++ PNPM
+
 ```bash
 pnpm ts-node delete.ts
 ```
 
++++ BUN
+
+```bash
+bunx ts-node delete.ts
+```
+
++++ NPM
+
+```bash
+npx ts-node delete.ts
+```
+
++++ YARN
+
+Não
+
++++
+
 ### Mais sobre
 
 [Documentação CRUD do Prisma](https://www.prisma.io/docs/concepts/components/prisma-client/crud)
-
-## Mais detalhes (Referência da API)
-
-[Referência da API](https://www.prisma.io/docs/reference/api-reference)
 
 ## Criando uma seed
 
@@ -301,9 +429,29 @@ seed().then(() => {
 
 2. Caso não já esteja no projeto, adicione o pacote `ts-node`;
 
++++ PNPM
+
 ```bash
 pnpm add ts-node
 ```
+
++++ BUN
+
+```bash
+bun add ts-node
+```
+
++++ NPM
+
+```bash
+npm install ts-node
+```
+
++++ YARN
+
+Não
+
++++
 
 3. Adicione um script ao `package.json` que facilitará rodar a seed:
 
@@ -318,6 +466,30 @@ pnpm add ts-node
 
 Agora, para rodar a seed do projeto basta usar o comando:
 
++++ PNPM
+
 ```bash
 pnpm db:seed
 ```
+
++++ BUN
+
+```bash
+bun run db:seed
+```
+
++++ NPM
+
+```bash
+npm run db:seed
+```
+
++++ YARN
+
+Não
+
++++
+
+## Mais detalhes (Referência da API)
+
+[Referência da API](https://www.prisma.io/docs/reference/api-reference)

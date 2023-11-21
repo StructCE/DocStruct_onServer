@@ -18,7 +18,7 @@ tags:
 
 ORM, ou Mapeamento Objeto-Relacional, é uma técnica de programação que permite que os desenvolvedores de software interajam com bancos de dados relacionais usando objetos e classes no lugar de consultas SQL diretas. A ideia principal por trás do ORM é eliminar a necessidade de escrever consultas SQL manualmente e simplificar a interação entre o código da aplicação e o banco de dados relacional. Em vez de tratar as tabelas e registros do banco de dados como entidades separadas e escrever SQL para buscar, inserir, atualizar ou excluir dados, os desenvolvedores podem trabalhar com objetos em código que representam diretamente os dados do banco de dados. O ORM mapeia esses objetos para tabelas do banco de dados e vice-versa.
 
-## O que é Prisma?(Instalado com o CLI)
+## O que é Prisma?
 
 O [prisma](https://www.prisma.io) é uma biblioteca desenvolvida em TypeScript, que tem suporte para ser usada nas linguagens .js/.ts. Ela possui diferentes módulos, entre eles estão:
 

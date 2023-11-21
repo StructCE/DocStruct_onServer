@@ -13,17 +13,58 @@ category: Instalação
 
 Primeiro adicione o pacote ao projeto:
 
++++ PNPM
+
 ```bash
 pnpm add prisma --save-dev
 ```
 
++++ BUN
+
+```bash
+bun add prisma --save-dev
+```
+
++++ NPM
+
+```bash
+npm install prisma --save-dev
+```
+
++++ YARN
+
+Não. Só... não.
+
++++
+
 ### Criar arquivos `schema.prisma` e `.env`
+
++++ PNPM
 
 ```bash
 pnpm prisma init
 ```
 
++++ BUN
+
+```bash
+bunx prisma init
+```
+
++++ NPM
+
+```bash
+npx prisma init
+```
+
++++ YARN
+
+Não
+
++++
+
 `.env`: o arquivo para definir a URL de conexão do seu banco de dados.
+
 `prisma/schema.prisma`: o arquivo de configuração principal para o seu projeto Prisma (incluirá o seu modelo de dados).
 
 ### Conectar o prisma ao seu banco de dados
@@ -41,13 +82,39 @@ DATABASE_URL="file:./db.sqlite"
 Muitas vezes **não é bom** usar **SQLite em produção**. Por esse motivo, atualmente (em 2023) **trocamos de SQLite para MySQL** ao entrar em produção. Isso **torna necessário** realizar **mudanças**, como adicionar `@db.Text` aos campos String que podem conter mais de 256 caracteres, etc.
 !!!
 
+!!! `.env.example`
+**Adicione** o conteúdo acima **ao `.env.example`**, caso ele não já esteja lá.
+
+Ajude o coleguinha que daqui 2 anos vai tentar rodar seu projeto.
+!!!
+
 ## Configuração do Prisma Client
 
 Primeiro adicione o pacote ao projeto:
 
++++ PNPM
+
 ```bash
 pnpm add @prisma/client
 ```
+
++++ BUN
+
+```bash
+bun add @prisma/client
+```
+
++++ NPM
+
+```bash
+npm install @prisma/client
+```
+
++++ YARN
+
+Não. Só... não.
+
++++
 
 ### Instanciando um cliente prisma
 
@@ -70,7 +137,7 @@ export const prisma = new PrismaClient();
 
 #### Melhorada
 
-A **maneira anterior pode causar vazamento de memória em ambiente de desenvolvimento**. Às vezes ao recarregar a aplicação, que acontece quando salvas um arquivo, o código que gera o cliente é rodado outra vez. Isso pode acabar gerando várias instâncias.
+A **maneira anterior pode causar vazamento de memória em ambiente de desenvolvimento**. Às vezes ao recarregar a aplicação, que acontece quando salvamos um arquivo, o código que gera o cliente é rodado outra vez. Isso pode acabar gerando várias instâncias.
 
 ```ts
 // prisma/index.ts
@@ -103,7 +170,11 @@ if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
 <!-- Não acho que isso devia estar aqui, mas é a vida por enquanto -->
 
-**É importante ressaltar que nesse passo o Docker esta sendo utilizado como um 'simulador'
+Caso queira usar PostgreSQL em desenvolvimento, pode utilizar esta seção como referência para a criação do `docker-compose.yml` e sua utilização com Prisma.
+
+Caso não saiba o que é docker, e essa documentação não esteja no retype ainda, veja no [gitbook antigo](https://github.com/StructCE/gitbook/blob/projetos_develop/execucao/projetos/docker/README.md)
+
+**É importante ressaltar que nesse passo o Docker está sendo utilizado como um 'simulador'
 de banco de dados PostgreSQL.**
 
 ### Criando arquivo `docker-compose.yml`
@@ -140,7 +211,7 @@ Considerando as variáveis usadas no docker,
 - POSTGRES_USER = usuario definido no `docker-compose.yml` = teste
 - POSTGRES_PASSWORD = senha definida no `docker-compose.yml` = teste
 
-Declare a URL do banco de dados substituindo as `{var}` por seus valores:
+No seu arquivo de ambiente `.env`, declare a URL do banco de dados, substituindo os termos entre chaves, `{var}`, por seus respectivos valores:
 
 ```bash
 #.env
@@ -149,6 +220,12 @@ DATABASE_URL="postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@localhost:5432/{P
 #substituindo no exemplo, ficaria
 # DATABASE_URL="postgresql://teste:teste@localhost:5432/teste"
 ```
+
+!!! `.env.example`
+**Adicione** o conteúdo acima **ao `.env.example`**, caso ele não já esteja lá.
+
+Ajude o coleguinha que daqui 2 anos vai tentar rodar seu projeto.
+!!!
 
 ### Inicie o Docker
 
