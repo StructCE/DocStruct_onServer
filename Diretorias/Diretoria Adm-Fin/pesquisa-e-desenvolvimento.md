@@ -1,12 +1,12 @@
 ---
-order: 3
-icon: search
 label: "Pesquisa e Desenvolvimento (R&D)"
+icon: search
+order: 3
+author:
+  name: Leonardo
+  avatar: ../../ImagensDocStruct/Logos/logo_struct.png
+date: 2023-10-18
 ---
-
-<!-- Ultima atualização: 18/10/2023 -->
-<!-- Autor(es): Leonardo Cortes -->
-
 # Divisão de Pesquisa e Desenvolvimento (R&D)
 
 A divisão de Pesquisa e Desenvolvimento \(R&D\) possui a missão de pesquisar as ideias que surgirem dentro da empresa, incluindo as vantagens, desvantagens, custos, implementações, possíveis treinamentos e outros aspectos relativos a uma ideia. Essa pesquisa tem o propósito de gerar informações relevantes para a tomada de decisões por parte dos diretores da empresa júnior, motivando a inovação constante dentro da Struct. A supervisão dessa divisão cabe ao(à) diretor\(a\) administrativo-financeiro da Struct ou a algum membro da diretoria administrativo-financeira que recebeu por delegação do(a) diretor(a) essa função.

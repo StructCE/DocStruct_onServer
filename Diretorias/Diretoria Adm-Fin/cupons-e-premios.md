@@ -1,12 +1,12 @@
 ---
-order: 1
-icon: gift
 label: "Cupons e Prêmios"
+icon: gift
+order: 1
+author:
+  name: Leonardo
+  avatar: ../../ImagensDocStruct/Logos/logo_struct.png
+date: 2023-10-18
 ---
-
-<!-- Ultima atualização: 18/10/2023 -->
-<!-- Autor(es): Leonardo Cortes -->
-
 # Introdução
 
 Essa página foi criada com o intuito de que se facilite o entendimento sobre cupons e prêmios para os membros.
