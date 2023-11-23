@@ -1,10 +1,9 @@
 ---
-order: 4
+order: 1
 icon: book
 label: "Guia prático"
 author:
     name: "Matheus das Neves"
-    avatar: ../../Imagens DocStruct/Logos/logo_struct.png
 category: Explicação
 date: 2023-10-26
 ---
@@ -148,7 +147,7 @@ export default function MyApp({ Component, pageProps }) {
 ```
 
 Agora, qualquer componente no `MyApp` será executado dentro do `Layout`.
-Para mais informações sobre roteamento entre páginas, consulte em nossa [documentação](./roteamento/pages_and_layouts/#layouts) ou na documentação do [Next](https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts#layout-pattern).
+Para mais informações sobre roteamento entre páginas, consulte na documentação do [Next](https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts#layout-pattern).
 
 ## Roteamento
 
@@ -160,7 +159,7 @@ Para rotas dinâmicas, o nome do arquivo do componente deve estar entre colchete
 
 O caminho `pages/user/profile/[id].tsx` poderá ter uma rota `/user/profile/3`. Os segmentos dinâmicos podem ser acessados pelo uso do `useRouter` que devolve um objeto, onde, no caso anteriormente citado, os segmentos dinâmicos estariam no `.query.id` do objeto recebido.
 
-Para mais informações sobre roteamento entre páginas, consulte em nossa [documentação](./roteamento/pages_and_layouts) ou na documentação do [Next](https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts#layout-pattern).
+Para mais informações sobre roteamento entre páginas, consulte na documentação do [Next](https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts#layout-pattern).
 
 ## Métodos de busca de dados
 
@@ -317,37 +316,26 @@ Agora, definidas as rotas, precisamos chamá-las no cliente. Podemos fazer isso 
 
 #### GET
 
-Primeiramente, vamos fazer uma demonstração de requisição GET usando o nosso exemplo do getStaticProps:
+Primeiramente, vamos fazer uma demonstração de requisição GET fazendo uma função para consumir esta requisição no cliente:
 
-```ts pages/user/profile/[id].tsx
-import type { InferGetStatiPropsType, GetStaticProps} from 'next'
-import axios from 'axios'
+```ts src/clientApi/users/useUsers.ts
+import axios from 'axios';
 
-type User = { 
-  name: string
-  age: number
+function useUsers() {
+    const [users, setUsers] = useState<User[]>(); // Criamos um estado para o nosso users para podermos setar os dados que recebermos da API
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() =>{
+        axios.get("/api/users/") // Fazemos a requisição para a API
+            .then(res => {  // Se suceder, caimos no .then, onde receberemos a resposta do servidor
+                setUsers(res.data);
+                setLoading(false);
+            })
+            .catch(err => alert(err.message)) // Caso contrário, cairemos no .catch, onde receberemos o erro ocorrido
+    }, [])
+
+    return users; // Aqui retornamos para nosso client o users, onde os dados recebidos da API foram guardados
 }
-
-export const getStaticProps = (async () => {  // Nessa requisição não precisamos mandar nenhuma informação para o servidor
-  axios.get('api/users/').then( response => { // Logo, só precisamos passar a rota da api e receberemos as informações dos usuários
-    const res = response                      // Fazemos a requisição e, se suceder, cairemos no .then com a resposta do servidor
-    const { data } = response
-    return { props : { data }}
-  }).catch(err => {
-    // Caso ocorra algum erro, cairemos no .catch e receberemos o erro para tratá-lo
-  })
-
-
-}) satisfies GetStaticProps<{data : User}> 
-
-
-export default function Profile({ data }: 
-  InferGetStaticProps<typeof getStaticProps>){   
-    return(
-      <h1> Nome: {data.name} </h1>
-      <h1> Idade: {data.age} </h1>
-    )
-  }
 ```
 
 #### POST

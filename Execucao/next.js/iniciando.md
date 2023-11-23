@@ -1,11 +1,10 @@
 ---
 icon: tools
 label: "Iniciando projeto"
-order: 5
+order: 2
 author:
     name: Matheus das Neves
 date: 2023-10-26
-avatar: ../../Imagens DocStruct/Logos/logo_struct.png
 category: Instalação
 ---
 
@@ -23,13 +22,13 @@ Requisitos:
 
 Na configuração automática, são feitas algumas perguntas no terminal pra configuração automática do framework. A configuração é feita na criação de um projeto next, para isso rode o comando no terminal:
 
-```
-npx create-next-app@latest
+```bash
+pnpm create next-app
 ```
 
 Após isso, serão feitas algumas perguntas no terminal:
 
-```
+```bash
 What is your project named? my-app
 Would you like to use TypeScript? No / Yes
 Would you like to use ESLint? No / Yes
@@ -52,13 +51,13 @@ Para a pergunta nº:
 
 Pra criar um projeto Next.js manualmente, deve-se rodar o código no terminal:
 
-```
+```bash
 npm install next@latest react@latest react-dom@latest
 ```
 
 Em seguida adicione o trecho de código ao arquivo `package.json`:
 
-```
+```json
 {
   "scripts": {
     "dev": "next dev",

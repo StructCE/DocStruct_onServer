@@ -1,11 +1,10 @@
 ---
 icon: question
 label: "O que é Next"
-order: 6
+order: 3
 author:
     name: Matheus das Neves
 date: 2023-10-26
-avatar: ../../Imagens DocStruct/Logos/logo_struct.png
 category: Explicação
 ---
 
