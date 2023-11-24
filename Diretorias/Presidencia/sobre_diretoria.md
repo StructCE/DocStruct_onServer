@@ -20,6 +20,8 @@ No momento da troca de gestão, muitas coisas devem ser feitas para a próxima g
 2. **Github Organização:** [StructCE](https://github.com/StructCE)
 3. **Gitlab Usuário:** [@structej](https://gitlab.com/structej)
 4. **Gitlab Organização:** [Struct CE](https://gitlab.com/struct-ce)
+5. **Trello Usuário:** [@structunb](https://trello.com/structunb)
+6. **Trello Time:** [Struct\(@structec\)](https://trello.com/structec)
 7. **Admin do G Suite:**
     - Solicitar a configuração de verificação em 2 etapas para cada email da diretoria (admin@struct.unb.br, contato@struct.unb.br, projetos@struct.unb.br).
     - Evita um problema de acesso em dispositivos desconhecidos
