@@ -218,5 +218,3 @@ Temos 3 lentes:
   - Como Maximizar os resultados da Concentro?
   - Minha ideia Zela pela eficiência e está alinhada com a estratégia?
 
-
-## TODO: preencher isso com dados diretamente do estatuto para auxiliar o presidente em sua gestão
