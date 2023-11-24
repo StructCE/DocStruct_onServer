@@ -109,7 +109,7 @@ Então, a seguir seguem formas de construirmos um CRUD utiilizando o Prisma, par
 
 **Verifique** que já [**criou** uma instância do prisma **client**](./instalacao.md#configuração-do-prisma-client).
 
-Neste exemplo, estamos rodando os arquivos com ts-node, que transpila o TS e roda o JS resultante com Node. A ideia é a mesma usando api em Express, NextJS, etc.
+Neste exemplo, estamos rodando os arquivos com ts-node, que transpila o TypeScript e roda o JavaScript resultante com Node. A ideia é a mesma usando api em Express, NextJS, etc.
 
 ### Create
 
