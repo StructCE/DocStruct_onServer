@@ -1,6 +1,7 @@
 ---
 label: "Bem-vindo a Diretoria Financeira"
 icon: rocket
+order: 4
 author:
   name: Lucas
   avatar: ../../ImagensDocStruct/Logos/logo_struct.png
@@ -24,7 +25,7 @@ Para esse fim, será necessário que você e o\(a\) presidente da Struct compare
 
 Após o acesso ter sido liberado \(isso demora alguns dias úteis\), você precisará retornar à sede para cadastrar os dispositivos que você irá utilizar para ter acesso à conta bancária. Recomenda-se levar o celular para baixar o app do Banco do Brasil e, talvez, um notebook para acessar o Banco do Brasil pelo website \(talvez seja necessário instalar um software de segurança no notebook\).
 
-Com todos esses passos feitos, você poderá acessar a conta bancária da Struct utilizando sua senha alfanumérica e sua senha numérica de 8 dígitos. Mais detalhes sobre a conta bancária serão fornecidos na seção de [Obrigações financeiras](#obrigacoes-financeiras).
+Com todos esses passos feitos, você poderá acessar a conta bancária da Struct utilizando sua senha alfanumérica e sua senha numérica de 8 dígitos. Mais detalhes sobre a conta bancária serão fornecidos na seção de [Obrigações financeiras](#obrigações-financeiras).
 
 ### Listagem de cargo oficial
 
@@ -41,7 +42,7 @@ Caso o\(a\) presidente da empresa júnior seja alterado na troca de gestão, ser
   * Estatuto;
   * Documento de identidade com CPF \(ou CNH\) do representante que responde judicial e extrajudicialmente \(no momento, o membro que ocupa a presidência da Struct\).
 
-Após os documentos terem sido entregues ao contador e uma pequena taxa ter sido paga ao contador \(mais detalhes sobre a realização de pagamentos podem ser encontrados na seção de [Obrigações financeiras](#obrigacoes-financeiras)\), o representante da empresa júnior será alterado.
+Após os documentos terem sido entregues ao contador e uma pequena taxa ter sido paga ao contador \(mais detalhes sobre a realização de pagamentos podem ser encontrados na seção de [Obrigações financeiras](#obrigações-financeiras)\), o representante da empresa júnior será alterado.
 
 ### Modificações em documentos
 
@@ -126,7 +127,7 @@ No momento, toda essa fiscalização está sendo feita por meio do **Trello** da
 
 As notas de entrada e saída são notas fiscais emitidas com o CNPJ \(Cadastro Nacional de Pessoa Jurídica\) da Struct. Como as notas de entrada e saída devem conter o CNPJ da Struct, é comum que elas sejam notas fiscais relativas a contratos assinados pela Struct e não notas fiscais de gastos simples feitos pelos membros da empresa júnior.
 
-As notas de entrada representam ativos para a empresa júnior e geralmente são notas fiscais eletrônicas emitidas quando um projeto termina de ser pago pelo cliente \(veja [essa seção](#notas-fiscais-eletronicas) para mais detalhes\). Enquanto isso, as notas de saída representam passivos \(gastos\) para a Struct e geralmente são notas fiscais fornecidas pelas empresas contratadas pela Struct quando a última parcela do contrato é paga \(caso isso não ocorra, entre em contato com a empresa contratada para requisitar a emissão da nota fiscal\).
+As notas de entrada representam ativos para a empresa júnior e geralmente são notas fiscais eletrônicas emitidas quando um projeto termina de ser pago pelo cliente \(veja [essa seção](#notas-fiscais-eletrônicas) para mais detalhes\). Enquanto isso, as notas de saída representam passivos \(gastos\) para a Struct e geralmente são notas fiscais fornecidas pelas empresas contratadas pela Struct quando a última parcela do contrato é paga \(caso isso não ocorra, entre em contato com a empresa contratada para requisitar a emissão da nota fiscal\).
 
 Tanto as notas de entrada como as notas de saída devem ser enviadas para o contador da empresa no [*email de atualização mensal*](#email-de-atualização-mensal), tarefa que cabe a você, diretor\(a\) administrativo-financeiro da Struct.
 
@@ -204,11 +205,11 @@ Esses documentos são emitidos pelo contador mas possuem como pré-requisito a [
 
 #### 4. CNPJ
 
-Para obter esse documento, basta entrar no [site de emissão de comprovante de inscrição e situação cadastral do CNPJ da Receita Federal](https://goo.gl/qW4zxS), preencher os dados requeridos \(CNPJ da Struct: 21.803.569/0001-65\) e baixar o comprovante dado.
+Para obter esse documento, basta entrar no [site de emissão de comprovante de inscrição e situação cadastral do CNPJ da Receita Federal](https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp), preencher os dados requeridos \(CNPJ da Struct: 21.803.569/0001-65\) e baixar o comprovante dado.
 
 #### 5. Certidão Negativa de Débitos \(CND\) federal
 
-Para obter esse documento, basta acessar o [site da Receita Federal, na parte de emissão de certidão negativa de débitos](https://goo.gl/DajJGt), digitar o CNPJ da Struct \(21.803.569/0001-65\), realizar a emissão de nova certidão \(dependendo da data de validade da primeira\) e baixar o arquivo gerado.
+Para obter esse documento, basta acessar o [site da Receita Federal, na parte de emissão de certidão negativa de débitos](https://solucoes.receita.fazenda.gov.br/Servicos/certidaointernet/PJ/Emitir), digitar o CNPJ da Struct \(21.803.569/0001-65\), realizar a emissão de nova certidão \(dependendo da data de validade da primeira\) e baixar o arquivo gerado.
 
 #### 6. Certidão Negativa de Débitos \(CND\) municipal
 
@@ -237,7 +238,7 @@ Depois do preenchimento das telas, basta enviar a declaração e pegar o comprov
 
 #### 8. Comprovante de conta bancária ativa
 
-Esse documento possui como pré-requisito o acesso à [conta bancária da Struct](#conta-bancaria). Quando a nova gestão possuir acesso à conta bancária da Struct, o\(a\) presidente ou o\(a\) diretor\(a\) administrativo-financeiro da Struct deve entrar no site do banco, navegar até a aba de conta corrente e emitir o extrato de conta corrente. Qualquer mês a partir de Janeiro do ano da auditoria serve.
+Esse documento possui como pré-requisito o acesso à [conta bancária da Struct](#conta-bancária). Quando a nova gestão possuir acesso à conta bancária da Struct, o\(a\) presidente ou o\(a\) diretor\(a\) administrativo-financeiro da Struct deve entrar no site do banco, navegar até a aba de conta corrente e emitir o extrato de conta corrente. Qualquer mês a partir de Janeiro do ano da auditoria serve.
 
 #### 9. Livro diário ou Escrituração Contábil Digital \(ECD\)
 
@@ -251,7 +252,7 @@ Para obter esse documento, basta escanear um contrato de prestação de serviço
 
 #### 11. Nota fiscal
 
-Esse documento consiste em uma nota fiscal eletrônica emitida a partir de Outubro do ano anterior ao do selo. Para mais informações sobre como emitir uma nota fiscal eletrônica, visite [essa seção](#emissao-de-uma-nota-fiscal-eletronica).
+Esse documento consiste em uma nota fiscal eletrônica emitida a partir de Outubro do ano anterior ao do selo. Para mais informações sobre como emitir uma nota fiscal eletrônica, visite [essa seção](#emissão-de-uma-nota-fiscal-eletrônica).
 
 #### 12. Declaração e Termo de voluntariado
 
