@@ -1,12 +1,12 @@
 ---
-order: 2
-icon: person-add
 label: "Reembolso de membros"
+icon: person-add
+order: 2
+author:
+  name: Leonardo
+  avatar: ../../ImagensDocStruct/Logos/logo_struct.png
+date: 2023-10-18
 ---
-
-<!-- Ultima atualização: 18/10/2023 -->
-<!-- Autor(es): Leonardo Cortes -->
-
 # Reembolso para membros
 Embora o ideal seja evitar essa situação, por vezes, alguma despesa da empresa acaba sendo paga diretamente por algum membro, que acaba precisando de um reembolso do valor investido.
 No entanto, pelo nosso caráter de Empresa Júnior, somos proibidos de pagar nossos membros, então todo o processo de reembolso deve ser feito de forma cuidadosa para evitar problemas futuros com a receita.
