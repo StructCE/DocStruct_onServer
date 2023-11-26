@@ -471,7 +471,7 @@ Não
 }
 ```
 
-!!!alert
+!!!warning
 
 **Caso** você esteja num repositório **Next**, ou outro repositório onde não possa colocar o `{ "type": "module" }` no `package.json`, deixe o script da seguinte maneira:
 
