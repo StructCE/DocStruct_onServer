@@ -422,9 +422,16 @@ async function seed() {
   });
 }
 
-seed().then(() => {
-  console.log("Seed realizada com sucesso");
-});
+seed()
+  .then(() => {
+    console.log("Seed realizada com sucesso");
+  })
+  .catch((err) => {
+    console.error(err.message);
+  })
+  .finally(() => {
+    prisma.$disconnect();
+  });
 ```
 
 2. Caso não já esteja no projeto, adicione o pacote `ts-node`;
@@ -459,10 +466,24 @@ Não
 {
   "scripts": {
     ...outros scripts,
-    "db:seed": "ts-node --esm prisma/seed.ts"
+    "db:seed": "ts-node prisma/seed.ts"
   }
 }
 ```
+
+!!!alert
+
+**Caso** você esteja num repositório **Next**, ou outro repositório onde não possa colocar o `{ "type": "module" }` no `package.json`, deixe o script da seguinte maneira:
+
+```json
+{
+  "scripts": {
+    "db:seed": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seed.ts"
+  }
+}
+```
+
+!!!
 
 Agora, para rodar a seed do projeto basta usar o comando:
 
