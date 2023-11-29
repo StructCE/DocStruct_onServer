@@ -142,7 +142,7 @@ O PE é um documento que deve ser elaborado anualmente para que a Struct tenha o
 
 - [Planejamento estratégico é uma competência, ação e seu posterior acompanhamento](https://blog.luz.vc/como-fazer/planejamento-estrategico/#:~:text=Planejamento%20estrat%C3%A9gico%20%C3%A9%20uma%20compet%C3%AAncia,a%C3%A7%C3%A3o%20e%20seu%20posterior%20acompanhamento).
 
-- [A importância de um planejamento estratégico para o seu negócio](https://www.psjunior.com/a-importancia-de-um-planejamento-estrategico-para-o-seu-negocio/)
+- [A importância de um planejamento estratégico para o seu negócio](https://solucoesufv.com.br/conteudo/planejamento-estrategico-entenda-sua-importancia-para-empresa-junior/#:~:text=O%20planejamento%20estrat%C3%A9gico%20ajuda%20na,desempenho%20ao%20longo%20do%20tempo.)
   
 ### OKR
 
@@ -169,9 +169,6 @@ O draft é o processo de alocação dos membros em suas respectivas diretorias e
 10. Aproveitar e tirar cópia autenticada do documento do presidente que tomará posse, ata de eleição e estatuto social.
 11. Comparecer ao banco com o diretor de adm-fin e entregar tanto a ata de eleição quanto o termo de posse(**Dica: tenha em mente já uma senha alfanumérica de 8 caracteres e outra senha de 8 digitos numéricos**)
 12. Cadastre-se no BB code com a conta PJ do BB para maiores poderes de acesso e alteração na conta. Com ela, pode-se alterar o limite de transação, e outros procedimentos de forma menos burocrática e à distância.  
-
-#### Alterativa pandemia
-Se a RG for online, deve-se realizar os passos 4 e 5 e registrar os documentos nesse site: http://www.rtddf.com.br/web/principal?returnUrl=%2Fprincipal.
 
 ### Troca de CNPJ
 
