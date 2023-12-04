@@ -12,7 +12,7 @@ A organização do processo seletivo ocorre semestralmente, no qual a equipe de 
 
 ## Processo de entrada de um membro
 
-O processo de entrada de um membro na Struct tem duas etapas, sendo a primeira ligada ao CDT e a segunda  ligada ao Selo EJ. Em ambas etapas, é nossa responsabilidade exigir a coleta e a assinatura de certos documentos. A primeira etapa consiste no cadastro dos membros no sistema de CDT para que estes recebam em seu histórico a Struct como atividade de extensão. Para concluir tal etapa, basta que os membros preencham e assinem os termos de compromisso e que um membro da GP (preferencialmente o diretor) envie o documento para o CDT. Este documento pode ser encontrado do drive da GP ou no link a seguir:
+O processo de entrada de um membro na Struct tem duas etapas, sendo a primeira ligada ao CDT e a segunda  ligada ao Selo EJ. Em ambas etapas, é nossa responsabilidade exigir a coleta e a assinatura de certos documentos. A primeira etapa consiste no cadastro dos membros no sistema de CDT para que estes recebam em seu histórico a Struct como atividade de extensão. Para concluir tal etapa, basta que os membros preencham e assinem os termos de compromisso e que um membro da GP envie o documento para o CDT. Este documento pode ser encontrado do drive da GP ou no link a seguir:
 
 - [CDT](https://forms.office.com/Pages/ResponsePage.aspx?id=oZs17AtjK024M8jm1I-AWclQzKODPB5BlMGNlsmts3JUM1AxNFNVNk1HNzgyRVRUNllIUk1aQVlBNC4u)
 
