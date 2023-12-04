@@ -21,8 +21,8 @@ Sistema de gamificação empregado pela Struct para valorizar a dedicação de c
 		- Struct Reports não respondidos
 
 A responsabilidade da GP em relação à Corrida de Foguetes se encontra primeiramente em balancear o sistema de pontos a cada semestre visando sempre melhorar o sistema com base no feedback recebido pelos membros ao longo do semestre. Da mesma forma, a GP também deve organizar com o auxílio da ADM fin o orçamento para os prêmios da próxima temporada e cuidar do anúncio dos mesmos em RG.
-Outra função muito importante consiste em anotar os dados da gamificação em uma planilha que fica no drive da GP mensalmente. Esta responsabilidade deve existir até o momento que o famigerado app da gamificação seja concluído. Para preencher o campo de membros destaque, deve-se enviar um formulário a cada diretor e gerente de projeto para coletar essas informações.
-Para mais informações acerca do sistema de gamificação, acesse o gitbook na parte de [gamificação]COLOCAR O LINK NO RETYPE.
+Outra função muito importante consiste em anotar os dados da gamificação em uma planilha que fica no drive da GP mensalmente. Para preencher o campo de membros destaque, deve-se enviar um formulário a cada diretor e gerente de projeto para coletar essas informações.
+Para mais informações acerca do sistema de gamificação, acesse a documentação na parte de gamificação.
 
 
 ## Cerimônia de Premiação
@@ -40,7 +40,7 @@ Alguns exemplos de gamificação paralela são:
 - Uma competição de programação onde os membros são divididos em grupos e os melhores projetos recebem prêmios. Ex: Projeto Capacitação 2021/1.
 - Uma competição entre diretorias onde as metas de cada diretoria valem pontos pré-definidos (de maneira balanceada) com o objetivo de unir os membros da diretoria e incentivar a proatividade.
 - A mesma ideia acima porém com projetos. Cada issue tem uma pontuação baseada em dificuldade e os times dos projetos competem entre si para conseguir uma maior quantidade de pontos em um certo período.
--Tudo pode virar uma gamificação! (desde que a adm&fin libere a grana) 
+- Tudo pode virar uma gamificação! (desde que a adm&fin libere a grana) 
 
 Por fim, é muito importante abrir o espaço para os membros proporem seus próprios sistemas e jogos. Como praticamente qualquer coisa na empresa pode se transformar num jogo, as ideias podem surgir de qualquer lugar então é importante ouvir a ideia de todos!
 
