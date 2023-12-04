@@ -55,6 +55,11 @@ O acompanhamento pessoal é uma conversa franca realizada com cada membro com o 
 		- De algum projeto que participou?
 		- Algum externo ao seu trabalho?
 
+### Funcionamento
+
+Primeiramente, divide-se os membros entrevistados entre os membros entrevistadores (os da diretoria). Então, uma pesquisa de disponibilidade é realizada com toda a Struct uma semana antes para marcar o horário do acompanhamento. Cada entrevista terá uma duração de 30 a 50 minutos (de acordo com a fluidez que o acompanhamento está tendo). Essas entrevistas ocorrem a cada dois meses e, para isso, todos os integrantes da GP se organizam para realizarem sozinhos ou em dupla. Se em dupla, um membro é responsável por fazer as perguntas enquanto o outro anota todos os pontos relevantes. 
+As entrevistas podem ser realizadas tanto virtualmente quanto pessoalmente, desde que haja um diálogo verbal entre os envolvidos. Ao fim das entrevistas, a GP se reúne com o objetivo de debater os principais problemas observados e realizar planos para resolvê-los.
+
 ## PDI
 
 O Plano de Densenvolvimento Individual (PDI) é um plano de ação cujo foco é no desenvolvimento pessoal e/ou profissional. A partir do PDI, cria-se um roteiro para tornar possível o aprimoramento das competências individuais por meio de metas, estratégias e prazos. Na GP, a primeira vez em que o PDI é aplicado é quando o membro é efetivado na Stuct e o acompanhamento de sua evolução é feito a cada dois Struct Talks. Nesse sentido, a aplicação é realizada por meio de uma tabela, que pode ser feita tanto em uma folha avulsa quanto em uma tabela virtual, a qual está disponível no drive da GP em *Gestão de Pessoas -> PDI -> Tabela PDI* e deve ser salva no drive pessoal do participante para o preenchimento.
@@ -96,11 +101,6 @@ Na tabela existem várias divisões que auxiliarão no estabelecimento de objeti
 {% hint style="info" %}
 A GP estabeleceu que a referência ideal do PDI seria de _5 anos_ por funcionar melhor em uma perspectiva de EJ.
 {% endhint %}
-		
-### Funcionamento
-
-Primeiramente, divide-se os membros entrevistados entre os membros entrevistadores (os da diretoria). Então, uma pesquisa de disponibilidade é realizada com toda a Struct uma semana antes para marcar o horário do acompanhamento. Cada entrevista terá uma duração de 30 a 50 minutos (de acordo com a fluidez que o acompanhamento está tendo). Essas entrevistas ocorrem a cada dois meses e, para isso, todos os integrantes da GP se organizam para realizarem sozinhos ou em dupla. Se em dupla, um membro é responsável por fazer as perguntas enquanto o outro anota todos os pontos relevantes. 
-As entrevistas podem ser realizadas tanto virtualmente quanto pessoalmente, desde que haja um diálogo verbal entre os envolvidos. Ao fim das entrevistas, a GP se reúne com o objetivo de debater os principais problemas observados e realizar planos para resolvê-los.
 
 ## Formulário de Feedback
 
@@ -110,4 +110,4 @@ Uma vez por mês um formulário anônimo de feedback é lançado no canal geral 
 
 Ao fim de todo o processo de acompanhamento (uma vez a cada dois meses), a GP se reúne para anotar todos os feedbacks recebidos em um mural que será posteriormente exibido para todos os membros. Neste mural, ocultamos o nome da pessoa que enviou o feedback e deixamos apenas o nome de quem recebeu e seus respectivos feedbacks. Em caso de um maior número de feedbacks no mês, o mural de feedbacks pode ser postado de maneira mensal.
 Os feedbacks contidos no mural são aqueles coletados no formulário de feedback anônimo e os repassados durante o Struct Talk. Idealmente, deve-se representar os feedbacks no mural exatamente como foram escritos/descritos. Contudo, caso algum feedback possua algum traço na escrita que deixe claro quem foi o autor, este poderá ser alterado levemente pela GP. Outro caso de alteração são as críticas ofensivas a alguém. Neste caso, a GP vai buscar transformar a crítica em construtiva tentando ao máximo manter a intenção original do autor.
-Por fim, o mural de feedback será publicado a cada dois meses no geral, podendo no futuro ser integrado ao newsletter da empresa.
+Por fim, o mural de feedback será publicado a cada dois meses no geral, podendo ser integrado ao newsletter da empresa.
