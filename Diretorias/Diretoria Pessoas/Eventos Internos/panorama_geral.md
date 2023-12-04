@@ -10,7 +10,7 @@ Uma das principais funções da diretoria de gestão de pessoas é garantir que 
 
 ## Funcionamento
 
-O evento é organizado em torno do objetivo que foi dado para ele. A maioria das questões do evento são pensadas e discutidas em reuniões prévias da gestão de pessoas, e depois analisadas e aprovadas pelos diretores. São discutidas questões como local, horário, orçamento, lanche, cronograma, e demais preparativos para o evento. Nessas reuniões também são comumente atriuidas a preparação de formulários de listas de presença, para estimar a quantidade de participantes do evento e outras perguntas relacionadas ao seu funcionamento.
+O evento é organizado em torno do objetivo que foi dado para ele. A maioria das questões do evento são pensadas e discutidas em reuniões prévias da gestão de pessoas, e depois analisadas e aprovadas pelos diretores. São discutidas questões como local, horário, orçamento, lanche, cronograma, e demais preparativos para o evento. Nessas reuniões também são comumente atribuídas preparações de formulários de listas de presença, para estimar a quantidade de participantes do evento e outras perguntas relacionadas ao seu funcionamento.
 
 ## Local
 
@@ -25,7 +25,7 @@ Também é extremamente importante, caso seja definido um lanche para o evento, 
 
 ## Cronogramas
 
-Os cronogramas são montados nas reuniões internas de organização do evento, geralmente pela gestão de pessoas, para ter horários bem definidos do começo e do fim de cada atividade no evento. Na construção desses cronogramas, é importante considerar o atraso dos membros para chegar ao local do evento, tempo de sobra para as atividas, tempo de transição entre uma atividade e outras, e intervalos.
+Os cronogramas são montados nas reuniões internas de organização do evento, geralmente pela gestão de pessoas, para ter horários bem definidos do começo e do fim de cada atividade no evento. Na construção desses cronogramas, é importante considerar o atraso dos membros para chegar ao local do evento, tempo de sobra para as atividades, tempo de transição entre uma atividade e outra, e intervalos.
 
 ## Dinâmicas
 
