@@ -14,3 +14,5 @@ RUN rm /usr/local/apache2/htdocs/index.html
 COPY ./index.html /usr/local/apache2/htdocs/
 COPY ./style.css /usr/local/apache2/htdocs/
 COPY ./favicon.ico /usr/local/apache2/htdocs/
+
+EXPOSE 8080
