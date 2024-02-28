@@ -3,7 +3,7 @@ label: "Ferramentas de Comunicação"
 icon: megaphone
 author:
   name: Jéssica
-  avatar: ../../imagens-diretorias/pessoas/dino.png
+  avatar: /imagens-diretorias/pessoas/dino.png
 date: 2023-12-08
 ---
 Nesta página, iremos apresentar a vocês, caros trainees, tudo que vocês precisam saber sobre as ferramentas de comunicação que utilizarão ao longo de sua jornada aqui dentro da Struct.

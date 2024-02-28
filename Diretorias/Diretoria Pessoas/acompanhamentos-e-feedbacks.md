@@ -3,7 +3,7 @@ label: "Acompanhamentos e Feedbacks"
 icon: comment-discussion
 author:
   name: Jéssica
-  avatar: ../imagens-diretorias/pessoas/dino.png
+  avatar: /imagens-diretorias/pessoas/dino.png
 date: 2023-11-04
 ---
 Dentro da Struct, é responsabilidade da GP cuidar do relacionamento entre os membros e a empresa. Dessa maneira, se torna possível a identificação de problemas dentro da empresa antes que eles ocorram. Para cumprir esse objetivo, são realizados, de forma mensal, dois acompanhamentos distintos.  O primeiro é chamado de S.P.A.C.E. e consiste em um acompanhamento mais rápido e objetivo por meio do preenchimento de um formulário para se ter uma visão geral da empresa e direcionar um pouco as perguntas do acompanhamento seguinte. O segundo é um acompanhamento pessoal chamado Struct Talk com o intuito de conversar com o membro e coletar os dados de maneira subjetiva. A ideia é que os dados coletados pelos dois acompanhamentos se complementarão por terem naturezas distintas (subjetiva e objetiva) permitindo que a diretoria possa agir diretamente para identificar e solucionar possíveis problemas.

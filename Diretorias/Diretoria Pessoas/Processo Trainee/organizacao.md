@@ -3,7 +3,7 @@ label: "Organização"
 icon: checklist
 author:
   name: Jéssica
-  avatar: ../../imagens-diretorias/pessoas/dino.png
+  avatar: /imagens-diretorias/pessoas/dino.png
 date: 2023-12-07
 ---
 ## Processo Trainee

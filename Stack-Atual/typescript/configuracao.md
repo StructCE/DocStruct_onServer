@@ -4,7 +4,7 @@ icon: gear
 label: "Configurando o Ambiente"
 author:
   name: Paulo Fernando
-  avatar: ../imagens-stack-atual/logos/logo_struct.png
+  avatar: /imagens-stack-atual/logos/logo_struct.png
 category: Instalação
 tags:
   - typescript

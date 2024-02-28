@@ -3,7 +3,7 @@ label: "Panorama Geral"
 icon: rocket
 author:
   name: Jéssica
-  avatar: ../../imagens-diretorias/pessoas/dino.png
+  avatar: /imagens-diretorias/pessoas/dino.png
 date: 2023-11-02
 ---
 Uma das principais funções da diretoria de gestão de pessoas é garantir que todos os membros se sintam confortáveis trabalhando na empresa. Ao se sentir à vontade, um membro se torna mais participativo nas suas atividades, expressando mais suas opiniões e consequentemente tendo um melhor rendimento. É nesse momento que entram os eventos internos, os quais, na Struct, são organizados pela Gestão de Pessoas. A ideia é criar eventos virtuais ou presenciais onde os membros possam interagir, conhecer mais sobre os outros e se divertir ao máximo. O propósito dos eventos pode ser a celebração de uma conquista da Struct, o final de uma temporada de gamificação, o repasse de conhecimento técnico ou de cultura empresarial para a empresa, ou qualquer outro motivo que a empresa e a diretoria julguem como válido para a realização de um evento interno.

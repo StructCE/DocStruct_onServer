@@ -3,7 +3,7 @@ label: "Momentos ENEJ"
 icon: sparkle-fill
 author:
   name: Jéssica
-  avatar: ../../imagens-diretorias/pessoas/dino.png
+  avatar: /imagens-diretorias/pessoas/dino.png
 date: 2023-11-02
 ---
 ### Objetivos Gerais

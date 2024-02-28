@@ -4,7 +4,7 @@ icon: rocket
 order: 4
 author:
   name: Lucas
-  avatar: ../imagens-diretorias/logos/logo_struct.png
+  avatar: /imagens-diretorias/logos/logo_struct.png
 date: 2023-10-19
 ---
 # Administrativo-Financeiro

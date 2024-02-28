@@ -4,7 +4,7 @@ icon: gift
 order: 1
 author:
   name: Leonardo
-  avatar: ../imagens-diretorias/logos/logo_struct.png
+  avatar: /imagens-diretorias/logos/logo_struct.png
 date: 2023-10-18
 ---
 # Introdução
