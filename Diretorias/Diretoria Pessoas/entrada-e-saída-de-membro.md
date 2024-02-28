@@ -3,7 +3,7 @@ label: "Entrada e Saída de um membro"
 icon: person
 author:
   name: Jéssica
-  avatar: ../../Imagens DocStruct/Pessoas/dino.png
+  avatar: ../imagens-diretorias/pessoas/dino.png
 date: 2023-11-04
 ---
 ## Processo Seletivo

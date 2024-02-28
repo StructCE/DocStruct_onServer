@@ -3,7 +3,7 @@ label: "Momentos ENEJ"
 icon: sparkle-fill
 author:
   name: Jéssica
-  avatar: ../../../Imagens DocStruct/Pessoas/dino.png
+  avatar: ../../imagens-diretorias/pessoas/dino.png
 date: 2023-11-02
 ---
 ### Objetivos Gerais
@@ -25,7 +25,7 @@ Estes foram os temaos abordados em cada Momento ENEJ que tivemos ao longos dos a
 ### Fotos
 
 Essas são algumas das fotos tiradas durante os nossos Momentos ENEJ:
-![Imagem do Momento ENEJ 2023](<../../../Imagens DocStruct/Pessoas/momento_enej_2023.jpg>)
+![Imagem do Momento ENEJ 2023](<../../imagens-diretorias/pessoas/momento_enej_2023.jpg>)
 
 ### Feedback
 

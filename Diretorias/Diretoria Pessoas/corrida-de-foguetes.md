@@ -3,7 +3,7 @@ label: "Corrida de Foguetes"
 icon: trophy
 author:
   name: Jéssica
-  avatar: ../../Imagens DocStruct/Pessoas/dino.png
+  avatar: ../imagens-diretorias/pessoas/dino.png
 date: 2023-11-04
 ---
 Sistema de gamificação empregado pela Struct para valorizar a dedicação de cada membro e premiá-los de acordo com seus esforços. A grande ideia desta gamificação é incentivar os membros a serem proativos e trabalharem mais nas atividades da empresa. Além de tudo, também busca incentivar uma competição saudável entre os membros de posições mais altas.

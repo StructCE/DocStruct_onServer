@@ -3,7 +3,7 @@ label: "Bem-vindo a Diretoria Financeira"
 icon: rocket
 author:
   name: Lucas
-  avatar: ../../ImagensDocStruct/Logos/logo_struct.png
+  avatar: ../imagens-diretorias/logos/logo_struct.png
 date: 2023-11-24
 ---
 # Presidência
@@ -12,7 +12,7 @@ A cabeça da empresa, o líder. Ele é quem fará a empresa a mediação para di
 
 ## Troca de Gestão
 
-No momento da troca de gestão, muitas coisas devem ser feitas para a próxima gestão poder trabalhar normalmente. Aqui na presidência iremos falar principalmente de passar adiante contas eletrônicas. Para a questão de documentação procure na seção de [Administrativo-Financeiro](/diretorias/diretoria-adm-fin/sobre_diretoria/).
+No momento da troca de gestão, muitas coisas devem ser feitas para a próxima gestão poder trabalhar normalmente. Aqui na presidência iremos falar principalmente de passar adiante contas eletrônicas. Para a questão de documentação procure na seção de [Administrativo-Financeiro](../diretoria-adm-fin/sobre_diretoria/).
 
 ### Lista de Contas
 

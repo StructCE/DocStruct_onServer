@@ -4,7 +4,7 @@ icon: person-add
 order: 2
 author:
   name: Leonardo
-  avatar: ../../ImagensDocStruct/Logos/logo_struct.png
+  avatar: ../imagens-diretorias/logos/logo_struct.png
 date: 2023-10-18
 ---
 # Reembolso para membros

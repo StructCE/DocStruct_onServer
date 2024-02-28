@@ -3,7 +3,7 @@ label: "Bem-vindo a Diretoria de Gestão de Pessoas"
 icon: rocket
 author:
   name: Jéssica
-  avatar: ../../Imagens DocStruct/Pessoas/dino.png
+  avatar: ../imagens-diretorias/pessoas/dino.png
 date: 2023-11-07
 ---
 ## Introdução

@@ -4,7 +4,7 @@ icon: search
 order: 3
 author:
   name: Leonardo
-  avatar: ../../ImagensDocStruct/Logos/logo_struct.png
+  avatar: ../imagens-diretorias/logos/logo_struct.png
 date: 2023-10-18
 ---
 # Divisão de Pesquisa e Desenvolvimento (R&D)
