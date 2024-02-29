@@ -17,13 +17,15 @@ h3 {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     margin-top: 10rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .header{
-    display: flex;
-    flex-direction: column;
     height: fit-content;
 }
 
@@ -43,4 +45,21 @@ a {
     border: none;
     cursor: pointer;
     font-size: 2rem;
+}
+
+@media (max-width: 960px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+    .buttons {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+    a {
+        font-size: 1rem;
+    }
 }
